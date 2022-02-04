@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FD127ACB0F0009F6C59 /* BottelApp.swift */; };
-		A4713FD427ACB0F0009F6C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FD327ACB0F0009F6C59 /* ContentView.swift */; };
 		A4713FD627ACB0F1009F6C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD527ACB0F1009F6C59 /* Assets.xcassets */; };
 		A4713FD927ACB0F1009F6C59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD827ACB0F1009F6C59 /* Preview Assets.xcassets */; };
 		A4713FE327ACB0F1009F6C59 /* BottelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FE227ACB0F1009F6C59 /* BottelTests.swift */; };
 		A4713FED27ACB0F1009F6C59 /* BottelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FEC27ACB0F1009F6C59 /* BottelUITests.swift */; };
 		A4713FEF27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FEE27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift */; };
+		A4713FFC27ACB3E7009F6C59 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFB27ACB3E7009F6C59 /* SplashView.swift */; };
+		A4713FFD27ACB3E7009F6C59 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFB27ACB3E7009F6C59 /* SplashView.swift */; };
+		A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFE27ACB45C009F6C59 /* ContentView.swift */; };
+		A471400027ACB45C009F6C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFE27ACB45C009F6C59 /* ContentView.swift */; };
+		A471400627ACB5B2009F6C59 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471400527ACB5B2009F6C59 /* HomeView.swift */; };
+		A471400727ACB5B2009F6C59 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471400527ACB5B2009F6C59 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,6 @@
 /* Begin PBXFileReference section */
 		A4713FCE27ACB0F0009F6C59 /* Bottel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bottel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4713FD127ACB0F0009F6C59 /* BottelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelApp.swift; sourceTree = "<group>"; };
-		A4713FD327ACB0F0009F6C59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A4713FD527ACB0F1009F6C59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4713FD827ACB0F1009F6C59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A4713FDE27ACB0F1009F6C59 /* BottelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BottelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,9 @@
 		A4713FE827ACB0F1009F6C59 /* BottelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BottelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4713FEC27ACB0F1009F6C59 /* BottelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelUITests.swift; sourceTree = "<group>"; };
 		A4713FEE27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A4713FFB27ACB3E7009F6C59 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		A4713FFE27ACB45C009F6C59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A471400527ACB5B2009F6C59 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +102,11 @@
 			isa = PBXGroup;
 			children = (
 				A4713FD127ACB0F0009F6C59 /* BottelApp.swift */,
-				A4713FD327ACB0F0009F6C59 /* ContentView.swift */,
 				A4713FD527ACB0F1009F6C59 /* Assets.xcassets */,
 				A4713FD727ACB0F1009F6C59 /* Preview Content */,
+				A4713FFB27ACB3E7009F6C59 /* SplashView.swift */,
+				A4713FFE27ACB45C009F6C59 /* ContentView.swift */,
+				A471400527ACB5B2009F6C59 /* HomeView.swift */,
 			);
 			path = Bottel;
 			sourceTree = "<group>";
@@ -257,8 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4713FD427ACB0F0009F6C59 /* ContentView.swift in Sources */,
+				A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */,
+				A471400627ACB5B2009F6C59 /* HomeView.swift in Sources */,
 				A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */,
+				A4713FFC27ACB3E7009F6C59 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A471400027ACB45C009F6C59 /* ContentView.swift in Sources */,
+				A471400727ACB5B2009F6C59 /* HomeView.swift in Sources */,
 				A4713FE327ACB0F1009F6C59 /* BottelTests.swift in Sources */,
+				A4713FFD27ACB3E7009F6C59 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,16 +1,12 @@
-//
-//  ContentView.swift
-//  Bottel
-//
-//  Created by Dan Adajian on 2/3/22.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State var loading:Bool = false
+        
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            HomeView()
+        }
     }
 }
 
