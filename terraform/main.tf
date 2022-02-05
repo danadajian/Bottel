@@ -19,10 +19,52 @@ resource "aws_appsync_graphql_api" "bottel-api" {
   }
 }
 
+resource "aws_iam_role" "bottel-dynamodb-role" {
+  name = "bottel-dynamodb-role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "appsync.amazonaws.com"
+      },
+      "Effect": "Allow"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy" "bottel-dynamodb-policy" {
+  name = "bottel-dynamodb-policy"
+  role = aws_iam_role.bottel-dynamodb-role.id
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "dynamodb:*"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "${aws_dynamodb_table.bottles-table.arn}"
+      ]
+    }
+  ]
+}
+EOF
+}
+
 resource "aws_appsync_datasource" "bottles-datasource" {
-  api_id = aws_appsync_graphql_api.bottel-api.id
-  name   = "bottles_datasource"
-  type   = "AMAZON_DYNAMODB"
+  api_id           = aws_appsync_graphql_api.bottel-api.id
+  name             = "bottles_datasource"
+  service_role_arn = aws_iam_role.bottel-dynamodb-role.arn
+  type             = "AMAZON_DYNAMODB"
 
   dynamodb_config {
     table_name = aws_dynamodb_table.bottles-table.name
