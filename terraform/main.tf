@@ -55,11 +55,11 @@ resource "aws_dynamodb_table" "bottles-table" {
 
   attribute {
     name = "dateOpened"
-    type = "Date"
+    type = "S"
   }
 
   attribute {
     name = "dateAcquired"
-    type = "Date"
+    type = "S"
   }
 }
