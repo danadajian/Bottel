@@ -77,15 +77,9 @@ resource "aws_dynamodb_table" "bottles-table" {
   read_capacity  = 20
   write_capacity = 20
   hash_key       = "id"
-  range_key      = "name"
 
   attribute {
     name = "id"
-    type = "S"
-  }
-
-  attribute {
-    name = "name"
     type = "S"
   }
 }
