@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'terraform/**'
+      - '*.graphql'
+      - '.github/workflows/tf-apply.yml'
 
 defaults:
   run:
