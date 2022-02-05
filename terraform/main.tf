@@ -47,19 +47,4 @@ resource "aws_dynamodb_table" "bottles-table" {
     name = "name"
     type = "S"
   }
-
-  attribute {
-    name = "imageUrl"
-    type = "S"
-  }
-
-  attribute {
-    name = "dateOpened"
-    type = "S"
-  }
-
-  attribute {
-    name = "dateAcquired"
-    type = "S"
-  }
 }
