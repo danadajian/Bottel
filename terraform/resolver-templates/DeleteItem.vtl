@@ -3,6 +3,6 @@
   "operation": "DeleteItem",
   "key": {
     "id": $util.dynamodb.toDynamoDBJson($ctx.args.input.id),
-    "name": $util.dynamodb.toDynamoDBJson($ctx.args.input.name),
+    "userId": $util.dynamodb.toDynamoDBJson($ctx.args.input.userId),
   },
 }

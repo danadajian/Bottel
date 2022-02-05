@@ -3,14 +3,14 @@
   "operation": "PutItem",
   "key": {
     "id": $util.dynamodb.toDynamoDBJson($ctx.args.input.id),
+    "userId": $util.dynamodb.toDynamoDBJson($ctx.args.input.userId),
     "name": $util.dynamodb.toDynamoDBJson($ctx.args.input.name),
   },
   "attributeValues": $util.dynamodb.toMapValuesJson($ctx.args.input),
   "condition": {
-    "expression": "attribute_not_exists(#id) AND attribute_not_exists(#name)",
+    "expression": "attribute_not_exists(#id)",
     "expressionNames": {
       "#id": "id",
-      "#name": "name",
     },
   },
 }
