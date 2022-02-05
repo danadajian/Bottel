@@ -10,7 +10,7 @@ resource "aws_cognito_user_pool" "bottel-user-pool" {
 resource "aws_appsync_graphql_api" "bottel-api" {
   authentication_type = "AMAZON_COGNITO_USER_POOLS"
   name                = "bottel-api"
-#  schema              = file("schema.graphql")
+  #  schema              = file("schema.graphql")
 
   user_pool_config {
     aws_region     = var.aws_region
@@ -20,13 +20,13 @@ resource "aws_appsync_graphql_api" "bottel-api" {
 }
 
 resource "aws_appsync_datasource" "example" {
-  api_id           = aws_appsync_graphql_api.bottel-api.id
-  name             = "bottles-datasource"
-  type             = "AMAZON_DYNAMODB"
+  api_id = aws_appsync_graphql_api.bottel-api.id
+  name   = "bottles-datasource"
+  type   = "AMAZON_DYNAMODB"
 
   dynamodb_config {
     table_name = aws_dynamodb_table.bottles-table.name
-#    use_caller_credentials = true
+    #    use_caller_credentials = true
   }
 }
 
