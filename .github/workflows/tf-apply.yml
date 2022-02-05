@@ -24,6 +24,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Create State Bucket
+        run: |
+          if aws s3api head-bucket --bucket "${BUCKET_NAME}" 2>/dev/null
+          then
+            echo "Bucket exists: $BUCKET_NAME"
+          else
+            echo "Bucket does not exist, creating: ${BUCKET_NAME}"
+            aws s3 mb s3://"${BUCKET_NAME}"
+          fi
+        env:
+          BUCKET_NAME: bottel-terraform-us-east-1
+
       - name: Setup
         uses: hashicorp/setup-terraform@v1
 
