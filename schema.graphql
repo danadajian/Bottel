@@ -43,7 +43,6 @@ input CreateBottleInput {
 
 input UpdateBottleInput {
     id: String!
-    userId: String!
     name: String
     imageUrl: String
     dateOpened: String
