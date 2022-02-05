@@ -5,12 +5,20 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: terraform
+
 jobs:
   terraform:
     name: Terraform Plan
     runs-on: ubuntu-latest
     steps:
-      - uses: hashicorp/setup-terraform@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup
+        uses: hashicorp/setup-terraform@v1
 
       - name: Format
         id: fmt
@@ -48,7 +56,7 @@ jobs:
             ${process.env.PLAN}
             \`\`\`
 
-            </details>
+            </details>`;
 
             github.issues.createComment({
               issue_number: context.issue.number,
