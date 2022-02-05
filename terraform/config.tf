@@ -1,11 +1,11 @@
 provider "aws" {
-  region = var.aws_region
+  region = "us-east-1"
 }
 
 terraform {
   backend "s3" {
-    bucket = "bottel-terraform-${var.aws_region}"
+    bucket = "bottel-terraform-us-east-1"
     key    = "Bottel"
-    region = var.aws_region
+    region = "us-east-1"
   }
 }
