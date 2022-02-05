@@ -39,7 +39,7 @@ input CreateBottleInput {
 }
 
 input UpdateBottleInput {
-    id: ID!
+    id: String!
     name: String
     imageUrl: String
     dateOpened: String
@@ -47,7 +47,7 @@ input UpdateBottleInput {
 }
 
 input DeleteBottleInput {
-    id: ID!
+    id: String!
 }
 
 input TableStringFilterInput {
