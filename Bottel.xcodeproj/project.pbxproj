@@ -22,6 +22,9 @@
 		A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D582A27AE2F1900CDB864 /* NewBottle.swift */; };
+		F8C9425155423876ADADFE81 /* config.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9476A7B576E9ACD493FDB /* config.tf */; };
+		F8C946B13B8175C5C76B3269 /* backend-deploy.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C949A01CE0460010841AF9 /* backend-deploy.yml */; };
+		F8C94B540F9DA08639B2E2CB /* main.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9477200233ECA515DE6BA /* main.tf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		A4986AAE27ADFCD40078FB96 /* BottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
 		A4986AB427AE0CE60078FB96 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		A49D582A27AE2F1900CDB864 /* NewBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottle.swift; sourceTree = "<group>"; };
+		F8C9476A7B576E9ACD493FDB /* config.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = config.tf; path = terraform/config.tf; sourceTree = "<group>"; };
+		F8C9477200233ECA515DE6BA /* main.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = main.tf; path = terraform/main.tf; sourceTree = "<group>"; };
+		F8C949A01CE0460010841AF9 /* backend-deploy.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = "backend-deploy.yml"; path = ".github/workflows/backend-deploy.yml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,9 @@
 				A4713FE127ACB0F1009F6C59 /* BottelTests */,
 				A4713FEB27ACB0F1009F6C59 /* BottelUITests */,
 				A4713FCF27ACB0F0009F6C59 /* Products */,
+				F8C949A01CE0460010841AF9 /* backend-deploy.yml */,
+				F8C9477200233ECA515DE6BA /* main.tf */,
+				F8C9476A7B576E9ACD493FDB /* config.tf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +258,9 @@
 			files = (
 				A4713FD927ACB0F1009F6C59 /* Preview Assets.xcassets in Resources */,
 				A4713FD627ACB0F1009F6C59 /* Assets.xcassets in Resources */,
+				F8C946B13B8175C5C76B3269 /* backend-deploy.yml in Resources */,
+				F8C94B540F9DA08639B2E2CB /* main.tf in Resources */,
+				F8C9425155423876ADADFE81 /* config.tf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
