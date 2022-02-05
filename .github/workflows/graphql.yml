@@ -1,0 +1,38 @@
+name: GraphQL
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '*graphql*'
+      - '.github/workflows/graphql.yml'
+
+jobs:
+  graphql:
+    name: Codegen Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Install Amplify
+        run: npm install -g @aws-amplify/cli
+
+      - name: Run Codegen
+        run: amplify codegen
+
+      - name: Compare the generated API file
+        run: |
+          if [[ $(git status --porcelain) ]]; then
+            echo "Detected changes after codegen. See status below:"
+            git status
+            exit 1
+          fi

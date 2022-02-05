@@ -1,0 +1,31 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateBottle($input: CreateBottleInput!) {
+  createBottle(input: $input) {
+    id
+    userId
+    name
+    imageUrl
+    dateOpened
+    dateAcquired
+  }
+}
+mutation UpdateBottle($input: UpdateBottleInput!) {
+  updateBottle(input: $input) {
+    id
+    userId
+    name
+    imageUrl
+    dateOpened
+    dateAcquired
+  }
+}
+mutation DeleteBottle($input: DeleteBottleInput!) {
+  deleteBottle(input: $input) {
+    id
+    userId
+    name
+    imageUrl
+    dateOpened
+    dateAcquired
+  }
+}
