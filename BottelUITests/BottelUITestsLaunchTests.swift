@@ -1,10 +1,3 @@
-//
-//  BottelUITestsLaunchTests.swift
-//  BottelUITests
-//
-//  Created by Dan Adajian on 2/3/22.
-//
-
 import XCTest
 
 class BottelUITestsLaunchTests: XCTestCase {

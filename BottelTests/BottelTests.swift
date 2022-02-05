@@ -1,10 +1,3 @@
-//
-//  BottelTests.swift
-//  BottelTests
-//
-//  Created by Dan Adajian on 2/3/22.
-//
-
 import XCTest
 @testable import Bottel
 
