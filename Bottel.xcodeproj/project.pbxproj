@@ -23,10 +23,14 @@
 		A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D582A27AE2F1900CDB864 /* NewBottle.swift */; };
 		F8C9425155423876ADADFE81 /* config.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9476A7B576E9ACD493FDB /* config.tf */; };
+		F8C94258819669F405F7B1D8 /* iam.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9482EE511A846DE10BDC9 /* iam.tf */; };
 		F8C943D04A44F0529431DB06 /* vars.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C948556D1BAB3ED9D3042E /* vars.tf */; };
 		F8C944B38E84B2543F6E854E /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F8C946CFB38BACA3A6D66E13 /* schema.graphql */; };
+		F8C9451B1623842FE07DFFF9 /* cognito.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C94DABD3DE62C23C8DC04B /* cognito.tf */; };
 		F8C946B13B8175C5C76B3269 /* tf-plan.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C949A01CE0460010841AF9 /* tf-plan.yml */; };
-		F8C94B540F9DA08639B2E2CB /* main.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9477200233ECA515DE6BA /* main.tf */; };
+		F8C94ACEA7909E487498D8EE /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F8C9447F979D24A146FFE43F /* schema.graphql */; };
+		F8C94B540F9DA08639B2E2CB /* s3.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9477200233ECA515DE6BA /* s3.tf */; };
+		F8C94B69BC716DBAAC4E9593 /* appsync.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C942E22025EB23CB80F1B7 /* appsync.tf */; };
 		F8C94F2CF9A58DC804F9E6F9 /* tf-apply.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C94D8350CEF72D456FD0C4 /* tf-apply.yml */; };
 /* End PBXBuildFile section */
 
@@ -62,12 +66,16 @@
 		A4986AAE27ADFCD40078FB96 /* BottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
 		A4986AB427AE0CE60078FB96 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		A49D582A27AE2F1900CDB864 /* NewBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottle.swift; sourceTree = "<group>"; };
+		F8C942E22025EB23CB80F1B7 /* appsync.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = appsync.tf; path = terraform/appsync.tf; sourceTree = "<group>"; };
+		F8C9447F979D24A146FFE43F /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = schema.graphql; sourceTree = "<group>"; };
 		F8C946CFB38BACA3A6D66E13 /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = schema.graphql; sourceTree = "<group>"; };
 		F8C9476A7B576E9ACD493FDB /* config.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = config.tf; path = terraform/config.tf; sourceTree = "<group>"; };
-		F8C9477200233ECA515DE6BA /* main.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = main.tf; path = terraform/main.tf; sourceTree = "<group>"; };
+		F8C9477200233ECA515DE6BA /* s3.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = s3.tf; path = terraform/s3.tf; sourceTree = "<group>"; };
+		F8C9482EE511A846DE10BDC9 /* iam.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = iam.tf; path = terraform/iam.tf; sourceTree = "<group>"; };
 		F8C948556D1BAB3ED9D3042E /* vars.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = vars.tf; path = terraform/vars.tf; sourceTree = "<group>"; };
 		F8C949A01CE0460010841AF9 /* tf-plan.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = "tf-plan.yml"; path = ".github/workflows/tf-plan.yml"; sourceTree = "<group>"; };
 		F8C94D8350CEF72D456FD0C4 /* tf-apply.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = "tf-apply.yml"; path = ".github/workflows/tf-apply.yml"; sourceTree = "<group>"; };
+		F8C94DABD3DE62C23C8DC04B /* cognito.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = cognito.tf; path = terraform/cognito.tf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +111,15 @@
 				A4713FEB27ACB0F1009F6C59 /* BottelUITests */,
 				A4713FCF27ACB0F0009F6C59 /* Products */,
 				F8C949A01CE0460010841AF9 /* tf-plan.yml */,
-				F8C9477200233ECA515DE6BA /* main.tf */,
+				F8C9477200233ECA515DE6BA /* s3.tf */,
 				F8C9476A7B576E9ACD493FDB /* config.tf */,
 				F8C94D8350CEF72D456FD0C4 /* tf-apply.yml */,
 				F8C948556D1BAB3ED9D3042E /* vars.tf */,
 				F8C946CFB38BACA3A6D66E13 /* schema.graphql */,
+				F8C9482EE511A846DE10BDC9 /* iam.tf */,
+				F8C94DABD3DE62C23C8DC04B /* cognito.tf */,
+				F8C942E22025EB23CB80F1B7 /* appsync.tf */,
+				F8C9447F979D24A146FFE43F /* schema.graphql */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,11 +280,15 @@
 				A4713FD927ACB0F1009F6C59 /* Preview Assets.xcassets in Resources */,
 				A4713FD627ACB0F1009F6C59 /* Assets.xcassets in Resources */,
 				F8C946B13B8175C5C76B3269 /* tf-plan.yml in Resources */,
-				F8C94B540F9DA08639B2E2CB /* main.tf in Resources */,
+				F8C94B540F9DA08639B2E2CB /* s3.tf in Resources */,
 				F8C9425155423876ADADFE81 /* config.tf in Resources */,
 				F8C94F2CF9A58DC804F9E6F9 /* tf-apply.yml in Resources */,
 				F8C943D04A44F0529431DB06 /* vars.tf in Resources */,
 				F8C944B38E84B2543F6E854E /* schema.graphql in Resources */,
+				F8C94258819669F405F7B1D8 /* iam.tf in Resources */,
+				F8C9451B1623842FE07DFFF9 /* cognito.tf in Resources */,
+				F8C94B69BC716DBAAC4E9593 /* appsync.tf in Resources */,
+				F8C94ACEA7909E487498D8EE /* schema.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
