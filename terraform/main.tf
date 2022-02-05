@@ -19,9 +19,9 @@ resource "aws_appsync_graphql_api" "bottel-api" {
   }
 }
 
-resource "aws_appsync_datasource" "example" {
+resource "aws_appsync_datasource" "bottles-datasource" {
   api_id = aws_appsync_graphql_api.bottel-api.id
-  name   = "bottles-datasource"
+  name   = "bottles_datasource"
   type   = "AMAZON_DYNAMODB"
 
   dynamodb_config {
