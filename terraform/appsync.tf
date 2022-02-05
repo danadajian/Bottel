@@ -16,16 +16,7 @@ resource "aws_appsync_resolver" "getBottle-resolver" {
   type        = "Query"
   data_source = aws_appsync_datasource.bottles-datasource.name
 
-  request_template = <<EOF
-{
-  "version": "2017-02-28",
-  "operation": "GetItem",
-  "key": {
-    "id": $util.dynamodb.toDynamoDBJson($ctx.args.id),
-    "name": $util.dynamodb.toDynamoDBJson($ctx.args.name),
-  },
-}
-EOF
+  request_template  = file("resolver-templates/GetItem.vtl")
   response_template = "$util.toJson($context.result)"
 }
 
@@ -35,15 +26,7 @@ resource "aws_appsync_resolver" "listBottles-resolver" {
   type        = "Query"
   data_source = aws_appsync_datasource.bottles-datasource.name
 
-  request_template = <<EOF
-{
-  "version": "2017-02-28",
-  "operation": "Scan",
-  "filter": #if($context.args.filter) $util.transform.toDynamoDBFilterExpression($ctx.args.filter) #else null #end,
-  "limit": $util.defaultIfNull($ctx.args.limit, 20),
-  "nextToken": $util.toJson($util.defaultIfNullOrEmpty($ctx.args.nextToken, null)),
-}
-EOF
+  request_template  = file("resolver-templates/Scan.vtl")
   response_template = "$util.toJson($context.result)"
 }
 
@@ -53,24 +36,7 @@ resource "aws_appsync_resolver" "createBottle-resolver" {
   type        = "Mutation"
   data_source = aws_appsync_datasource.bottles-datasource.name
 
-  request_template = <<EOF
-{
-  "version": "2017-02-28",
-  "operation": "PutItem",
-  "key": {
-    "id": $util.dynamodb.toDynamoDBJson($ctx.args.input.id),
-    "name": $util.dynamodb.toDynamoDBJson($ctx.args.input.name),
-  },
-  "attributeValues": $util.dynamodb.toMapValuesJson($ctx.args.input),
-  "condition": {
-    "expression": "attribute_not_exists(#id) AND attribute_not_exists(#name)",
-    "expressionNames": {
-      "#id": "id",
-      "#name": "name",
-    },
-  },
-}
-EOF
+  request_template  = file("resolver-templates/PutItem.vtl")
   response_template = "$util.toJson($context.result)"
 }
 
@@ -80,7 +46,7 @@ resource "aws_appsync_resolver" "updateBottle-resolver" {
   type        = "Mutation"
   data_source = aws_appsync_datasource.bottles-datasource.name
 
-  request_template = file("resolver-templates/updateItem.vtl")
+  request_template  = file("resolver-templates/UpdateItem.vtl")
   response_template = "$util.toJson($context.result)"
 }
 
@@ -90,16 +56,7 @@ resource "aws_appsync_resolver" "deleteBottle-resolver" {
   type        = "Mutation"
   data_source = aws_appsync_datasource.bottles-datasource.name
 
-  request_template = <<EOF
-{
-  "version": "2017-02-28",
-  "operation": "DeleteItem",
-  "key": {
-    "id": $util.dynamodb.toDynamoDBJson($ctx.args.input.id),
-    "name": $util.dynamodb.toDynamoDBJson($ctx.args.input.name),
-  },
-}
-EOF
+  request_template  = file("resolver-templates/DeleteItem.vtl")
   response_template = "$util.toJson($context.result)"
 }
 
