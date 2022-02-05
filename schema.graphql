@@ -1,5 +1,5 @@
 type Query {
-    getBottle(id: ID!): Bottle
+    getBottle(id: String!): Bottle
     listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
 }
 
@@ -10,7 +10,7 @@ type Mutation {
 }
 
 type Bottle {
-    id: ID!
+    id: String!
     name: String!
     imageUrl: String
     dateOpened: String
@@ -23,7 +23,7 @@ type Bottles {
 }
 
 input BottleFilterInput {
-    id: TableIDFilterInput
+    id: TableStringFilterInput
     name: TableStringFilterInput
     imageUrl: TableStringFilterInput
     dateOpened: TableStringFilterInput
@@ -47,19 +47,6 @@ input UpdateBottleInput {
 
 input DeleteBottleInput {
     id: ID!
-}
-
-input TableIDFilterInput {
-    ne: ID
-    eq: ID
-    le: ID
-    lt: ID
-    ge: ID
-    gt: ID
-    contains: ID
-    notContains: ID
-    between: [ID]
-    beginsWith: ID
 }
 
 input TableStringFilterInput {
