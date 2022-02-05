@@ -10,6 +10,13 @@ resource "aws_appsync_graphql_api" "bottel-api" {
   }
 }
 
+resource "aws_appsync_resolver" "bottles-resolver" {
+  api_id      = aws_appsync_graphql_api.bottel-api.id
+  field       = "getBottle"
+  type        = "Query"
+  data_source = aws_appsync_datasource.bottles-datasource.name
+}
+
 resource "aws_appsync_datasource" "bottles-datasource" {
   api_id           = aws_appsync_graphql_api.bottel-api.id
   name             = "bottles_datasource"

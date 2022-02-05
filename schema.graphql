@@ -1,6 +1,6 @@
 type Query {
     getBottle(id: ID!): Bottle
-    listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): BottleConnection
+    listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
 }
 
 type Mutation {
@@ -17,7 +17,7 @@ type Bottle {
     dateAcquired: String
 }
 
-type BottleConnection {
+type Bottles {
     items: [Bottle]
     nextToken: String
 }
