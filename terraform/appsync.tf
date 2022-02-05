@@ -17,8 +17,7 @@ resource "aws_appsync_datasource" "bottles-datasource" {
   type             = "AMAZON_DYNAMODB"
 
   dynamodb_config {
-    table_name             = aws_dynamodb_table.bottles-table.name
-    use_caller_credentials = true
+    table_name = aws_dynamodb_table.bottles-table.name
   }
 }
 
