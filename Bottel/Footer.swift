@@ -1,25 +1,23 @@
 import SwiftUI
 
 struct Footer: View {
-    @State private var showPopover = false
-    @State private var showAlert = false
+    @State var showAlert = false
     
     var body: some View {
         ZStack {
-            Button(action: { showPopover = true }) {
-                Image(systemName: "plus.circle.fill")
-                    .font(.system(size: 90))
-            }.popover(isPresented: $showPopover) {
-                NewBottleView()
-            }
+            NewBottle()
+            
             HStack {
                 Button(action: {}) {
                     Label("Collection", systemImage: "list.bullet.circle.fill")
                 }.padding()
+                
                 Spacer()
             }
+            
             HStack {
                 Spacer()
+                
                 Button(action: { showAlert = true }) {
                     Label("Friends", systemImage: "person.circle.fill")
                 }.alert(isPresented: $showAlert) {

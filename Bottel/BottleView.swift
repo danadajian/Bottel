@@ -7,10 +7,15 @@ struct BottleView: View {
     var body: some View {
         VStack {
             Spacer()
+            
             Image("bottel")
+            
             Spacer()
+            
             Text("Date opened: \(getDate(date: dateOpened ?? Date()))").padding()
+            
             Text("This bottle has been open for ")
+            
             Spacer()
         }
         .navigationTitle(name)

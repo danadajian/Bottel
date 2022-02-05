@@ -19,11 +19,9 @@
 		A4986AAD27ADE4F40078FB96 /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAB27ADE4F40078FB96 /* Bottle.swift */; };
 		A4986AAF27ADFCD40078FB96 /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAE27ADFCD40078FB96 /* BottleView.swift */; };
 		A4986AB027ADFCD40078FB96 /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAE27ADFCD40078FB96 /* BottleView.swift */; };
-		A4986AB227AE0C790078FB96 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB127AE0C790078FB96 /* Collection.swift */; };
-		A4986AB327AE0C790078FB96 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB127AE0C790078FB96 /* Collection.swift */; };
 		A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
-		A49D582727AE224200CDB864 /* NewBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D582627AE224200CDB864 /* NewBottleView.swift */; };
+		A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D582A27AE2F1900CDB864 /* NewBottle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +54,8 @@
 		A4713FFE27ACB45C009F6C59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A4986AAB27ADE4F40078FB96 /* Bottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bottle.swift; sourceTree = "<group>"; };
 		A4986AAE27ADFCD40078FB96 /* BottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
-		A4986AB127AE0C790078FB96 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		A4986AB427AE0CE60078FB96 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
-		A49D582627AE224200CDB864 /* NewBottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottleView.swift; sourceTree = "<group>"; };
+		A49D582A27AE2F1900CDB864 /* NewBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +112,8 @@
 				A4713FFE27ACB45C009F6C59 /* ContentView.swift */,
 				A4986AAB27ADE4F40078FB96 /* Bottle.swift */,
 				A4986AAE27ADFCD40078FB96 /* BottleView.swift */,
-				A4986AB127AE0C790078FB96 /* Collection.swift */,
 				A4986AB427AE0CE60078FB96 /* Footer.swift */,
-				A49D582627AE224200CDB864 /* NewBottleView.swift */,
+				A49D582A27AE2F1900CDB864 /* NewBottle.swift */,
 			);
 			path = Bottel;
 			sourceTree = "<group>";
@@ -279,10 +275,9 @@
 			files = (
 				A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */,
 				A4986AAF27ADFCD40078FB96 /* BottleView.swift in Sources */,
-				A4986AB227AE0C790078FB96 /* Collection.swift in Sources */,
 				A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */,
-				A49D582727AE224200CDB864 /* NewBottleView.swift in Sources */,
 				A4986AAC27ADE4F40078FB96 /* Bottle.swift in Sources */,
+				A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */,
 				A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +288,6 @@
 			files = (
 				A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */,
 				A4986AB027ADFCD40078FB96 /* BottleView.swift in Sources */,
-				A4986AB327AE0C790078FB96 /* Collection.swift in Sources */,
 				A471400027ACB45C009F6C59 /* ContentView.swift in Sources */,
 				A4986AAD27ADE4F40078FB96 /* Bottle.swift in Sources */,
 				A4713FE327ACB0F1009F6C59 /* BottelTests.swift in Sources */,
