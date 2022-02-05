@@ -35,6 +35,7 @@
 		F8C94ACEA7909E487498D8EE /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F8C9447F979D24A146FFE43F /* schema.graphql */; };
 		F8C94B540F9DA08639B2E2CB /* s3.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9477200233ECA515DE6BA /* s3.tf */; };
 		F8C94B69BC716DBAAC4E9593 /* appsync.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C942E22025EB23CB80F1B7 /* appsync.tf */; };
+		F8C94BFAB1C4105DF8C908E2 /* graphql.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C9474645A46D13C83FA1F2 /* graphql.yml */; };
 		F8C94E6FA57436602C69A07F /* DeleteItem.vtl in Resources */ = {isa = PBXBuildFile; fileRef = F8C9430AF0EA2667BD46115E /* DeleteItem.vtl */; };
 		F8C94F2CF9A58DC804F9E6F9 /* tf-apply.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C94D8350CEF72D456FD0C4 /* tf-apply.yml */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		F8C9430AF0EA2667BD46115E /* DeleteItem.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = DeleteItem.vtl; path = "terraform/resolver-templates/DeleteItem.vtl"; sourceTree = "<group>"; };
 		F8C9447F979D24A146FFE43F /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = schema.graphql; sourceTree = "<group>"; };
 		F8C946CFB38BACA3A6D66E13 /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = schema.graphql; sourceTree = "<group>"; };
+		F8C9474645A46D13C83FA1F2 /* graphql.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = graphql.yml; path = .github/workflows/graphql.yml; sourceTree = "<group>"; };
 		F8C9476A7B576E9ACD493FDB /* config.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = config.tf; path = terraform/config.tf; sourceTree = "<group>"; };
 		F8C9477200233ECA515DE6BA /* s3.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = s3.tf; path = terraform/s3.tf; sourceTree = "<group>"; };
 		F8C9482EE511A846DE10BDC9 /* iam.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = iam.tf; path = terraform/iam.tf; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				F8C94B1921A057F45975E491 /* GetItem.vtl */,
 				F8C9428F9A4BF212753B85ED /* Scan.vtl */,
 				F8C9430AF0EA2667BD46115E /* DeleteItem.vtl */,
+				F8C9474645A46D13C83FA1F2 /* graphql.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -309,6 +312,7 @@
 				F8C94904BBE9C868B136D244 /* GetItem.vtl in Resources */,
 				F8C9403493C0D4F600E6D7D7 /* Scan.vtl in Resources */,
 				F8C94E6FA57436602C69A07F /* DeleteItem.vtl in Resources */,
+				F8C94BFAB1C4105DF8C908E2 /* graphql.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
