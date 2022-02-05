@@ -28,6 +28,7 @@
 		F8C944B38E84B2543F6E854E /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F8C946CFB38BACA3A6D66E13 /* schema.graphql */; };
 		F8C9451B1623842FE07DFFF9 /* cognito.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C94DABD3DE62C23C8DC04B /* cognito.tf */; };
 		F8C946B13B8175C5C76B3269 /* tf-plan.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C949A01CE0460010841AF9 /* tf-plan.yml */; };
+		F8C949C9EC1EF42BE76EF9A5 /* updateItem.vtl in Resources */ = {isa = PBXBuildFile; fileRef = F8C9418DDADA4125E285602C /* updateItem.vtl */; };
 		F8C94ACEA7909E487498D8EE /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F8C9447F979D24A146FFE43F /* schema.graphql */; };
 		F8C94B540F9DA08639B2E2CB /* s3.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9477200233ECA515DE6BA /* s3.tf */; };
 		F8C94B69BC716DBAAC4E9593 /* appsync.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C942E22025EB23CB80F1B7 /* appsync.tf */; };
@@ -66,6 +67,7 @@
 		A4986AAE27ADFCD40078FB96 /* BottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
 		A4986AB427AE0CE60078FB96 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		A49D582A27AE2F1900CDB864 /* NewBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottle.swift; sourceTree = "<group>"; };
+		F8C9418DDADA4125E285602C /* updateItem.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = updateItem.vtl; path = "terraform/resolver-templates/updateItem.vtl"; sourceTree = "<group>"; };
 		F8C942E22025EB23CB80F1B7 /* appsync.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = appsync.tf; path = terraform/appsync.tf; sourceTree = "<group>"; };
 		F8C9447F979D24A146FFE43F /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = schema.graphql; sourceTree = "<group>"; };
 		F8C946CFB38BACA3A6D66E13 /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = schema.graphql; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				F8C94DABD3DE62C23C8DC04B /* cognito.tf */,
 				F8C942E22025EB23CB80F1B7 /* appsync.tf */,
 				F8C9447F979D24A146FFE43F /* schema.graphql */,
+				F8C9418DDADA4125E285602C /* updateItem.vtl */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,6 +292,7 @@
 				F8C9451B1623842FE07DFFF9 /* cognito.tf in Resources */,
 				F8C94B69BC716DBAAC4E9593 /* appsync.tf in Resources */,
 				F8C94ACEA7909E487498D8EE /* schema.graphql in Resources */,
+				F8C949C9EC1EF42BE76EF9A5 /* updateItem.vtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
