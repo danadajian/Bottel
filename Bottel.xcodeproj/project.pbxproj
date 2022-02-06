@@ -11,6 +11,10 @@
 		A466E80F27B043520040B6DD /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = A466E80E27B043520040B6DD /* AWSCognitoAuthPlugin */; };
 		A466E81127B043520040B6DD /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = A466E81027B043520040B6DD /* Amplify */; };
 		A466E81427B0435C0040B6DD /* AWSAppSync in Frameworks */ = {isa = PBXBuildFile; productRef = A466E81327B0435C0040B6DD /* AWSAppSync */; };
+		A466E81627B046CE0040B6DD /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81527B046CE0040B6DD /* SessionManager.swift */; };
+		A466E81827B049240040B6DD /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81727B049240040B6DD /* Login.swift */; };
+		A466E81A27B04A2B0040B6DD /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81927B04A2B0040B6DD /* SignUp.swift */; };
+		A466E81C27B04A830040B6DD /* Confirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81B27B04A830040B6DD /* Confirmation.swift */; };
 		A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FD127ACB0F0009F6C59 /* BottelApp.swift */; };
 		A4713FD627ACB0F1009F6C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD527ACB0F1009F6C59 /* Assets.xcassets */; };
 		A4713FD927ACB0F1009F6C59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD827ACB0F1009F6C59 /* Preview Assets.xcassets */; };
@@ -26,6 +30,8 @@
 		A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D582A27AE2F1900CDB864 /* NewBottle.swift */; };
+		CD021D4621110D2C0979C9C0 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F6D052E360D13AE874C190A /* amplifyconfiguration.json */; };
+		EB2759287D3F743B042EC135 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 5634D72075834028CF6BEFCD /* awsconfiguration.json */; };
 		F8C9403493C0D4F600E6D7D7 /* Scan.vtl in Resources */ = {isa = PBXBuildFile; fileRef = F8C9428F9A4BF212753B85ED /* Scan.vtl */; };
 		F8C9425155423876ADADFE81 /* config.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9476A7B576E9ACD493FDB /* config.tf */; };
 		F8C94258819669F405F7B1D8 /* iam.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9482EE511A846DE10BDC9 /* iam.tf */; };
@@ -62,7 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F6D052E360D13AE874C190A /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		5634D72075834028CF6BEFCD /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A466E80B27B0432E0040B6DD /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		A466E81527B046CE0040B6DD /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		A466E81727B049240040B6DD /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		A466E81927B04A2B0040B6DD /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		A466E81B27B04A830040B6DD /* Confirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirmation.swift; sourceTree = "<group>"; };
 		A4713FCE27ACB0F0009F6C59 /* Bottel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bottel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4713FD127ACB0F0009F6C59 /* BottelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelApp.swift; sourceTree = "<group>"; };
 		A4713FD527ACB0F1009F6C59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +158,7 @@
 				F8C9428F9A4BF212753B85ED /* Scan.vtl */,
 				F8C9430AF0EA2667BD46115E /* DeleteItem.vtl */,
 				F8C9474645A46D13C83FA1F2 /* graphql.yml */,
+				BD65137EE6CB7D929DEFAD35 /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +184,10 @@
 				A4986AAE27ADFCD40078FB96 /* BottleView.swift */,
 				A4986AB427AE0CE60078FB96 /* Footer.swift */,
 				A49D582A27AE2F1900CDB864 /* NewBottle.swift */,
+				A466E81527B046CE0040B6DD /* SessionManager.swift */,
+				A466E81727B049240040B6DD /* Login.swift */,
+				A466E81927B04A2B0040B6DD /* SignUp.swift */,
+				A466E81B27B04A830040B6DD /* Confirmation.swift */,
 			);
 			path = Bottel;
 			sourceTree = "<group>";
@@ -198,6 +215,15 @@
 				A4713FEE27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift */,
 			);
 			path = BottelUITests;
+			sourceTree = "<group>";
+		};
+		BD65137EE6CB7D929DEFAD35 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				5634D72075834028CF6BEFCD /* awsconfiguration.json */,
+				3F6D052E360D13AE874C190A /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +357,8 @@
 				F8C9403493C0D4F600E6D7D7 /* Scan.vtl in Resources */,
 				F8C94E6FA57436602C69A07F /* DeleteItem.vtl in Resources */,
 				F8C94BFAB1C4105DF8C908E2 /* graphql.yml in Resources */,
+				EB2759287D3F743B042EC135 /* awsconfiguration.json in Resources */,
+				CD021D4621110D2C0979C9C0 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,9 +387,13 @@
 				A4986AAF27ADFCD40078FB96 /* BottleView.swift in Sources */,
 				A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */,
 				A4986AAC27ADE4F40078FB96 /* Bottle.swift in Sources */,
+				A466E81C27B04A830040B6DD /* Confirmation.swift in Sources */,
 				A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */,
 				A466E80C27B0432E0040B6DD /* Api.swift in Sources */,
+				A466E81827B049240040B6DD /* Login.swift in Sources */,
+				A466E81627B046CE0040B6DD /* SessionManager.swift in Sources */,
 				A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */,
+				A466E81A27B04A2B0040B6DD /* SignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

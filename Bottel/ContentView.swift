@@ -1,6 +1,11 @@
 import SwiftUI
+import Amplify
 
 struct ContentView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+    
+    let user: AuthUser
+    
     var body: some View {
         VStack {
             NavigationView {
@@ -21,7 +26,12 @@ let numbers = 1...20
 let bottles = numbers.map { number in Bottle(name: "Bottle #\(number)") }
 
 struct ContentView_Previews: PreviewProvider {
+    struct DummyUser: AuthUser {
+        let userId: String = "1"
+        let username: String = "dummy"
+    }
+    
     static var previews: some View {
-        ContentView()
+        ContentView(user: DummyUser())
     }
 }
