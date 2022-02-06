@@ -1,9 +1,10 @@
 resource "aws_cognito_user_pool" "bottel-user-pool" {
   name = "bottel-user-pool"
-  schema {
-    attribute_data_type = String
-    name                = "phone number"
-    required            = true
+  account_recovery_setting {
+    recovery_mechanism {
+      name     = "verified_phone_number"
+      priority = 1
+    }
   }
 }
 
