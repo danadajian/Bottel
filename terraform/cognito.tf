@@ -1,10 +1,14 @@
 resource "aws_cognito_user_pool" "bottel-user-pool" {
   name = "bottel-user-pool"
+  schema {
+    attribute_data_type = String
+    name                = "phone number"
+    required            = true
+  }
 }
 
 resource "aws_cognito_user_pool_client" "client" {
   name = "bottel-client"
 
-  user_pool_id        = aws_cognito_user_pool.bottel-user-pool.id
-  explicit_auth_flows = ["ALLOW_USER_SRP_AUTH", "ALLOW_REFRESH_TOKEN_AUTH"]
+  user_pool_id = aws_cognito_user_pool.bottel-user-pool.id
 }
