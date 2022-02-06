@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A466E80C27B0432E0040B6DD /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E80B27B0432E0040B6DD /* Api.swift */; };
+		A466E80F27B043520040B6DD /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = A466E80E27B043520040B6DD /* AWSCognitoAuthPlugin */; };
+		A466E81127B043520040B6DD /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = A466E81027B043520040B6DD /* Amplify */; };
+		A466E81427B0435C0040B6DD /* AWSAppSync in Frameworks */ = {isa = PBXBuildFile; productRef = A466E81327B0435C0040B6DD /* AWSAppSync */; };
 		A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FD127ACB0F0009F6C59 /* BottelApp.swift */; };
 		A4713FD627ACB0F1009F6C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD527ACB0F1009F6C59 /* Assets.xcassets */; };
 		A4713FD927ACB0F1009F6C59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD827ACB0F1009F6C59 /* Preview Assets.xcassets */; };
@@ -58,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A466E80B27B0432E0040B6DD /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		A4713FCE27ACB0F0009F6C59 /* Bottel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bottel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4713FD127ACB0F0009F6C59 /* BottelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelApp.swift; sourceTree = "<group>"; };
 		A4713FD527ACB0F1009F6C59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A466E81427B0435C0040B6DD /* AWSAppSync in Frameworks */,
+				A466E80F27B043520040B6DD /* AWSCognitoAuthPlugin in Frameworks */,
+				A466E81127B043520040B6DD /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +162,7 @@
 		A4713FD027ACB0F0009F6C59 /* Bottel */ = {
 			isa = PBXGroup;
 			children = (
+				A466E80B27B0432E0040B6DD /* Api.swift */,
 				A4713FD127ACB0F0009F6C59 /* BottelApp.swift */,
 				A4713FD527ACB0F1009F6C59 /* Assets.xcassets */,
 				A4713FD727ACB0F1009F6C59 /* Preview Content */,
@@ -207,6 +216,11 @@
 			dependencies = (
 			);
 			name = Bottel;
+			packageProductDependencies = (
+				A466E80E27B043520040B6DD /* AWSCognitoAuthPlugin */,
+				A466E81027B043520040B6DD /* Amplify */,
+				A466E81327B0435C0040B6DD /* AWSAppSync */,
+			);
 			productName = Bottel;
 			productReference = A4713FCE27ACB0F0009F6C59 /* Bottel.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +293,10 @@
 				Base,
 			);
 			mainGroup = A4713FC527ACB0F0009F6C59;
+			packageReferences = (
+				A466E80D27B043520040B6DD /* XCRemoteSwiftPackageReference "amplify-ios" */,
+				A466E81227B0435C0040B6DD /* XCRemoteSwiftPackageReference "aws-mobile-appsync-sdk-ios" */,
+			);
 			productRefGroup = A4713FCF27ACB0F0009F6C59 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,6 +360,7 @@
 				A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */,
 				A4986AAC27ADE4F40078FB96 /* Bottle.swift in Sources */,
 				A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */,
+				A466E80C27B0432E0040B6DD /* Api.swift in Sources */,
 				A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +692,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A466E80D27B043520040B6DD /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		A466E81227B0435C0040B6DD /* XCRemoteSwiftPackageReference "aws-mobile-appsync-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/awslabs/aws-mobile-appsync-sdk-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A466E80E27B043520040B6DD /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A466E80D27B043520040B6DD /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		A466E81027B043520040B6DD /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A466E80D27B043520040B6DD /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
+		A466E81327B0435C0040B6DD /* AWSAppSync */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A466E81227B0435C0040B6DD /* XCRemoteSwiftPackageReference "aws-mobile-appsync-sdk-ios" */;
+			productName = AWSAppSync;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4713FC627ACB0F0009F6C59 /* Project object */;
 }
