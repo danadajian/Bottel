@@ -1,8 +1,12 @@
 resource "aws_cognito_user_pool" "bottel-user-pool" {
   name = "bottel-user-pool"
+  username_configuration {
+    case_sensitive = false
+  }
+  auto_verified_attributes = ["phone_number"]
   schema {
     attribute_data_type = String
-    name                = "phone number"
+    name                = "phone_number"
     required            = true
     string_attribute_constraints {
       min_length = 10
