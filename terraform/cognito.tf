@@ -5,12 +5,12 @@ resource "aws_cognito_user_pool" "bottel-user-pool" {
   }
   auto_verified_attributes = ["phone_number"]
   schema {
-    attribute_data_type = Number
-    name                = "phone_number"
+    attribute_data_type = String
+    name                = "phone"
     required            = true
-    string_attribute_constraints {
-      min_length = 10
-      max_length = 11
+    number_attribute_constraints {
+      min_value = 0
+      max_value = 99999999999
     }
   }
   account_recovery_setting {
