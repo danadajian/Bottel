@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct BottleView: View {
-    let name: String
-    let dateOpened: Date? = Date()
+    let bottle: ListBottlesQuery.Data.ListBottle.Item
     
     var body: some View {
         VStack {
@@ -12,28 +11,26 @@ struct BottleView: View {
             
             Spacer()
             
-            Text("Date opened: \(getDate(date: dateOpened ?? Date()))").padding()
+            Text("Date opened: \(bottle.dateOpened ?? "")").padding()
             
             Text("This bottle has been open for ")
             
             Spacer()
         }
-        .navigationTitle(name)
+        .navigationTitle(bottle.name!)
         .navigationBarTitleDisplayMode(.inline)
     }
-}
-
-func getDate(date: Date) -> String {
-    let dateFormatter = DateFormatter()
-    return dateFormatter.string(from: date)
 }
 
 struct BottleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BottleView(
-                name: "Example Bottle"
-            )
+            BottleView(bottle: ListBottlesQuery.Data.ListBottle.Item(
+                id: "123",
+                userId: "dummy",
+                name: "dummy bottle",
+                dateOpened: "2022-02-05"
+            ))
         }
     }
 }

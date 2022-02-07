@@ -25,13 +25,12 @@
 		A4713FEF27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FEE27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift */; };
 		A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFE27ACB45C009F6C59 /* ContentView.swift */; };
 		A471400027ACB45C009F6C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFE27ACB45C009F6C59 /* ContentView.swift */; };
-		A4986AAC27ADE4F40078FB96 /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAB27ADE4F40078FB96 /* Bottle.swift */; };
-		A4986AAD27ADE4F40078FB96 /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAB27ADE4F40078FB96 /* Bottle.swift */; };
 		A4986AAF27ADFCD40078FB96 /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAE27ADFCD40078FB96 /* BottleView.swift */; };
 		A4986AB027ADFCD40078FB96 /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAE27ADFCD40078FB96 /* BottleView.swift */; };
 		A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D582A27AE2F1900CDB864 /* NewBottle.swift */; };
+		A4EAF23527B0D4CF00269A80 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAF23427B0D4CF00269A80 /* Apollo.swift */; };
 		CD021D4621110D2C0979C9C0 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F6D052E360D13AE874C190A /* amplifyconfiguration.json */; };
 		EB2759287D3F743B042EC135 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 5634D72075834028CF6BEFCD /* awsconfiguration.json */; };
 		F8C9403493C0D4F600E6D7D7 /* Scan.vtl in Resources */ = {isa = PBXBuildFile; fileRef = F8C9428F9A4BF212753B85ED /* Scan.vtl */; };
@@ -87,10 +86,10 @@
 		A4713FEC27ACB0F1009F6C59 /* BottelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelUITests.swift; sourceTree = "<group>"; };
 		A4713FEE27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A4713FFE27ACB45C009F6C59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A4986AAB27ADE4F40078FB96 /* Bottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bottle.swift; sourceTree = "<group>"; };
 		A4986AAE27ADFCD40078FB96 /* BottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
 		A4986AB427AE0CE60078FB96 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		A49D582A27AE2F1900CDB864 /* NewBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottle.swift; sourceTree = "<group>"; };
+		A4EAF23427B0D4CF00269A80 /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
 		F8C9418DDADA4125E285602C /* UpdateItem.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = UpdateItem.vtl; path = "terraform/resolver-templates/UpdateItem.vtl"; sourceTree = "<group>"; };
 		F8C9428F9A4BF212753B85ED /* Scan.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = Scan.vtl; path = "terraform/resolver-templates/Scan.vtl"; sourceTree = "<group>"; };
 		F8C942E22025EB23CB80F1B7 /* appsync.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = appsync.tf; path = terraform/appsync.tf; sourceTree = "<group>"; };
@@ -184,7 +183,6 @@
 				A4713FD527ACB0F1009F6C59 /* Assets.xcassets */,
 				A4713FD727ACB0F1009F6C59 /* Preview Content */,
 				A4713FFE27ACB45C009F6C59 /* ContentView.swift */,
-				A4986AAB27ADE4F40078FB96 /* Bottle.swift */,
 				A4986AAE27ADFCD40078FB96 /* BottleView.swift */,
 				A4986AB427AE0CE60078FB96 /* Footer.swift */,
 				A49D582A27AE2F1900CDB864 /* NewBottle.swift */,
@@ -192,6 +190,7 @@
 				A466E81727B049240040B6DD /* Login.swift */,
 				A466E81927B04A2B0040B6DD /* SignUp.swift */,
 				A466E81B27B04A830040B6DD /* Confirmation.swift */,
+				A4EAF23427B0D4CF00269A80 /* Apollo.swift */,
 			);
 			path = Bottel;
 			sourceTree = "<group>";
@@ -394,12 +393,12 @@
 				A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */,
 				A4986AAF27ADFCD40078FB96 /* BottleView.swift in Sources */,
 				A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */,
-				A4986AAC27ADE4F40078FB96 /* Bottle.swift in Sources */,
 				A466E81C27B04A830040B6DD /* Confirmation.swift in Sources */,
 				A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */,
 				A466E81827B049240040B6DD /* Login.swift in Sources */,
 				A466E81627B046CE0040B6DD /* SessionManager.swift in Sources */,
 				A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */,
+				A4EAF23527B0D4CF00269A80 /* Apollo.swift in Sources */,
 				A466E81A27B04A2B0040B6DD /* SignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +410,6 @@
 				A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */,
 				A4986AB027ADFCD40078FB96 /* BottleView.swift in Sources */,
 				A471400027ACB45C009F6C59 /* ContentView.swift in Sources */,
-				A4986AAD27ADE4F40078FB96 /* Bottle.swift in Sources */,
 				A4713FE327ACB0F1009F6C59 /* BottelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
