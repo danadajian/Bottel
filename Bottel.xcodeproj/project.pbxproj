@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A437C7AF27B0A3EA000A1C6D /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = A437C7AE27B0A3EA000A1C6D /* AWSAPIPlugin */; };
+		A437C7B127B0A3EA000A1C6D /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = A437C7B027B0A3EA000A1C6D /* AWSCognitoAuthPlugin */; };
+		A437C7B327B0A3EA000A1C6D /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = A437C7B227B0A3EA000A1C6D /* Amplify */; };
+		A437C7B627B0AF01000A1C6D /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A437C7B527B0AF01000A1C6D /* Apollo */; };
+		A437C7BC27B0B82E000A1C6D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437C7BB27B0B82E000A1C6D /* API.swift */; };
+		A466E81627B046CE0040B6DD /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81527B046CE0040B6DD /* SessionManager.swift */; };
+		A466E81827B049240040B6DD /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81727B049240040B6DD /* Login.swift */; };
+		A466E81A27B04A2B0040B6DD /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81927B04A2B0040B6DD /* SignUp.swift */; };
+		A466E81C27B04A830040B6DD /* Confirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81B27B04A830040B6DD /* Confirmation.swift */; };
 		A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FD127ACB0F0009F6C59 /* BottelApp.swift */; };
 		A4713FD627ACB0F1009F6C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD527ACB0F1009F6C59 /* Assets.xcassets */; };
 		A4713FD927ACB0F1009F6C59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4713FD827ACB0F1009F6C59 /* Preview Assets.xcassets */; };
@@ -15,13 +24,13 @@
 		A4713FEF27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FEE27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift */; };
 		A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFE27ACB45C009F6C59 /* ContentView.swift */; };
 		A471400027ACB45C009F6C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4713FFE27ACB45C009F6C59 /* ContentView.swift */; };
-		A4986AAC27ADE4F40078FB96 /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAB27ADE4F40078FB96 /* Bottle.swift */; };
-		A4986AAD27ADE4F40078FB96 /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAB27ADE4F40078FB96 /* Bottle.swift */; };
 		A4986AAF27ADFCD40078FB96 /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAE27ADFCD40078FB96 /* BottleView.swift */; };
 		A4986AB027ADFCD40078FB96 /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AAE27ADFCD40078FB96 /* BottleView.swift */; };
 		A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4986AB427AE0CE60078FB96 /* Footer.swift */; };
 		A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D582A27AE2F1900CDB864 /* NewBottle.swift */; };
+		A4EAF23527B0D4CF00269A80 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAF23427B0D4CF00269A80 /* Apollo.swift */; };
+		CD021D4621110D2C0979C9C0 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F6D052E360D13AE874C190A /* amplifyconfiguration.json */; };
 		F8C9403493C0D4F600E6D7D7 /* Scan.vtl in Resources */ = {isa = PBXBuildFile; fileRef = F8C9428F9A4BF212753B85ED /* Scan.vtl */; };
 		F8C9425155423876ADADFE81 /* config.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9476A7B576E9ACD493FDB /* config.tf */; };
 		F8C94258819669F405F7B1D8 /* iam.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9482EE511A846DE10BDC9 /* iam.tf */; };
@@ -30,8 +39,10 @@
 		F8C944B38E84B2543F6E854E /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F8C946CFB38BACA3A6D66E13 /* schema.graphql */; };
 		F8C9451B1623842FE07DFFF9 /* cognito.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C94DABD3DE62C23C8DC04B /* cognito.tf */; };
 		F8C946B13B8175C5C76B3269 /* tf-plan.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C949A01CE0460010841AF9 /* tf-plan.yml */; };
+		F8C94790F465A6009D6906E4 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C947DEBC6E415182194CE1 /* amplifyconfiguration.json */; };
 		F8C94904BBE9C868B136D244 /* GetItem.vtl in Resources */ = {isa = PBXBuildFile; fileRef = F8C94B1921A057F45975E491 /* GetItem.vtl */; };
 		F8C949C9EC1EF42BE76EF9A5 /* UpdateItem.vtl in Resources */ = {isa = PBXBuildFile; fileRef = F8C9418DDADA4125E285602C /* UpdateItem.vtl */; };
+		F8C94A8501368CE87C2B361A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C94B72D6EE0FC0D4535A4D /* awsconfiguration.json */; };
 		F8C94ACEA7909E487498D8EE /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F8C9447F979D24A146FFE43F /* schema.graphql */; };
 		F8C94B540F9DA08639B2E2CB /* s3.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C9477200233ECA515DE6BA /* s3.tf */; };
 		F8C94B69BC716DBAAC4E9593 /* appsync.tf in Resources */ = {isa = PBXBuildFile; fileRef = F8C942E22025EB23CB80F1B7 /* appsync.tf */; };
@@ -58,6 +69,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F6D052E360D13AE874C190A /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		A437C7BB27B0B82E000A1C6D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A466E81527B046CE0040B6DD /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		A466E81727B049240040B6DD /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		A466E81927B04A2B0040B6DD /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		A466E81B27B04A830040B6DD /* Confirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirmation.swift; sourceTree = "<group>"; };
 		A4713FCE27ACB0F0009F6C59 /* Bottel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bottel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4713FD127ACB0F0009F6C59 /* BottelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelApp.swift; sourceTree = "<group>"; };
 		A4713FD527ACB0F1009F6C59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,10 +85,10 @@
 		A4713FEC27ACB0F1009F6C59 /* BottelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelUITests.swift; sourceTree = "<group>"; };
 		A4713FEE27ACB0F1009F6C59 /* BottelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottelUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A4713FFE27ACB45C009F6C59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A4986AAB27ADE4F40078FB96 /* Bottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bottle.swift; sourceTree = "<group>"; };
 		A4986AAE27ADFCD40078FB96 /* BottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
 		A4986AB427AE0CE60078FB96 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		A49D582A27AE2F1900CDB864 /* NewBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBottle.swift; sourceTree = "<group>"; };
+		A4EAF23427B0D4CF00269A80 /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
 		F8C9418DDADA4125E285602C /* UpdateItem.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = UpdateItem.vtl; path = "terraform/resolver-templates/UpdateItem.vtl"; sourceTree = "<group>"; };
 		F8C9428F9A4BF212753B85ED /* Scan.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = Scan.vtl; path = "terraform/resolver-templates/Scan.vtl"; sourceTree = "<group>"; };
 		F8C942E22025EB23CB80F1B7 /* appsync.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = appsync.tf; path = terraform/appsync.tf; sourceTree = "<group>"; };
@@ -81,11 +98,13 @@
 		F8C9474645A46D13C83FA1F2 /* graphql.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = graphql.yml; path = .github/workflows/graphql.yml; sourceTree = "<group>"; };
 		F8C9476A7B576E9ACD493FDB /* config.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = config.tf; path = terraform/config.tf; sourceTree = "<group>"; };
 		F8C9477200233ECA515DE6BA /* s3.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = s3.tf; path = terraform/s3.tf; sourceTree = "<group>"; };
+		F8C947DEBC6E415182194CE1 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		F8C9482EE511A846DE10BDC9 /* iam.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = iam.tf; path = terraform/iam.tf; sourceTree = "<group>"; };
 		F8C948556D1BAB3ED9D3042E /* vars.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = vars.tf; path = terraform/vars.tf; sourceTree = "<group>"; };
 		F8C949A01CE0460010841AF9 /* tf-plan.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = "tf-plan.yml"; path = ".github/workflows/tf-plan.yml"; sourceTree = "<group>"; };
 		F8C94B1921A057F45975E491 /* GetItem.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = GetItem.vtl; path = "terraform/resolver-templates/GetItem.vtl"; sourceTree = "<group>"; };
 		F8C94B518260714B77DE7B1B /* PutItem.vtl */ = {isa = PBXFileReference; lastKnownFileType = file.vtl; name = PutItem.vtl; path = "terraform/resolver-templates/PutItem.vtl"; sourceTree = "<group>"; };
+		F8C94B72D6EE0FC0D4535A4D /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		F8C94D8350CEF72D456FD0C4 /* tf-apply.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = "tf-apply.yml"; path = ".github/workflows/tf-apply.yml"; sourceTree = "<group>"; };
 		F8C94DABD3DE62C23C8DC04B /* cognito.tf */ = {isa = PBXFileReference; lastKnownFileType = file.tf; name = cognito.tf; path = terraform/cognito.tf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +114,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A437C7B627B0AF01000A1C6D /* Apollo in Frameworks */,
+				A437C7AF27B0A3EA000A1C6D /* AWSAPIPlugin in Frameworks */,
+				A437C7B327B0A3EA000A1C6D /* Amplify in Frameworks */,
+				A437C7B127B0A3EA000A1C6D /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +161,9 @@
 				F8C9428F9A4BF212753B85ED /* Scan.vtl */,
 				F8C9430AF0EA2667BD46115E /* DeleteItem.vtl */,
 				F8C9474645A46D13C83FA1F2 /* graphql.yml */,
+				BD65137EE6CB7D929DEFAD35 /* AmplifyConfig */,
+				F8C94B72D6EE0FC0D4535A4D /* awsconfiguration.json */,
+				F8C947DEBC6E415182194CE1 /* amplifyconfiguration.json */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,14 +180,19 @@
 		A4713FD027ACB0F0009F6C59 /* Bottel */ = {
 			isa = PBXGroup;
 			children = (
+				A437C7BB27B0B82E000A1C6D /* API.swift */,
 				A4713FD127ACB0F0009F6C59 /* BottelApp.swift */,
 				A4713FD527ACB0F1009F6C59 /* Assets.xcassets */,
 				A4713FD727ACB0F1009F6C59 /* Preview Content */,
 				A4713FFE27ACB45C009F6C59 /* ContentView.swift */,
-				A4986AAB27ADE4F40078FB96 /* Bottle.swift */,
 				A4986AAE27ADFCD40078FB96 /* BottleView.swift */,
 				A4986AB427AE0CE60078FB96 /* Footer.swift */,
 				A49D582A27AE2F1900CDB864 /* NewBottle.swift */,
+				A466E81527B046CE0040B6DD /* SessionManager.swift */,
+				A466E81727B049240040B6DD /* Login.swift */,
+				A466E81927B04A2B0040B6DD /* SignUp.swift */,
+				A466E81B27B04A830040B6DD /* Confirmation.swift */,
+				A4EAF23427B0D4CF00269A80 /* Apollo.swift */,
 			);
 			path = Bottel;
 			sourceTree = "<group>";
@@ -191,6 +222,14 @@
 			path = BottelUITests;
 			sourceTree = "<group>";
 		};
+		BD65137EE6CB7D929DEFAD35 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				3F6D052E360D13AE874C190A /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,6 +246,12 @@
 			dependencies = (
 			);
 			name = Bottel;
+			packageProductDependencies = (
+				A437C7AE27B0A3EA000A1C6D /* AWSAPIPlugin */,
+				A437C7B027B0A3EA000A1C6D /* AWSCognitoAuthPlugin */,
+				A437C7B227B0A3EA000A1C6D /* Amplify */,
+				A437C7B527B0AF01000A1C6D /* Apollo */,
+			);
 			productName = Bottel;
 			productReference = A4713FCE27ACB0F0009F6C59 /* Bottel.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +324,10 @@
 				Base,
 			);
 			mainGroup = A4713FC527ACB0F0009F6C59;
+			packageReferences = (
+				A437C7AD27B0A3EA000A1C6D /* XCRemoteSwiftPackageReference "amplify-ios" */,
+				A437C7B427B0AF01000A1C6D /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = A4713FCF27ACB0F0009F6C59 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -313,6 +362,9 @@
 				F8C9403493C0D4F600E6D7D7 /* Scan.vtl in Resources */,
 				F8C94E6FA57436602C69A07F /* DeleteItem.vtl in Resources */,
 				F8C94BFAB1C4105DF8C908E2 /* graphql.yml in Resources */,
+				CD021D4621110D2C0979C9C0 /* amplifyconfiguration.json in Resources */,
+				F8C94A8501368CE87C2B361A /* awsconfiguration.json in Resources */,
+				F8C94790F465A6009D6906E4 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,12 +389,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A437C7BC27B0B82E000A1C6D /* API.swift in Sources */,
 				A4986AB527AE0CE60078FB96 /* Footer.swift in Sources */,
 				A4986AAF27ADFCD40078FB96 /* BottleView.swift in Sources */,
 				A4713FFF27ACB45C009F6C59 /* ContentView.swift in Sources */,
-				A4986AAC27ADE4F40078FB96 /* Bottle.swift in Sources */,
+				A466E81C27B04A830040B6DD /* Confirmation.swift in Sources */,
 				A49D582B27AE2F1900CDB864 /* NewBottle.swift in Sources */,
+				A466E81827B049240040B6DD /* Login.swift in Sources */,
+				A466E81627B046CE0040B6DD /* SessionManager.swift in Sources */,
 				A4713FD227ACB0F0009F6C59 /* BottelApp.swift in Sources */,
+				A4EAF23527B0D4CF00269A80 /* Apollo.swift in Sources */,
+				A466E81A27B04A2B0040B6DD /* SignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +410,6 @@
 				A4986AB627AE0CE60078FB96 /* Footer.swift in Sources */,
 				A4986AB027ADFCD40078FB96 /* BottleView.swift in Sources */,
 				A471400027ACB45C009F6C59 /* ContentView.swift in Sources */,
-				A4986AAD27ADE4F40078FB96 /* Bottle.swift in Sources */,
 				A4713FE327ACB0F1009F6C59 /* BottelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +729,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A437C7AD27B0A3EA000A1C6D /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		A437C7B427B0AF01000A1C6D /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A437C7AE27B0A3EA000A1C6D /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A437C7AD27B0A3EA000A1C6D /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSAPIPlugin;
+		};
+		A437C7B027B0A3EA000A1C6D /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A437C7AD27B0A3EA000A1C6D /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		A437C7B227B0A3EA000A1C6D /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A437C7AD27B0A3EA000A1C6D /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
+		A437C7B527B0AF01000A1C6D /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A437C7B427B0AF01000A1C6D /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4713FC627ACB0F0009F6C59 /* Project object */;
 }

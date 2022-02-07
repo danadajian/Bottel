@@ -1,12 +1,21 @@
 import SwiftUI
+import Amplify
+import Apollo
+import AWSMobileClientXCF
 
 struct ContentView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+    
+    @State var bottles: [ListBottlesQuery.Data.ListBottle.Item] = []
+    
+    let user: AuthUser
+    
     var body: some View {
         VStack {
             NavigationView {
                 List {
-                    ForEach(bottles) {
-                        bottle in NavigationLink(bottle.name, destination: BottleView(name: bottle.name))
+                    ForEach(bottles, id: \.id) {
+                        bottle in NavigationLink(bottle.name!, destination: BottleView(bottle: bottle))
                     }
                 }
                 .navigationTitle("My Collection")
@@ -14,14 +23,30 @@ struct ContentView: View {
             
             Footer()
         }
+        .onAppear(perform: {
+            Network.shared.apollo.fetch(query: ListBottlesQuery()) { result in
+                switch result {
+                case.success(let graphQLResult):
+                    DispatchQueue.main.async {
+                        if let bottles = graphQLResult.data?.listBottles?.items {
+                            self.bottles = bottles as! [ListBottlesQuery.Data.ListBottle.Item]
+                        }
+                    }
+                case.failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+        })
     }
 }
 
-let numbers = 1...20
-let bottles = numbers.map { number in Bottle(name: "Bottle #\(number)") }
-
 struct ContentView_Previews: PreviewProvider {
+    struct DummyUser: AuthUser {
+        let userId: String = "1"
+        let username: String = "dummy"
+    }
+    
     static var previews: some View {
-        ContentView()
+        ContentView(user: DummyUser())
     }
 }

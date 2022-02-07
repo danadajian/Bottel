@@ -1,19 +1,13 @@
 import SwiftUI
 
 struct Footer: View {
+    @EnvironmentObject var sessionManager: SessionManager
+    
     @State var showAlert = false
     
     var body: some View {
         ZStack {
             NewBottle()
-            
-            HStack {
-                Button(action: {}) {
-                    Label("Collection", systemImage: "list.bullet.circle.fill")
-                }.padding()
-                
-                Spacer()
-            }
             
             HStack {
                 Spacer()
@@ -27,6 +21,16 @@ struct Footer: View {
                     )
                 }.padding()
             }
+            
+            HStack {
+                Button(action: sessionManager.signOut) {
+                    Label("Sign Out", systemImage: "list.bullet.circle.fill")
+                }.padding()
+                
+                Spacer()
+            }
+            
+            
         }
     }
 }
