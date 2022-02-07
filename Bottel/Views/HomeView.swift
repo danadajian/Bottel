@@ -13,10 +13,8 @@ struct HomeView: View {
         Network.shared.apollo.fetch(query: ListBottlesQuery(filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)))) { result in
             switch result {
             case.success(let graphQLResult):
-                DispatchQueue.main.async {
-                    if let bottles = graphQLResult.data?.listBottles?.items {
-                        self.bottles = bottles as! [Bottle]
-                    }
+                if let bottles = graphQLResult.data?.listBottles?.items {
+                    self.bottles = bottles as! [Bottle]
                 }
             case.failure(let error):
                 print("Error: \(error)")
@@ -38,7 +36,7 @@ struct HomeView: View {
             }
 
             ZStack {
-                NewBottleView(userId: userId)
+                NewBottleView(userId: userId, fetchBottles: fetchBottles)
                 FooterView()
             }
         }

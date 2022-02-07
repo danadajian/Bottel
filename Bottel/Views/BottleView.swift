@@ -1,18 +1,20 @@
 import SwiftUI
 
 struct BottleView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     let bottle: ListBottlesQuery.Data.ListBottle.Item
 
+    @State var showAlert = false
     @State var dateOpened: String = "N/A"
     @State var dateAcquired: String = "N/A"
 
     func deleteBottle() {
         Network.shared.apollo.perform(mutation: DeleteBottleMutation(input: DeleteBottleInput(id: bottle.id))) { result in
             switch result {
-            case.success(let graphQLResult):
-                if let deletedBottle = graphQLResult.data?.deleteBottle {
-                    print("\(deletedBottle.name ?? "") has been deleted.")
-                }
+            case.success(_):
+                showAlert = true
+                presentationMode.wrappedValue.dismiss()
             case.failure(let error):
                 print("Error: \(error)")
             }
@@ -59,6 +61,12 @@ struct BottleView: View {
 
             Spacer()
             Button("Delete Bottle", action: deleteBottle)
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Success!"),
+                        message: Text("\(bottle.name!) has been deleted.")
+                    )
+                }
         }
         .navigationTitle(bottle.name!)
         .navigationBarTitleDisplayMode(.inline)

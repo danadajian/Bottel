@@ -10,6 +10,7 @@ struct NewBottleView: View {
     @State var isNewBottle = false
 
     let userId: String
+    let fetchBottles: () -> Void
 
     func createBottle() {
         Network.shared.apollo.perform(mutation: CreateBottleMutation(
@@ -25,6 +26,7 @@ struct NewBottleView: View {
             case.success(_):
                 DispatchQueue.main.async {
                     showPopover = false
+                    fetchBottles()
                 }
             case.failure(let error):
                 print("Error: \(error)")
@@ -83,8 +85,8 @@ struct NewBottleView: View {
 struct NewBottle_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NewBottleView(showPopover: false, userId: "123")
-            NewBottleView(showPopover: true, userId: "123")
+            NewBottleView(showPopover: false, userId: "123", fetchBottles: {})
+            NewBottleView(showPopover: true, userId: "123", fetchBottles: {})
         }
     }
 }
