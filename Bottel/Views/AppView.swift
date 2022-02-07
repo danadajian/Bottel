@@ -25,7 +25,7 @@ struct AppView: App {
                 ConfirmationView(username: username)
                     .environmentObject(sessionManager)
             case .session(let user):
-                HomeView(user: user)
+                HomeView(userId: user.userId)
                     .environmentObject(sessionManager)
             }
         }
