@@ -11,7 +11,7 @@ struct FooterView: View {
                 Label("Friends", systemImage: "person.circle.fill")
             }.alert(isPresented: $showAlert) {
                 Alert(
-                    title: Text("Feature  Available"),
+                    title: Text("Feature Unavailable"),
                     message: Text("This feature is currently in development.")
                 )
             }.padding()

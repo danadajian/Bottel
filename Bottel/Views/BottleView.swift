@@ -6,6 +6,19 @@ struct BottleView: View {
     @State var dateOpened: String = "N/A"
     @State var dateAcquired: String = "N/A"
 
+    func deleteBottle() {
+        Network.shared.apollo.perform(mutation: DeleteBottleMutation(input: DeleteBottleInput(id: bottle.id))) { result in
+            switch result {
+            case.success(let graphQLResult):
+                if let deletedBottle = graphQLResult.data?.deleteBottle {
+                    print("\(deletedBottle.name ?? "") has been deleted.")
+                }
+            case.failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+
     var body: some View {
         VStack {
             Spacer()
@@ -43,8 +56,9 @@ struct BottleView: View {
             }
 
             Text("This bottle has been open for ")
-            
+
             Spacer()
+            Button("Delete Bottle", action: deleteBottle)
         }
         .navigationTitle(bottle.name!)
         .navigationBarTitleDisplayMode(.inline)
