@@ -1,5 +1,5 @@
-import Amplify
 import SwiftUI
+import Amplify
 
 enum AuthState {
     case signUp
@@ -45,7 +45,6 @@ final class SessionManager: ObservableObject {
                     }
                 }
             case .failure(let error):
-                print(error)
                 DispatchQueue.main.async {
                     self?.authError = "\(error.errorDescription)\n\(error.recoverySuggestion)"
                 }
@@ -78,7 +77,6 @@ final class SessionManager: ObservableObject {
                     }
                 }
             case .failure(let error):
-                print(error)
                 DispatchQueue.main.async {
                     self?.authError = "\(error.errorDescription)\n\(error.recoverySuggestion)"
                 }

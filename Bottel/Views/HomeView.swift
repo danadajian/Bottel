@@ -1,5 +1,4 @@
 import SwiftUI
-import Apollo
 
 typealias Bottles = [ListBottlesQuery.Data.ListBottle.Item]
 

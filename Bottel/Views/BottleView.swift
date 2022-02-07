@@ -24,11 +24,8 @@ struct BottleView: View {
     var body: some View {
         VStack {
             Spacer()
-            
             Image("bottel")
-            
             Spacer()
-
             HStack {
                 Text("Date acquired: ")
                 TextField(dateAcquired, text: $dateAcquired)
@@ -36,13 +33,10 @@ struct BottleView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                         .onAppear {
-                            guard let dateAcquired = bottle.dateAcquired else {
-                                return
-                            }
+                            guard let dateAcquired = bottle.dateAcquired else { return }
                             self.dateAcquired = dateAcquired
                         }
             }
-
             HStack {
                 Text("Date opened: ")
                 TextField(dateOpened, text: $dateOpened)
@@ -50,15 +44,11 @@ struct BottleView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                         .onAppear {
-                            guard let dateOpened = bottle.dateOpened else {
-                                return
-                            }
+                            guard let dateOpened = bottle.dateOpened else { return }
                             self.dateOpened = dateOpened
                         }
             }
-
             Text("This bottle has been open for ")
-
             Spacer()
             Button("Delete Bottle", action: deleteBottle)
                 .alert(isPresented: $showAlert) {
