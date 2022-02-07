@@ -16,18 +16,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          node-version: '14.16.0'
 
       - name: Install Amplify
-        run: npm install -g @aws-amplify/cli
+        run: npm install -g apollo
 
       - name: Run Codegen
-        run: amplify codegen
+        run: |
+          apollo codegen:generate \
+            --localSchemaFile=schema.graphql \
+            --includes="graphql/*.graphql" \
+            --target=swift Bottel/API.swift
 
       - name: Compare the generated API file
         run: |

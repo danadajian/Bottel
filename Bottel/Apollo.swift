@@ -12,7 +12,7 @@ class Network {
         let requestChainTransport = RequestChainNetworkTransport(
             interceptorProvider: DefaultInterceptorProvider(store: store),
             endpointURL: url,
-            additionalHeaders: ["x-api-key": "abc123"]
+            additionalHeaders: ["x-api-key": ProcessInfo.processInfo.environment["API_KEY"]!]
         )
         return ApolloClient(networkTransport: requestChainTransport, store: store)
     }()

@@ -13,6 +13,7 @@ struct Login: View {
             TextField("Username", text: $username)
             SecureField("Password", text: $password)
             Button("Login", action: {
+                sessionManager.signOut()
                 sessionManager.login(username: username, password: password)
             })
             
