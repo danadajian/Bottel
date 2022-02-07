@@ -5,6 +5,7 @@ typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
 
 struct HomeView: View {
     @State var bottles: [Bottle] = []
+    @State var showPopover = false
 
     let userId: String
     
@@ -22,6 +23,14 @@ struct HomeView: View {
         }
     }
 
+    func displayPopover() {
+        showPopover = true
+    }
+
+    func dismissPopover() {
+        showPopover = false
+    }
+
     var body: some View {
         VStack {
             NavigationView {
@@ -36,7 +45,15 @@ struct HomeView: View {
             }
 
             ZStack {
-                NewBottleView(userId: userId, fetchBottles: fetchBottles)
+                Button(action: displayPopover) {
+                    Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 90))
+                }.popover(isPresented: $showPopover) {
+                    NewBottleView(userId: userId, onBottleCreate: {
+                        fetchBottles()
+                        dismissPopover()
+                    })
+                }
                 FooterView()
             }
         }
