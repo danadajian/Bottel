@@ -15,7 +15,7 @@ resource "aws_cognito_user_pool" "bottel-user-pool" {
   }
   account_recovery_setting {
     recovery_mechanism {
-      name     = "verified_phone_number"
+      name     = "verified_email"
       priority = 1
     }
   }
