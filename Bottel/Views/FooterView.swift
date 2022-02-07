@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct Footer: View {
+struct FooterView: View {
     @EnvironmentObject var sessionManager: SessionManager
     
     @State var showAlert = false
     
     var body: some View {
         ZStack {
-            NewBottle()
+            NewBottleView()
             
             HStack {
                 Spacer()
@@ -37,7 +37,7 @@ struct Footer: View {
 
 struct Footer_Previews: PreviewProvider {
     static var previews: some View {
-        Footer()
+        FooterView()
 .previewInterfaceOrientation(.portrait)
     }
 }

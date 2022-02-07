@@ -1,9 +1,10 @@
 import SwiftUI
 
-struct Login: View {
+struct SignUpView: View {
     @EnvironmentObject var sessionManager: SessionManager
     
     @State var username = ""
+    @State var email = ""
     @State var password = ""
     
     var body: some View {
@@ -11,21 +12,21 @@ struct Login: View {
             Spacer()
             
             TextField("Username", text: $username)
+            TextField("Email", text: $email)
             SecureField("Password", text: $password)
-            Button("Login", action: {
-                sessionManager.signOut()
-                sessionManager.login(username: username, password: password)
+            Button("Sign Up", action: {
+                sessionManager.signUp(username: username, email: email, password: password)
             })
             
             Spacer()
-            Button("Don't have an account? Sign up.", action: sessionManager.showSignUp)
+            Button("Already have an account? Log in.", action: sessionManager.showLogin)
         }
         .padding()
     }
 }
 
-struct Login_Previews: PreviewProvider {
+struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
-        Login()
+        SignUpView()
     }
 }

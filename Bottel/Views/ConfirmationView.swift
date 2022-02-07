@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Confirmation: View {
+struct ConfirmationView: View {
     @EnvironmentObject var sessionManager: SessionManager
     
     @State var confirmationCode = ""
@@ -16,6 +16,8 @@ struct Confirmation: View {
             Button("Confirm", action: {
                 sessionManager.confirm(username: username, code: confirmationCode)
             })
+
+            Spacer()
         }
         .padding()
     }
@@ -23,6 +25,6 @@ struct Confirmation: View {
 
 struct Confirmation_Previews: PreviewProvider {
     static var previews: some View {
-        Confirmation(username: "dummy")
+        ConfirmationView(username: "dummy")
     }
 }

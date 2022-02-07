@@ -3,10 +3,12 @@ import Amplify
 import Apollo
 import AWSMobileClientXCF
 
-struct ContentView: View {
+typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
+
+struct HomeView: View {
     @EnvironmentObject var sessionManager: SessionManager
     
-    @State var bottles: [ListBottlesQuery.Data.ListBottle.Item] = []
+    @State var bottles: [Bottle] = []
     
     let user: AuthUser
     
@@ -21,7 +23,7 @@ struct ContentView: View {
                 .navigationTitle("My Collection")
             }
             
-            Footer()
+            FooterView()
         }
         .onAppear(perform: {
             Network.shared.apollo.fetch(query: ListBottlesQuery()) { result in
@@ -29,7 +31,7 @@ struct ContentView: View {
                 case.success(let graphQLResult):
                     DispatchQueue.main.async {
                         if let bottles = graphQLResult.data?.listBottles?.items {
-                            self.bottles = bottles as! [ListBottlesQuery.Data.ListBottle.Item]
+                            self.bottles = bottles as! [Bottle]
                         }
                     }
                 case.failure(let error):
@@ -47,6 +49,6 @@ struct ContentView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        ContentView(user: DummyUser())
+        HomeView(user: DummyUser())
     }
 }

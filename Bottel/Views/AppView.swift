@@ -3,7 +3,7 @@ import Amplify
 import AWSCognitoAuthPlugin
 
 @main
-struct BottelApp: App {
+struct AppView: App {
     @ObservedObject var sessionManager = SessionManager()
     
     init() {
@@ -16,16 +16,16 @@ struct BottelApp: App {
         WindowGroup {
             switch sessionManager.authState {
             case .login:
-                Login()
+                LoginView()
                     .environmentObject(sessionManager)
             case .signUp:
-                SignUp()
+                SignUpView()
                     .environmentObject(sessionManager)
             case .confirmCode(let username):
-                Confirmation(username: username)
+                ConfirmationView(username: username)
                     .environmentObject(sessionManager)
             case .session(let user):
-                ContentView(user: user)
+                HomeView(user: user)
                     .environmentObject(sessionManager)
             }
         }

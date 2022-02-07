@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct NewBottle: View {
+struct NewBottleView: View {
     @State var bottleName: String = ""
     @State var date = Date()
     @State var showPopover = false
@@ -57,8 +57,8 @@ struct NewBottle: View {
 struct NewBottle_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NewBottle(showPopover: false)
-            NewBottle(showPopover: true)
+            NewBottleView(showPopover: false)
+            NewBottleView(showPopover: true)
         }
     }
 }
