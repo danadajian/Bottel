@@ -12,7 +12,6 @@
 		A437C7B327B0A3EA000A1C6D /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = A437C7B227B0A3EA000A1C6D /* Amplify */; };
 		A437C7B627B0AF01000A1C6D /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A437C7B527B0AF01000A1C6D /* Apollo */; };
 		A437C7BC27B0B82E000A1C6D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437C7BB27B0B82E000A1C6D /* API.swift */; };
-		A466E81427B0435C0040B6DD /* AWSAppSync in Frameworks */ = {isa = PBXBuildFile; productRef = A466E81327B0435C0040B6DD /* AWSAppSync */; };
 		A466E81627B046CE0040B6DD /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81527B046CE0040B6DD /* SessionManager.swift */; };
 		A466E81827B049240040B6DD /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81727B049240040B6DD /* Login.swift */; };
 		A466E81A27B04A2B0040B6DD /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466E81927B04A2B0040B6DD /* SignUp.swift */; };
@@ -118,7 +117,6 @@
 				A437C7B627B0AF01000A1C6D /* Apollo in Frameworks */,
 				A437C7AF27B0A3EA000A1C6D /* AWSAPIPlugin in Frameworks */,
 				A437C7B327B0A3EA000A1C6D /* Amplify in Frameworks */,
-				A466E81427B0435C0040B6DD /* AWSAppSync in Frameworks */,
 				A437C7B127B0A3EA000A1C6D /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +247,6 @@
 			);
 			name = Bottel;
 			packageProductDependencies = (
-				A466E81327B0435C0040B6DD /* AWSAppSync */,
 				A437C7AE27B0A3EA000A1C6D /* AWSAPIPlugin */,
 				A437C7B027B0A3EA000A1C6D /* AWSCognitoAuthPlugin */,
 				A437C7B227B0A3EA000A1C6D /* Amplify */,
@@ -328,7 +325,6 @@
 			);
 			mainGroup = A4713FC527ACB0F0009F6C59;
 			packageReferences = (
-				A466E81227B0435C0040B6DD /* XCRemoteSwiftPackageReference "aws-mobile-appsync-sdk-ios" */,
 				A437C7AD27B0A3EA000A1C6D /* XCRemoteSwiftPackageReference "amplify-ios" */,
 				A437C7B427B0AF01000A1C6D /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
@@ -751,14 +747,6 @@
 				minimumVersion = 0.9.5;
 			};
 		};
-		A466E81227B0435C0040B6DD /* XCRemoteSwiftPackageReference "aws-mobile-appsync-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/awslabs/aws-mobile-appsync-sdk-ios";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -781,11 +769,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A437C7B427B0AF01000A1C6D /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
-		};
-		A466E81327B0435C0040B6DD /* AWSAppSync */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A466E81227B0435C0040B6DD /* XCRemoteSwiftPackageReference "aws-mobile-appsync-sdk-ios" */;
-			productName = AWSAppSync;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -29,30 +29,12 @@
         }
       },
       {
-        "package": "AWSAppSync",
-        "repositoryURL": "https://github.com/awslabs/aws-mobile-appsync-sdk-ios",
-        "state": {
-          "branch": "main",
-          "revision": "c9fec67afd36d32831906deb93836da4ee80f196",
-          "version": null
-        }
-      },
-      {
         "package": "AWSiOSSDKV2",
         "repositoryURL": "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
         "state": {
           "branch": null,
           "revision": "2fbb2199cee0124c584e58c5753c05e10e7d7348",
           "version": "2.27.1"
-        }
-      },
-      {
-        "package": "Reachability",
-        "repositoryURL": "https://github.com/ashleymills/Reachability.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "c01bbdf2d633cf049ae1ed1a68a2020a8bda32e2",
-          "version": "5.1.0"
         }
       },
       {

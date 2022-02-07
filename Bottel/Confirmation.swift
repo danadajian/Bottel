@@ -1,10 +1,3 @@
-//
-//  Confirmation.swift
-//  Bottel
-//
-//  Created by Dan Adajian on 2/6/22.
-//
-
 import SwiftUI
 
 struct Confirmation: View {

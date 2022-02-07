@@ -33,12 +33,10 @@ final class SessionManager: ObservableObject {
         _ = Amplify.Auth.signUp(username: username, password: password, options: options) { [weak self] result in
             switch result {
             case .success(let signUpResult):
-                print("Sign up result:", signUpResult)
                 switch signUpResult.nextStep {
                 case .done:
                     print("Finished sign up")
-                case .confirmUser(let details, _):
-                    print(details ?? "no details")
+                case .confirmUser(_, _):
                     DispatchQueue.main.async {
                         self?.authState = .confirmCode(username: username)
                     }
@@ -53,7 +51,6 @@ final class SessionManager: ObservableObject {
         _ = Amplify.Auth.confirmSignUp(for: username, confirmationCode: code) { [weak self] result in
             switch result {
             case .success(let confirmResult):
-                print(confirmResult)
                 if confirmResult.isSignupComplete {
                     DispatchQueue.main.async {
                         self?.showLogin()
@@ -69,7 +66,6 @@ final class SessionManager: ObservableObject {
         _ = Amplify.Auth.signIn(username: username, password: password) { [weak self] result in
             switch result {
             case .success(let signInResult):
-                print(signInResult)
                 if signInResult.isSignedIn {
                     DispatchQueue.main.async {
                         self?.getCurrentAuthUser()
