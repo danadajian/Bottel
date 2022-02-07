@@ -1,13 +1,12 @@
 resource "aws_appsync_graphql_api" "bottel-api" {
-  authentication_type = "AMAZON_COGNITO_USER_POOLS"
+  authentication_type = "API_KEY"
   name                = "bottel-api"
   schema              = file("../schema.graphql")
+}
 
-  user_pool_config {
-    aws_region     = var.aws_region
-    default_action = "ALLOW"
-    user_pool_id   = aws_cognito_user_pool.bottel-user-pool.id
-  }
+resource "aws_appsync_api_key" "api-key" {
+  api_id  = aws_appsync_graphql_api.bottel-api.id
+  expires = "2023-02-05T00:00:00Z"
 }
 
 resource "aws_appsync_resolver" "getBottle-resolver" {
