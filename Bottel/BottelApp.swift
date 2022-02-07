@@ -7,12 +7,8 @@ struct BottelApp: App {
     @ObservedObject var sessionManager = SessionManager()
     
     init() {
-        do {
-            try Amplify.add(plugin: AWSCognitoAuthPlugin())
-            try Amplify.configure()
-        } catch {
-            print("Error initializing client. \(error)")
-        }
+        try! Amplify.add(plugin: AWSCognitoAuthPlugin())
+        try! Amplify.configure()
         sessionManager.getCurrentAuthUser()
     }
     
