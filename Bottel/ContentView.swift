@@ -1,6 +1,5 @@
 import SwiftUI
 import Amplify
-
 struct ContentView: View {
     @EnvironmentObject var sessionManager: SessionManager
     

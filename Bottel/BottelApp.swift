@@ -1,9 +1,7 @@
 import SwiftUI
-import AWSAppSync
-import AWSCore
-import AWSMobileClientXCF
 import Amplify
 import AWSCognitoAuthPlugin
+import Apollo
 
 @main
 struct BottelApp: App {
@@ -11,28 +9,8 @@ struct BottelApp: App {
     
     init() {
         do {
-//            guard let url = URL(string: "https://qb5c77sbpbez5i7zv6ygbygrwy.appsync-api.us-east-1.amazonaws.com") else {
-//                return
-//            }
-//            let appSyncConfig = try AWSAppSyncClientConfiguration(
-//                url: url,
-//                serviceRegion: "us-east-1".aws_regionTypeValue(),
-//                userPoolsAuthProvider: AWSMobileClient.default()
-//            )
-//
-//            let appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
-//
-//            appSyncClient.fetch(query: ListBottlesQuery())  { (result, error) in
-//            if error != nil {
-//                print(error?.localizedDescription ?? "")
-//                return
-//            }
-//                result?.data?.listBottles?.items!.forEach { print(($0?.id)! + " " + ($0?.name)!) }
-//            }
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
-
-            print("Success!")
         } catch {
             print("Error initializing client. \(error)")
         }
@@ -54,7 +32,29 @@ struct BottelApp: App {
             case .session(let user):
                 ContentView(user: user)
                     .environmentObject(sessionManager)
+                    .onAppear {
+                        getBottles()
+                    }
             }
         }
+    }
+}
+
+func getBottles() {
+    let apollo = ApolloClient(url: URL(string: "https://qb5c77sbpbez5i7zv6ygbygrwy.appsync-api.us-east-1.amazonaws.com/graphql")!)
+    apollo.fetch(query: ListBottlesQuery()) { result in
+        switch result {
+          case .success(let graphQLResult):
+            if let items = graphQLResult.data?.listBottles?.items {
+                print("woooooooo")
+                items.forEach { print(($0?.id)! + " " + ($0?.name)!) }
+            } else if let errors = graphQLResult.errors {
+              // GraphQL errors
+              print(errors)
+            }
+          case .failure(let error):
+            // Network or response format errors
+            print(error)
+          }
     }
 }

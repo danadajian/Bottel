@@ -10,11 +10,6 @@
       "StackName": "amplify-bottel-production-120208",
       "StackId": "arn:aws:cloudformation:us-east-1:062130427086:stack/amplify-bottel-production-120208/e7f3fba0-8776-11ec-a6bf-0ecf1c8c69cb",
       "AmplifyAppId": "dwvi2fxt5v55s"
-    },
-    "categories": {
-      "auth": {
-        "botteld1dfda0e": {}
-      }
     }
   }
 }
