@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run Codegen
-        run: npm run generate:graphql
+        run: npm run graphql
 
       - name: Compare the generated API file
         run: |
