@@ -10,6 +10,7 @@ enum AuthState {
 
 final class SessionManager: ObservableObject {
     @Published var authState: AuthState = .login
+    @Published var authError: String = ""
     
     func getCurrentAuthUser() {
         if let user = Amplify.Auth.getCurrentUser() {
@@ -21,10 +22,12 @@ final class SessionManager: ObservableObject {
     
     func showSignUp() {
         authState = .signUp
+        authError = ""
     }
     
     func showLogin() {
         authState = .login
+        authError = ""
     }
     
     func signUp(username: String, email: String, password: String) {
@@ -42,7 +45,10 @@ final class SessionManager: ObservableObject {
                     }
                 }
             case .failure(let error):
-                print("Sign up error:", error)
+                print(error)
+                DispatchQueue.main.async {
+                    self?.authError = "\(error.errorDescription)\n\(error.recoverySuggestion)"
+                }
             }
         }
     }
@@ -73,6 +79,9 @@ final class SessionManager: ObservableObject {
                 }
             case .failure(let error):
                 print(error)
+                DispatchQueue.main.async {
+                    self?.authError = "\(error.errorDescription)\n\(error.recoverySuggestion)"
+                }
             }
         }
     }

@@ -9,13 +9,21 @@ struct LoginView: View {
     var body: some View {
         VStack {
             Spacer()
+            Text("Bottel").font(.largeTitle)
+            Spacer()
             
             TextField("Username", text: $username)
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.center)
             SecureField("Password", text: $password)
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.center)
             Button("Login", action: {
                 sessionManager.signOut()
                 sessionManager.login(username: username, password: password)
-            })
+            }).padding().font(.title2).buttonStyle(.borderedProminent)
+            Text(sessionManager.authError)
+                .foregroundColor(.red)
             
             Spacer()
             Button("Don't have an account? Sign up.", action: sessionManager.showSignUp)

@@ -10,13 +10,23 @@ struct SignUpView: View {
     var body: some View {
         VStack {
             Spacer()
-            
+            Text("Bottel").font(.largeTitle)
+            Spacer()
+
             TextField("Username", text: $username)
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.center)
             TextField("Email", text: $email)
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.center)
             SecureField("Password", text: $password)
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.center)
             Button("Sign Up", action: {
                 sessionManager.signUp(username: username, email: email, password: password)
-            })
+            }).padding().font(.title2).buttonStyle(.borderedProminent)
+            Text(sessionManager.authError)
+                .foregroundColor(.red)
             
             Spacer()
             Button("Already have an account? Log in.", action: sessionManager.showLogin)

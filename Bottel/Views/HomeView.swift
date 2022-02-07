@@ -1,10 +1,10 @@
 import SwiftUI
 import Apollo
 
-typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
+typealias Bottles = [ListBottlesQuery.Data.ListBottle.Item]
 
 struct HomeView: View {
-    @State var bottles: [Bottle] = []
+    @State var bottles: Bottles = []
     @State var showPopover = false
 
     let userId: String
@@ -15,7 +15,7 @@ struct HomeView: View {
             switch result {
             case.success(let graphQLResult):
                 if let bottles = graphQLResult.data?.listBottles?.items {
-                    self.bottles = bottles as! [Bottle]
+                    self.bottles = bottles as! Bottles
                 }
             case.failure(let error):
                 print("Error: \(error)")
