@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '14.16.0'
 
-      - name: Install Amplify
+      - name: Install Apollo
         run: npm install -g apollo
 
       - name: Run Codegen
