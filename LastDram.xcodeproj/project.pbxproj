@@ -27,7 +27,10 @@
 		F8C948449561126F93542780 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94DA2953198020EEA7158 /* ConfirmationView.swift */; };
 		F8C949827B53B2F795DF90E2 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94C448D6CF01F1BF21BD9 /* FooterView.swift */; };
 		F8C949BDAE9E9263F2328717 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C94A80BD7453767909A2C0 /* awsconfiguration.json */; };
-		F8C94BD3A6E5F6371782D5C1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C9479200F817DA20A6E948 /* .swiftlint.yml */; };
+		F8C94AB05C58632C483F64E6 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C947EF2B0CFD64FA6D4620 /* Date.swift */; };
+		F8C94CF89A3F0EF3FBF10CEE /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = F8C9459EB1BAB6AA28275CF6 /* Helpers */; };
+		F8C94D6ACDA0248568774BD5 /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = F8C9459EB1BAB6AA28275CF6 /* Helpers */; };
+		F8C94F4B0068EBA051E3904B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C947EF2B0CFD64FA6D4620 /* Date.swift */; };
 		F8C94FEBD2E5E72397BE3C81 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C948515267D8D5CC9E2950 /* Apollo.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,9 +66,10 @@
 		F8C9428E8314C06B8A8F0C72 /* BottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
 		F8C943F55E7044F4051DD077 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F8C94446859607C6F87BEE34 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F8C9459EB1BAB6AA28275CF6 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
 		F8C946C08ACF9F27798ABBAC /* AddBottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBottleView.swift; sourceTree = "<group>"; };
 		F8C9476534705EF8F94CB5AB /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		F8C9479200F817DA20A6E948 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F8C947EF2B0CFD64FA6D4620 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Helpers/Date.swift; sourceTree = "<group>"; };
 		F8C948515267D8D5CC9E2950 /* Apollo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
 		F8C94A80BD7453767909A2C0 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		F8C94B7E5D14C4A741F0760E /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -124,7 +128,6 @@
 				A46A5C1A27B1EA99003202FD /* Products */,
 				F8C94B7E5D14C4A741F0760E /* amplifyconfiguration.json */,
 				F8C94A80BD7453767909A2C0 /* awsconfiguration.json */,
-				F8C9479200F817DA20A6E948 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +151,8 @@
 				F8C948515267D8D5CC9E2950 /* Apollo.swift */,
 				F8C940B97054FC6397CB8E5E /* SessionManager.swift */,
 				F8C942005E514829D2EAB907 /* API.swift */,
+				F8C9459EB1BAB6AA28275CF6 /* Helpers */,
+				F8C947EF2B0CFD64FA6D4620 /* Date.swift */,
 			);
 			path = LastDram;
 			sourceTree = "<group>";
@@ -294,7 +299,7 @@
 				A46A5C2127B1EA9A003202FD /* Assets.xcassets in Resources */,
 				F8C94231A521C1E1C8361254 /* amplifyconfiguration.json in Resources */,
 				F8C949BDAE9E9263F2328717 /* awsconfiguration.json in Resources */,
-				F8C94BD3A6E5F6371782D5C1 /* .swiftlint.yml in Resources */,
+				F8C94D6ACDA0248568774BD5 /* Helpers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C94CF89A3F0EF3FBF10CEE /* Helpers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +336,7 @@
 				F8C948449561126F93542780 /* ConfirmationView.swift in Sources */,
 				F8C9481C30D4FA5CF286A7EA /* LoginView.swift in Sources */,
 				F8C9407BE197A43AAAEB4F5A /* HomeView.swift in Sources */,
+				F8C94AB05C58632C483F64E6 /* Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A46A5C2E27B1EA9A003202FD /* LastDramTests.swift in Sources */,
+				F8C94F4B0068EBA051E3904B /* Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,8 +6,8 @@ struct BottleView: View {
     let bottle: ListBottlesQuery.Data.ListBottle.Item
 
     @State var showAlert = false
-    @State var dateOpened: String = "N/A"
-    @State var dateAcquired: String = "N/A"
+    @State var dateOpened: String = ""
+    @State var dateAcquired: String = ""
 
     func deleteBottle() {
         Network.shared.apollo.perform(mutation: DeleteBottleMutation(
@@ -28,8 +28,11 @@ struct BottleView: View {
             Spacer()
             Image("last-dram")
             Spacer()
-            if bottle.dateOpened!.count > 0 {
-                Text("This bottle has been open for \(Calendar.current.numberOfDaysElapsed(from: dateOpened)) days.")
+            if let dateOpened = bottle.dateOpened {
+                Text("""
+                     This bottle has been open for 
+                     \(getNumberOfDaysElapsed(fromDate: dateOpened, toDate: getFormattedDate(date: Date()))) days.
+                     """)
             }
             HStack {
                 Text("Date acquired: ")
@@ -65,20 +68,6 @@ struct BottleView: View {
         }
         .navigationTitle(bottle.name!)
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-extension Calendar {
-    func numberOfDaysElapsed(from: String) -> Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/YY"
-        let fromAsDate = dateFormatter.date(from: from)
-        guard let date = fromAsDate else { return 0 }
-        let fromDate = startOfDay(for: date)
-        let toDate = startOfDay(for: Date.now)
-        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
-
-        return numberOfDays.day!
     }
 }
 

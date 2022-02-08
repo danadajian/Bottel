@@ -1,10 +1,3 @@
-//
-//  LastDramUITests.swift
-//  LastDramUITests
-//
-//  Created by Dan Adajian on 2/7/22.
-//
-
 import XCTest
 
 class LastDramUITests: XCTestCase {

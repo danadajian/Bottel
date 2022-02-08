@@ -12,15 +12,13 @@ struct AddBottleView: View {
     let onBottleCreate: () -> Void
 
     func createBottle() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/YY"
         Network.shared.apollo.perform(mutation: CreateBottleMutation(
             input: CreateBottleInput(
                 id: UUID().uuidString,
                 userId: userId,
                 name: bottleName,
-                dateOpened: formatter.string(from: dateOpened),
-                dateAcquired: formatter.string(from: dateAcquired)
+                dateOpened: getFormattedDate(date: dateOpened),
+                dateAcquired: getFormattedDate(date: dateAcquired)
             )
         )) { result in
             switch result {
