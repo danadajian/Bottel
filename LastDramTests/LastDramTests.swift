@@ -1,7 +1,14 @@
-import XCTest
-@testable import Bottel
+//
+//  LastDramTests.swift
+//  LastDramTests
+//
+//  Created by Dan Adajian on 2/7/22.
+//
 
-class BottelTests: XCTestCase {
+import XCTest
+@testable import LastDram
+
+class LastDramTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,5 +1,5 @@
-resource "aws_iam_role" "bottel-dynamodb-role" {
-  name = "bottel-dynamodb-role"
+resource "aws_iam_role" "last-dram-dynamodb-role" {
+  name = "last-dram-dynamodb-role"
 
   assume_role_policy = <<EOF
 {
@@ -17,9 +17,9 @@ resource "aws_iam_role" "bottel-dynamodb-role" {
 EOF
 }
 
-resource "aws_iam_role_policy" "bottel-dynamodb-policy" {
-  name = "bottel-dynamodb-policy"
-  role = aws_iam_role.bottel-dynamodb-role.id
+resource "aws_iam_role_policy" "last-dram-dynamodb-policy" {
+  name = "last-dram-dynamodb-policy"
+  role = aws_iam_role.last-dram-dynamodb-role.id
 
   policy = <<EOF
 {

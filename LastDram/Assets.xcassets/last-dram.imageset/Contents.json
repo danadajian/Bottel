@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bottel.png",
+      "filename" : "last-dram.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bottel-1.png",
+      "filename" : "last-dram-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bottel-2.png",
+      "filename" : "last-dram-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

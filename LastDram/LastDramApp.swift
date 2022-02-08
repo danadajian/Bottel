@@ -3,7 +3,7 @@ import Amplify
 import AWSCognitoAuthPlugin
 
 @main
-struct AppView: App {
+struct LastDramApp: App {
     @ObservedObject var sessionManager = SessionManager()
     
     init() {

@@ -1,5 +1,5 @@
-resource "aws_cognito_user_pool" "bottel-user-pool" {
-  name = "bottel-user-pool"
+resource "aws_cognito_user_pool" "last-dram-user-pool" {
+  name = "last-dram-user-pool"
   username_configuration {
     case_sensitive = false
   }
@@ -22,7 +22,7 @@ resource "aws_cognito_user_pool" "bottel-user-pool" {
 }
 
 resource "aws_cognito_user_pool_client" "client" {
-  name = "bottel-client"
+  name = "last-dram-client"
 
-  user_pool_id = aws_cognito_user_pool.bottel-user-pool.id
+  user_pool_id = aws_cognito_user_pool.last-dram-user-pool.id
 }

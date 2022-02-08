@@ -38,7 +38,7 @@ jobs:
             aws s3 mb s3://"${BUCKET_NAME}"
           fi
         env:
-          BUCKET_NAME: bottel-terraform-us-east-1
+          BUCKET_NAME: last-dram-terraform-us-east-1
 
       - name: Setup
         uses: hashicorp/setup-terraform@v1

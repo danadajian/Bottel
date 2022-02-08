@@ -4,8 +4,8 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "bottel-terraform-us-east-1"
-    key    = "Bottel"
+    bucket = "last-dram-terraform-us-east-1"
+    key    = "LastDram"
     region = "us-east-1"
   }
 }

@@ -24,7 +24,7 @@ struct BottleView: View {
     var body: some View {
         VStack {
             Spacer()
-            Image("bottel")
+            Image("last-dram")
             Spacer()
             HStack {
                 Text("Date acquired: ")

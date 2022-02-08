@@ -9,7 +9,7 @@ struct LoginView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Bottel").font(.largeTitle)
+            Text("LastDram").font(.largeTitle)
             Spacer()
             
             TextField("Username", text: $username)

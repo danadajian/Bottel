@@ -1,6 +1,13 @@
+//
+//  LastDramUITestsLaunchTests.swift
+//  LastDramUITests
+//
+//  Created by Dan Adajian on 2/7/22.
+//
+
 import XCTest
 
-class BottelUITestsLaunchTests: XCTestCase {
+class LastDramUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

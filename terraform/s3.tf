@@ -1,4 +1,4 @@
 resource "aws_s3_bucket" "cdn_bucket" {
-  bucket = "bottel-cdn"
+  bucket = "last-dram-cdn"
   acl    = "private"
 }
