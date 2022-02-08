@@ -12,7 +12,9 @@ struct HomeView: View {
     @Sendable func fetchBottles() {
         self.loading = true
         Network.shared.apollo.clearCache()
-        Network.shared.apollo.fetch(query: ListBottlesQuery(filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)))) { result in
+        Network.shared.apollo.fetch(query: ListBottlesQuery(
+                filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)))
+        ) { result in
             switch result {
             case.success(let graphQLResult):
                 if let bottles = graphQLResult.data?.listBottles?.items {
@@ -47,8 +49,7 @@ struct HomeView: View {
                         }
                     } else {
                         List {
-                            ForEach(bottles.sorted(by: { $0.name! < $1.name! }), id: \.id) {
-                                bottle in
+                            ForEach(bottles.sorted(by: { $0.name! < $1.name! }), id: \.id) { bottle in
                                 NavigationLink(bottle.name!, destination: BottleView(bottle: bottle))
                             }
                         }

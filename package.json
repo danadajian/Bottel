@@ -5,7 +5,8 @@
   },
   "scripts": {
     "graphql": "apollo codegen:generate --localSchemaFile=schema.graphql --includes='graphql/*.graphql' --target=swift LastDram/API.swift",
-    "lint": "swiftlint lint --fix",
+    "lint": "swiftlint lint --strict --reporter github-actions-logging",
+    "lint:fix": "swiftlint lint --fix",
     "prepare": "husky install"
   }
 }

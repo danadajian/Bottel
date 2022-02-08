@@ -11,7 +11,8 @@ jobs:
   SwiftLint:
     runs-on: macos-11
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
 
-      - name: Lint code using SwiftLint
-        run: swiftlint lint --reporter github-actions-logging
+      - name: Lint
+        run: npm run lint
