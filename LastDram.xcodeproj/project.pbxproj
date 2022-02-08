@@ -16,19 +16,18 @@
 		A46A5C4827B1ECBB003202FD /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A46A5C4727B1ECBB003202FD /* Apollo */; };
 		A46A5C4B27B1ECDB003202FD /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = A46A5C4A27B1ECDB003202FD /* AWSCognitoAuthPlugin */; };
 		A46A5C4D27B1ECDB003202FD /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = A46A5C4C27B1ECDB003202FD /* Amplify */; };
+		F8C9401749487DD6B447DCA8 /* AddBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C946C08ACF9F27798ABBAC /* AddBottleView.swift */; };
+		F8C9407BE197A43AAAEB4F5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94446859607C6F87BEE34 /* HomeView.swift */; };
 		F8C9415963B4B9B6CF505257 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C942005E514829D2EAB907 /* API.swift */; };
-		F8C941928DC9E35BF848B676 /* API.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940ECFE677666F85777B9 /* API.generated.swift */; };
 		F8C94231A521C1E1C8361254 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C94B7E5D14C4A741F0760E /* amplifyconfiguration.json */; };
-		F8C9428553EB70CE0C8C94BD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C945B9A5BCD65558FB24F7 /* HomeView.swift */; };
 		F8C942C384571932289128FD /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940B97054FC6397CB8E5E /* SessionManager.swift */; };
-		F8C944B2DF31C20BDE120DFB /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94070924AC4610D8736D7 /* ConfirmationView.swift */; };
-		F8C9464E1545AB283F0DC05A /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94778687D2638880BAE12 /* FooterView.swift */; };
-		F8C947CE6FA6447A986B101F /* AddBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940FA5143663EEF3FC0DC /* AddBottleView.swift */; };
-		F8C9492B29D5447FCC8BC175 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940E4F79FCC805E9612A1 /* LoginView.swift */; };
-		F8C9498C81831B65E4676D4E /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9445D423E414D957E9836 /* BottleView.swift */; };
+		F8C944076E6DA6A19DB0474C /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9428E8314C06B8A8F0C72 /* BottleView.swift */; };
+		F8C947C89B782B2791A7CEFA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C943F55E7044F4051DD077 /* SignUpView.swift */; };
+		F8C9481C30D4FA5CF286A7EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9476534705EF8F94CB5AB /* LoginView.swift */; };
+		F8C948449561126F93542780 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94DA2953198020EEA7158 /* ConfirmationView.swift */; };
+		F8C949827B53B2F795DF90E2 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94C448D6CF01F1BF21BD9 /* FooterView.swift */; };
 		F8C949BDAE9E9263F2328717 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C94A80BD7453767909A2C0 /* awsconfiguration.json */; };
 		F8C94BD3A6E5F6371782D5C1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F8C9479200F817DA20A6E948 /* .swiftlint.yml */; };
-		F8C94FAFDBC45CA28922ACC4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94E8A61B9793513BF5E42 /* SignUpView.swift */; };
 		F8C94FEBD2E5E72397BE3C81 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C948515267D8D5CC9E2950 /* Apollo.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,20 +58,19 @@
 		A46A5C3327B1EA9A003202FD /* LastDramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LastDramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46A5C3727B1EA9A003202FD /* LastDramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDramUITests.swift; sourceTree = "<group>"; };
 		A46A5C3927B1EA9A003202FD /* LastDramUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastDramUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F8C94070924AC4610D8736D7 /* ConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmationView.swift; path = LastDram/Views/ConfirmationView.swift; sourceTree = "<group>"; };
 		F8C940B97054FC6397CB8E5E /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		F8C940E4F79FCC805E9612A1 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = LastDram/Views/LoginView.swift; sourceTree = "<group>"; };
-		F8C940ECFE677666F85777B9 /* API.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.generated.swift; sourceTree = "<group>"; };
-		F8C940FA5143663EEF3FC0DC /* AddBottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBottleView.swift; path = LastDram/Views/AddBottleView.swift; sourceTree = "<group>"; };
 		F8C942005E514829D2EAB907 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		F8C9445D423E414D957E9836 /* BottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottleView.swift; path = LastDram/Views/BottleView.swift; sourceTree = "<group>"; };
-		F8C945B9A5BCD65558FB24F7 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = LastDram/Views/HomeView.swift; sourceTree = "<group>"; };
-		F8C94778687D2638880BAE12 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FooterView.swift; path = LastDram/Views/FooterView.swift; sourceTree = "<group>"; };
+		F8C9428E8314C06B8A8F0C72 /* BottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleView.swift; sourceTree = "<group>"; };
+		F8C943F55E7044F4051DD077 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F8C94446859607C6F87BEE34 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F8C946C08ACF9F27798ABBAC /* AddBottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBottleView.swift; sourceTree = "<group>"; };
+		F8C9476534705EF8F94CB5AB /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F8C9479200F817DA20A6E948 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		F8C948515267D8D5CC9E2950 /* Apollo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
 		F8C94A80BD7453767909A2C0 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		F8C94B7E5D14C4A741F0760E /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
-		F8C94E8A61B9793513BF5E42 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpView.swift; path = LastDram/Views/SignUpView.swift; sourceTree = "<group>"; };
+		F8C94C448D6CF01F1BF21BD9 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F8C94DA2953198020EEA7158 /* ConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +101,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A43DE74827B3023700A5873B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F8C9428E8314C06B8A8F0C72 /* BottleView.swift */,
+				F8C946C08ACF9F27798ABBAC /* AddBottleView.swift */,
+				F8C94C448D6CF01F1BF21BD9 /* FooterView.swift */,
+				F8C943F55E7044F4051DD077 /* SignUpView.swift */,
+				F8C94DA2953198020EEA7158 /* ConfirmationView.swift */,
+				F8C9476534705EF8F94CB5AB /* LoginView.swift */,
+				F8C94446859607C6F87BEE34 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A46A5C1027B1EA99003202FD = {
 			isa = PBXGroup;
 			children = (
@@ -112,13 +124,6 @@
 				A46A5C1A27B1EA99003202FD /* Products */,
 				F8C94B7E5D14C4A741F0760E /* amplifyconfiguration.json */,
 				F8C94A80BD7453767909A2C0 /* awsconfiguration.json */,
-				F8C9445D423E414D957E9836 /* BottleView.swift */,
-				F8C94070924AC4610D8736D7 /* ConfirmationView.swift */,
-				F8C94778687D2638880BAE12 /* FooterView.swift */,
-				F8C945B9A5BCD65558FB24F7 /* HomeView.swift */,
-				F8C940E4F79FCC805E9612A1 /* LoginView.swift */,
-				F8C940FA5143663EEF3FC0DC /* AddBottleView.swift */,
-				F8C94E8A61B9793513BF5E42 /* SignUpView.swift */,
 				F8C9479200F817DA20A6E948 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
@@ -136,10 +141,10 @@
 		A46A5C1B27B1EA99003202FD /* LastDram */ = {
 			isa = PBXGroup;
 			children = (
+				A43DE74827B3023700A5873B /* Views */,
 				A46A5C1C27B1EA99003202FD /* LastDramApp.swift */,
 				A46A5C2027B1EA9A003202FD /* Assets.xcassets */,
 				A46A5C2227B1EA9A003202FD /* Preview Content */,
-				F8C940ECFE677666F85777B9 /* API.generated.swift */,
 				F8C948515267D8D5CC9E2950 /* Apollo.swift */,
 				F8C940B97054FC6397CB8E5E /* SessionManager.swift */,
 				F8C942005E514829D2EAB907 /* API.swift */,
@@ -315,17 +320,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A46A5C1D27B1EA99003202FD /* LastDramApp.swift in Sources */,
-				F8C941928DC9E35BF848B676 /* API.generated.swift in Sources */,
 				F8C94FEBD2E5E72397BE3C81 /* Apollo.swift in Sources */,
-				F8C9498C81831B65E4676D4E /* BottleView.swift in Sources */,
-				F8C944B2DF31C20BDE120DFB /* ConfirmationView.swift in Sources */,
-				F8C9464E1545AB283F0DC05A /* FooterView.swift in Sources */,
-				F8C9428553EB70CE0C8C94BD /* HomeView.swift in Sources */,
-				F8C9492B29D5447FCC8BC175 /* LoginView.swift in Sources */,
-				F8C947CE6FA6447A986B101F /* AddBottleView.swift in Sources */,
-				F8C94FAFDBC45CA28922ACC4 /* SignUpView.swift in Sources */,
 				F8C942C384571932289128FD /* SessionManager.swift in Sources */,
 				F8C9415963B4B9B6CF505257 /* API.swift in Sources */,
+				F8C944076E6DA6A19DB0474C /* BottleView.swift in Sources */,
+				F8C9401749487DD6B447DCA8 /* AddBottleView.swift in Sources */,
+				F8C949827B53B2F795DF90E2 /* FooterView.swift in Sources */,
+				F8C947C89B782B2791A7CEFA /* SignUpView.swift in Sources */,
+				F8C948449561126F93542780 /* ConfirmationView.swift in Sources */,
+				F8C9481C30D4FA5CF286A7EA /* LoginView.swift in Sources */,
+				F8C9407BE197A43AAAEB4F5A /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

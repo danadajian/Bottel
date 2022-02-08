@@ -28,6 +28,9 @@ struct BottleView: View {
             Spacer()
             Image("last-dram")
             Spacer()
+            if bottle.dateOpened!.count > 0 {
+                Text("This bottle has been open for \(Calendar.current.numberOfDaysElapsed(from: dateOpened)) days.")
+            }
             HStack {
                 Text("Date acquired: ")
                 TextField(dateAcquired, text: $dateAcquired)
@@ -49,9 +52,6 @@ struct BottleView: View {
                             guard let dateOpened = bottle.dateOpened else { return }
                             self.dateOpened = dateOpened
                         }
-            }
-            if bottle.dateOpened!.count > 0 {
-                Text("This bottle has been open for \(Calendar.current.numberOfDaysElapsed(from: dateOpened)) days.")
             }
             Spacer()
             Button("Delete Bottle", action: deleteBottle)
