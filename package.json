@@ -1,8 +1,11 @@
 {
   "dependencies": {
-    "apollo": "2.33.9"
+    "apollo": "2.33.9",
+    "husky": "7.0.4"
   },
   "scripts": {
-    "graphql": "apollo codegen:generate --localSchemaFile=schema.graphql --includes='graphql/*.graphql' --target=swift LastDram/API.generated.swift"
+    "graphql": "apollo codegen:generate --localSchemaFile=schema.graphql --includes='graphql/*.graphql' --target=swift LastDram/API.swift",
+    "lint": "swiftlint lint --fix",
+    "prepare": "husky install"
   }
 }

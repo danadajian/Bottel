@@ -16,6 +16,7 @@
 		A46A5C4827B1ECBB003202FD /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A46A5C4727B1ECBB003202FD /* Apollo */; };
 		A46A5C4B27B1ECDB003202FD /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = A46A5C4A27B1ECDB003202FD /* AWSCognitoAuthPlugin */; };
 		A46A5C4D27B1ECDB003202FD /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = A46A5C4C27B1ECDB003202FD /* Amplify */; };
+		F8C9415963B4B9B6CF505257 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C942005E514829D2EAB907 /* API.swift */; };
 		F8C941928DC9E35BF848B676 /* API.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940ECFE677666F85777B9 /* API.generated.swift */; };
 		F8C94231A521C1E1C8361254 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C94B7E5D14C4A741F0760E /* amplifyconfiguration.json */; };
 		F8C9428553EB70CE0C8C94BD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C945B9A5BCD65558FB24F7 /* HomeView.swift */; };
@@ -63,6 +64,7 @@
 		F8C940E4F79FCC805E9612A1 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = LastDram/Views/LoginView.swift; sourceTree = "<group>"; };
 		F8C940ECFE677666F85777B9 /* API.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.generated.swift; sourceTree = "<group>"; };
 		F8C940FA5143663EEF3FC0DC /* AddBottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBottleView.swift; path = LastDram/Views/AddBottleView.swift; sourceTree = "<group>"; };
+		F8C942005E514829D2EAB907 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F8C9445D423E414D957E9836 /* BottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottleView.swift; path = LastDram/Views/BottleView.swift; sourceTree = "<group>"; };
 		F8C945B9A5BCD65558FB24F7 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = LastDram/Views/HomeView.swift; sourceTree = "<group>"; };
 		F8C94778687D2638880BAE12 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FooterView.swift; path = LastDram/Views/FooterView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				F8C940ECFE677666F85777B9 /* API.generated.swift */,
 				F8C948515267D8D5CC9E2950 /* Apollo.swift */,
 				F8C940B97054FC6397CB8E5E /* SessionManager.swift */,
+				F8C942005E514829D2EAB907 /* API.swift */,
 			);
 			path = LastDram;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				F8C947CE6FA6447A986B101F /* AddBottleView.swift in Sources */,
 				F8C94FAFDBC45CA28922ACC4 /* SignUpView.swift in Sources */,
 				F8C942C384571932289128FD /* SessionManager.swift in Sources */,
+				F8C9415963B4B9B6CF505257 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,4 @@
-name: Lint code
+name: Lint
 
 on:
   pull_request:
@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Lint code using SwiftLint
-        run: swiftlint --reporter github-actions-logging
+        run: swiftlint lint --reporter github-actions-logging
