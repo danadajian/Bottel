@@ -5,7 +5,7 @@ class Network {
     static let shared = Network()
     
     lazy var apollo: ApolloClient = {
-        let url = URL(string: "https://qb5c77sbpbez5i7zv6ygbygrwy.appsync-api.us-east-1.amazonaws.com/graphql")!
+        let url = URL(string: ProcessInfo.processInfo.environment["API_URL"]!)!
         let store = ApolloStore()
         
         let requestChainTransport = RequestChainNetworkTransport(
