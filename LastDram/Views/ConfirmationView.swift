@@ -11,11 +11,12 @@ struct ConfirmationView: View {
         VStack {
             Spacer()
             
-            Text("Username: \(username)")
             TextField("Confirmation Code", text: $confirmationCode)
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.center)
             Button("Confirm", action: {
                 sessionManager.confirm(username: username, code: confirmationCode)
-            })
+            }).padding().font(.title2).buttonStyle(.borderedProminent)
 
             Spacer()
         }

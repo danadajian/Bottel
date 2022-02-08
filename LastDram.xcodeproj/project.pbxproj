@@ -22,7 +22,7 @@
 		F8C942C384571932289128FD /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940B97054FC6397CB8E5E /* SessionManager.swift */; };
 		F8C944B2DF31C20BDE120DFB /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94070924AC4610D8736D7 /* ConfirmationView.swift */; };
 		F8C9464E1545AB283F0DC05A /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94778687D2638880BAE12 /* FooterView.swift */; };
-		F8C947CE6FA6447A986B101F /* NewBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940FA5143663EEF3FC0DC /* NewBottleView.swift */; };
+		F8C947CE6FA6447A986B101F /* AddBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940FA5143663EEF3FC0DC /* AddBottleView.swift */; };
 		F8C9492B29D5447FCC8BC175 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C940E4F79FCC805E9612A1 /* LoginView.swift */; };
 		F8C9498C81831B65E4676D4E /* BottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9445D423E414D957E9836 /* BottleView.swift */; };
 		F8C949BDAE9E9263F2328717 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C94A80BD7453767909A2C0 /* awsconfiguration.json */; };
@@ -61,7 +61,7 @@
 		F8C940B97054FC6397CB8E5E /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		F8C940E4F79FCC805E9612A1 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = LastDram/Views/LoginView.swift; sourceTree = "<group>"; };
 		F8C940ECFE677666F85777B9 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		F8C940FA5143663EEF3FC0DC /* NewBottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewBottleView.swift; path = LastDram/Views/NewBottleView.swift; sourceTree = "<group>"; };
+		F8C940FA5143663EEF3FC0DC /* AddBottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBottleView.swift; path = LastDram/Views/AddBottleView.swift; sourceTree = "<group>"; };
 		F8C9445D423E414D957E9836 /* BottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottleView.swift; path = LastDram/Views/BottleView.swift; sourceTree = "<group>"; };
 		F8C945B9A5BCD65558FB24F7 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = LastDram/Views/HomeView.swift; sourceTree = "<group>"; };
 		F8C94778687D2638880BAE12 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FooterView.swift; path = LastDram/Views/FooterView.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				F8C94778687D2638880BAE12 /* FooterView.swift */,
 				F8C945B9A5BCD65558FB24F7 /* HomeView.swift */,
 				F8C940E4F79FCC805E9612A1 /* LoginView.swift */,
-				F8C940FA5143663EEF3FC0DC /* NewBottleView.swift */,
+				F8C940FA5143663EEF3FC0DC /* AddBottleView.swift */,
 				F8C94E8A61B9793513BF5E42 /* SignUpView.swift */,
 			);
 			sourceTree = "<group>";
@@ -315,7 +315,7 @@
 				F8C9464E1545AB283F0DC05A /* FooterView.swift in Sources */,
 				F8C9428553EB70CE0C8C94BD /* HomeView.swift in Sources */,
 				F8C9492B29D5447FCC8BC175 /* LoginView.swift in Sources */,
-				F8C947CE6FA6447A986B101F /* NewBottleView.swift in Sources */,
+				F8C947CE6FA6447A986B101F /* AddBottleView.swift in Sources */,
 				F8C94FAFDBC45CA28922ACC4 /* SignUpView.swift in Sources */,
 				F8C942C384571932289128FD /* SessionManager.swift in Sources */,
 			);

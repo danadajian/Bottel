@@ -15,9 +15,11 @@ struct LoginView: View {
             TextField("Username", text: $username)
                 .textFieldStyle(.roundedBorder)
                 .multilineTextAlignment(.center)
+                .autocapitalization(.none)
             SecureField("Password", text: $password)
                 .textFieldStyle(.roundedBorder)
                 .multilineTextAlignment(.center)
+                .autocapitalization(.none)
             Button("Login", action: {
                 sessionManager.signOut()
                 sessionManager.login(username: username, password: password)

@@ -48,9 +48,12 @@ struct BottleView: View {
                             self.dateOpened = dateOpened
                         }
             }
-            Text("This bottle has been open for ")
+            if bottle.dateOpened!.count > 0 {
+                Text("This bottle has been open for \(Calendar.current.numberOfDaysElapsed(from: dateOpened)) days.")
+            }
             Spacer()
             Button("Delete Bottle", action: deleteBottle)
+                .padding().font(.title2).buttonStyle(.borderedProminent)
                 .alert(isPresented: $showAlert) {
                     Alert(
                         title: Text("Success!"),
@@ -60,6 +63,20 @@ struct BottleView: View {
         }
         .navigationTitle(bottle.name!)
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+extension Calendar {
+    func numberOfDaysElapsed(from: String) -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YY"
+        let fromAsDate = dateFormatter.date(from: from)
+        guard let date = fromAsDate else { return 0 }
+        let fromDate = startOfDay(for: date)
+        let toDate = startOfDay(for: Date.now)
+        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
+
+        return numberOfDays.day!
     }
 }
 

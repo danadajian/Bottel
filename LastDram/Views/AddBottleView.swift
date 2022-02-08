@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct NewBottleView: View {
+struct AddBottleView: View {
     @EnvironmentObject var sessionManager: SessionManager
 
     @State var bottleName: String = ""
@@ -12,13 +12,15 @@ struct NewBottleView: View {
     let onBottleCreate: () -> Void
 
     func createBottle() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/YY"
         Network.shared.apollo.perform(mutation: CreateBottleMutation(
             input: CreateBottleInput(
                 id: UUID().uuidString,
                 userId: userId,
                 name: bottleName,
-                dateOpened: DateFormatter().string(from: dateOpened),
-                dateAcquired: DateFormatter().string(from: dateAcquired)
+                dateOpened: formatter.string(from: dateOpened),
+                dateAcquired: formatter.string(from: dateAcquired)
             )
         )) { result in
             switch result {
@@ -48,11 +50,28 @@ struct NewBottleView: View {
 
             Toggle(isOn: $isNewBottle) {
                 Text("New Bottle")
-                    .font(.title3)
+                        .font(.title3)
             }
             .fixedSize()
+            .padding()
 
-            if !isNewBottle {
+            DatePicker(
+                "Date Acquired",
+                selection: $dateAcquired,
+                displayedComponents: [.date]
+            )
+            .font(.title3)
+            .fixedSize()
+
+            if isNewBottle {
+                DatePicker(
+                    "Date Acquired",
+                    selection: $dateOpened,
+                    displayedComponents: [.date]
+                )
+                .font(.title3)
+                .fixedSize()
+            } else {
                 DatePicker(
                     "Date Opened",
                     selection: $dateOpened,
@@ -76,8 +95,8 @@ struct NewBottleView: View {
 struct NewBottle_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NewBottleView(userId: "123", onBottleCreate: {})
-            NewBottleView(userId: "123", onBottleCreate: {})
+            AddBottleView(userId: "123", onBottleCreate: {})
+            AddBottleView(userId: "123", onBottleCreate: {})
         }
     }
 }
