@@ -5,13 +5,13 @@ import AWSCognitoAuthPlugin
 @main
 struct LastDramApp: App {
     @ObservedObject var sessionManager = SessionManager()
-    
+
     init() {
         try! Amplify.add(plugin: AWSCognitoAuthPlugin())
         try! Amplify.configure()
         sessionManager.getCurrentAuthUser()
     }
-    
+
     var body: some Scene {
         WindowGroup {
             switch sessionManager.authState {

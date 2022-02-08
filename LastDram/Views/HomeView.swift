@@ -3,12 +3,12 @@ import SwiftUI
 typealias Bottles = [ListBottlesQuery.Data.ListBottle.Item]
 
 struct HomeView: View {
-    @State var bottles: Bottles? = nil
+    @State var bottles: Bottles?
     @State var showPopover = false
     @State var loading = true
 
     let userId: String
-    
+
     @Sendable func fetchBottles() {
         self.loading = true
         Network.shared.apollo.clearCache()

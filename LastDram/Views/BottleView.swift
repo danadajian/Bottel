@@ -12,7 +12,7 @@ struct BottleView: View {
     func deleteBottle() {
         Network.shared.apollo.perform(mutation: DeleteBottleMutation(input: DeleteBottleInput(id: bottle.id))) { result in
             switch result {
-            case.success(_):
+            case.success:
                 showAlert = true
                 presentationMode.wrappedValue.dismiss()
             case.failure(let error):

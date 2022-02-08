@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FooterView: View {
     @EnvironmentObject var sessionManager: SessionManager
-    
+
     @State var showAlert = false
 
     var body: some View {

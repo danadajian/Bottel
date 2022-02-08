@@ -3,6 +3,6 @@
     "apollo": "2.33.9"
   },
   "scripts": {
-    "graphql": "apollo codegen:generate --localSchemaFile=schema.graphql --includes='graphql/*.graphql' --target=swift LastDram/API.swift"
+    "graphql": "apollo codegen:generate --localSchemaFile=schema.graphql --includes='graphql/*.graphql' --target=swift LastDram/API.generated.swift"
   }
 }
