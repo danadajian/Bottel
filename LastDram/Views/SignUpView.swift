@@ -2,11 +2,11 @@ import SwiftUI
 
 struct SignUpView: View {
     @EnvironmentObject var sessionManager: SessionManager
-    
+
     @State var username = ""
     @State var email = ""
     @State var password = ""
-    
+
     var body: some View {
         VStack {
             Spacer()
@@ -30,7 +30,7 @@ struct SignUpView: View {
             }).padding().font(.title2).buttonStyle(.borderedProminent)
             Text(sessionManager.authError)
                 .foregroundColor(.red)
-            
+
             Spacer()
             Button("Already have an account? Log in.", action: sessionManager.showLogin)
         }

@@ -24,14 +24,14 @@ struct AddBottleView: View {
             )
         )) { result in
             switch result {
-            case.success(_):
+            case.success:
                 onBottleCreate()
             case.failure(let error):
                 print("Error: \(error)")
             }
         }
     }
-    
+
     var body: some View {
         VStack(alignment: .center) {
             Spacer()

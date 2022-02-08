@@ -2,16 +2,16 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var sessionManager: SessionManager
-    
+
     @State var username = ""
     @State var password = ""
-    
+
     var body: some View {
         VStack {
             Spacer()
             Text("LastDram").font(.largeTitle)
             Spacer()
-            
+
             TextField("Username", text: $username)
                 .textFieldStyle(.roundedBorder)
                 .multilineTextAlignment(.center)
@@ -26,7 +26,7 @@ struct LoginView: View {
             }).padding().font(.title2).buttonStyle(.borderedProminent)
             Text(sessionManager.authError)
                 .foregroundColor(.red)
-            
+
             Spacer()
             Button("Don't have an account? Sign up.", action: sessionManager.showSignUp)
         }

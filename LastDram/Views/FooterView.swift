@@ -2,12 +2,12 @@ import SwiftUI
 
 struct FooterView: View {
     @EnvironmentObject var sessionManager: SessionManager
-    
+
     @State var showAlert = false
 
     var body: some View {
         HStack {
-            Button(action: { showAlert = true }) {
+            Button { showAlert = true } label: {
                 Label("Friends", systemImage: "person.circle.fill")
             }.alert(isPresented: $showAlert) {
                 Alert(

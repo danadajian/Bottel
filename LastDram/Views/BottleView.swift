@@ -10,9 +10,11 @@ struct BottleView: View {
     @State var dateAcquired: String = "N/A"
 
     func deleteBottle() {
-        Network.shared.apollo.perform(mutation: DeleteBottleMutation(input: DeleteBottleInput(id: bottle.id))) { result in
+        Network.shared.apollo.perform(mutation: DeleteBottleMutation(
+                input: DeleteBottleInput(id: bottle.id)
+        )) { result in
             switch result {
-            case.success(_):
+            case.success:
                 showAlert = true
                 presentationMode.wrappedValue.dismiss()
             case.failure(let error):
