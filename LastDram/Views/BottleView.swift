@@ -5,7 +5,7 @@ struct BottleView: View {
 
     let bottle: ListBottlesQuery.Data.ListBottle.Item
 
-    @State var name: String = ""
+    @State var bottleName: String = ""
     @State var dateOpened: String = ""
     @State var dateAcquired: String = ""
     @State var showAlert = false
@@ -16,7 +16,12 @@ struct BottleView: View {
     }
     func updateBottle() {
         Network.shared.apollo.perform(mutation: UpdateBottleMutation(
-            input: UpdateBottleInput(id: bottle.id, name: name, dateOpened: dateOpened, dateAcquired: dateAcquired)
+            input: UpdateBottleInput(
+                    id: bottle.id,
+                    name: bottleName,
+                    dateOpened: dateOpened,
+                    dateAcquired: dateAcquired
+            )
         )) { result in
             switch result {
             case.success:
@@ -54,13 +59,13 @@ struct BottleView: View {
             }
             HStack {
                 Text("Bottle name:")
-                TextField(name, text: $name)
+                TextField(bottleName, text: $bottleName)
                         .textFieldStyle(.roundedBorder)
                         .multilineTextAlignment(.center)
                         .padding()
                         .onAppear {
                             guard let name = bottle.name else { return }
-                            self.name = name
+                            self.bottleName = name
                         }
             }
             HStack {
