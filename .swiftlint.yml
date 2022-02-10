@@ -1,2 +1,2 @@
 excluded:
-  - LastDram/API.swift
+  - LastDram/API.generated.swift
