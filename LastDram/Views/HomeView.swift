@@ -4,25 +4,32 @@ typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
 typealias Bottles = [Bottle]
 
 struct HomeView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+
     @State var bottles: Bottles?
     @State var showPopover = false
-    @State var loading = true
+    @State var isLoading = true
+    @State var isError = false
 
     let userId: String
 
     @Sendable func fetchBottles() {
-        self.loading = true
-        Network.shared.apollo.clearCache()
-        Network.shared.apollo.fetch(query: ListBottlesQuery(
+        self.isLoading = true
+        guard let apollo = Network.shared.apollo else {
+            isError = true
+            return
+        }
+        apollo.clearCache()
+        apollo.fetch(query: ListBottlesQuery(
                 filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)))
         ) { result in
             switch result {
-            case.success(let graphQLResult):
+            case .success(let graphQLResult):
                 if let bottles = graphQLResult.data?.listBottles?.items {
                     self.bottles = bottles as? Bottles
-                    self.loading = false
+                    self.isLoading = false
                 }
-            case.failure(let error):
+            case .failure(let error):
                 print("Error: \(error)")
             }
         }
@@ -78,6 +85,13 @@ struct HomeView: View {
                 }
                 FooterView()
             }
+        }.alert(isPresented: $isError) {
+            Alert(title: Text("Error"),
+                    message: Text("An error occurred."),
+                    dismissButton: Alert.Button.default(
+                            Text("Return to login"), action: { sessionManager.signOut() }
+                    )
+            )
         }
     }
 }

@@ -14,7 +14,7 @@ struct BottleView: View {
         dateOpened = getFormattedDate(date: Date())
     }
     func updateBottle() {
-        Network.shared.apollo.perform(mutation: UpdateBottleMutation(
+        Network.shared.apollo?.perform(mutation: UpdateBottleMutation(
             input: UpdateBottleInput(
                     id: bottle.id,
                     name: bottleName,
@@ -32,7 +32,7 @@ struct BottleView: View {
         }
     }
     func deleteBottle() {
-        Network.shared.apollo.perform(mutation: DeleteBottleMutation(
+        Network.shared.apollo?.perform(mutation: DeleteBottleMutation(
             input: DeleteBottleInput(id: bottle.id)
         )) { result in
             switch result {
