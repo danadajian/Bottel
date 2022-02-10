@@ -1,5 +1,3 @@
-disabled_rules:
-  - type_name
-
 excluded:
   - LastDram/API.generated.swift
+  - LastDram/CI.swift
