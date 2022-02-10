@@ -5,13 +5,31 @@ struct BottleView: View {
 
     let bottle: ListBottlesQuery.Data.ListBottle.Item
 
-    @State var showAlert = false
+    @State var name: String = ""
     @State var dateOpened: String = ""
     @State var dateAcquired: String = ""
+    @State var showAlert = false
+    @State var editingEnabled: Bool = false
 
+    func editBottle() {
+        editingEnabled = true
+    }
+    func updateBottle() {
+        Network.shared.apollo.perform(mutation: UpdateBottleMutation(
+            input: UpdateBottleInput(id: bottle.id, name: name, dateOpened: dateOpened, dateAcquired: dateAcquired)
+        )) { result in
+            switch result {
+            case.success:
+                showAlert = true
+                presentationMode.wrappedValue.dismiss()
+            case.failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
     func deleteBottle() {
         Network.shared.apollo.perform(mutation: DeleteBottleMutation(
-                input: DeleteBottleInput(id: bottle.id)
+            input: DeleteBottleInput(id: bottle.id)
         )) { result in
             switch result {
             case.success:
@@ -30,12 +48,23 @@ struct BottleView: View {
             Spacer()
             if let dateOpened = bottle.dateOpened {
                 Text("""
-                     This bottle has been open for 
-                     \(getNumberOfDaysElapsed(fromDate: dateOpened, toDate: getFormattedDate(date: Date()))) days.
+                     This bottle has been open for \(getNumberOfDaysElapsed(
+                        fromDate: dateOpened, toDate: getFormattedDate(date: Date()))) days.
                      """)
             }
             HStack {
-                Text("Date acquired: ")
+                Text("Bottle name:")
+                TextField(name, text: $name)
+                        .textFieldStyle(.roundedBorder)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                        .onAppear {
+                            guard let name = bottle.name else { return }
+                            self.name = name
+                        }
+            }
+            HStack {
+                Text("Date acquired:")
                 TextField(dateAcquired, text: $dateAcquired)
                         .textFieldStyle(.roundedBorder)
                         .multilineTextAlignment(.center)
@@ -46,7 +75,7 @@ struct BottleView: View {
                         }
             }
             HStack {
-                Text("Date opened: ")
+                Text("Date opened:")
                 TextField(dateOpened, text: $dateOpened)
                         .textFieldStyle(.roundedBorder)
                         .multilineTextAlignment(.center)
@@ -57,14 +86,30 @@ struct BottleView: View {
                         }
             }
             Spacer()
-            Button("Delete Bottle", action: deleteBottle)
-                .padding().font(.title2).buttonStyle(.borderedProminent)
-                .alert(isPresented: $showAlert) {
-                    Alert(
-                        title: Text("Success!"),
-                        message: Text("\(bottle.name!) has been deleted.")
-                    )
+            HStack {
+                if !editingEnabled {
+                    Button("Edit Bottle", action: editBottle)
+                        .padding().font(.title3).buttonStyle(.borderedProminent)
                 }
+                if editingEnabled {
+                    Button("Save Bottle", action: updateBottle)
+                        .padding().font(.title3).buttonStyle(.borderedProminent)
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                    title: Text("Success!"),
+                                    message: Text("\(bottle.name!) has been updated.")
+                            )
+                        }
+                }
+                Button("Delete Bottle", action: deleteBottle)
+                    .padding().font(.title3).buttonStyle(.borderedProminent)
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                                title: Text("Success!"),
+                                message: Text("\(bottle.name!) has been deleted.")
+                        )
+                    }
+            }
         }
         .navigationTitle(bottle.name!)
         .navigationBarTitleDisplayMode(.inline)
