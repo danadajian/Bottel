@@ -50,7 +50,7 @@ struct BottleView: View {
             Spacer()
             Image("last-dram")
             Spacer()
-            if let dateOpened = bottle.dateOpened {
+            if !dateOpened.isEmpty {
                 Text("""
                      This bottle has been open for \(getNumberOfDaysElapsed(
                         fromDate: dateOpened, toDate: getFormattedDate(date: Date()))) days.
