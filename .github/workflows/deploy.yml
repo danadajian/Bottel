@@ -28,7 +28,8 @@ jobs:
 
       - name: Set project versions
         run: |
-          NEW_VERSION="${$(echo "${GITHUB_REF}" | cut -d "/" -f3):1}"
+          VERSION_TAG=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
+          NEW_VERSION="${${VERSION_TAG}:1}"
           echo NEW_VERSION=$NEW_VERSION
           xcrun agvtool new-version $NEW_VERSION
           sed -i '' "s#MARKETING_VERSION \= [^\;]*\;#MARKETING_VERSION = $NEW_VERSION;#g" LastDram.xcodeproj/project.pbxproj
