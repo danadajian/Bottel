@@ -6,7 +6,7 @@ struct AddBottleView: View {
     @State var bottleName: String = ""
     @State var dateOpened = Date()
     @State var dateAcquired = Date()
-    @State var isNewBottle = false
+    @State var isNewBottle = true
 
     let userId: String
     let onBottleCreate: () -> Void
@@ -61,15 +61,7 @@ struct AddBottleView: View {
             .font(.title3)
             .fixedSize()
 
-            if isNewBottle {
-                DatePicker(
-                    "Date Acquired",
-                    selection: $dateOpened,
-                    displayedComponents: [.date]
-                )
-                .font(.title3)
-                .fixedSize()
-            } else {
+            if !isNewBottle {
                 DatePicker(
                     "Date Opened",
                     selection: $dateOpened,

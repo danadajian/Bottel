@@ -1,6 +1,7 @@
 import SwiftUI
 
-typealias Bottles = [ListBottlesQuery.Data.ListBottle.Item]
+typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
+typealias Bottles = [Bottle]
 
 struct HomeView: View {
     @State var bottles: Bottles?

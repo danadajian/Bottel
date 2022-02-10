@@ -9,10 +9,9 @@ struct BottleView: View {
     @State var dateOpened: String = ""
     @State var dateAcquired: String = ""
     @State var showAlert = false
-    @State var editingEnabled: Bool = false
 
-    func editBottle() {
-        editingEnabled = true
+    func openBottle() {
+        dateOpened = getFormattedDate(date: Date())
     }
     func updateBottle() {
         Network.shared.apollo.perform(mutation: UpdateBottleMutation(
@@ -80,43 +79,45 @@ struct BottleView: View {
                         }
             }
             HStack {
-                Text("Date opened:")
-                TextField(dateOpened, text: $dateOpened)
-                        .textFieldStyle(.roundedBorder)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                        .onAppear {
-                            guard let dateOpened = bottle.dateOpened else { return }
-                            self.dateOpened = dateOpened
-                        }
+                if dateOpened.isEmpty {
+                    Text("This bottle is not yet open.")
+                    Button("Open Bottle", action: openBottle)
+                            .padding().font(.title3).buttonStyle(.borderedProminent)
+                } else {
+                    Text("Date opened:")
+                    TextField(dateOpened, text: $dateOpened)
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.center)
+                            .padding()
+
+                }
+            }.onAppear {
+                guard let dateOpened = bottle.dateOpened else {
+                    return
+                }
+                self.dateOpened = dateOpened
             }
             Spacer()
             HStack {
-                if !editingEnabled {
-                    Button("Edit Bottle", action: editBottle)
-                        .padding().font(.title3).buttonStyle(.borderedProminent)
-                }
-                if editingEnabled {
-                    Button("Save Bottle", action: updateBottle)
+                Button("Update Bottle", action: updateBottle)
                         .padding().font(.title3).buttonStyle(.borderedProminent)
                         .alert(isPresented: $showAlert) {
                             Alert(
                                     title: Text("Success!"),
-                                    message: Text("\(bottle.name!) has been updated.")
+                                    message: Text("\(bottleName) has been updated.")
                             )
                         }
-                }
                 Button("Delete Bottle", action: deleteBottle)
-                    .padding().font(.title3).buttonStyle(.borderedProminent)
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                                title: Text("Success!"),
-                                message: Text("\(bottle.name!) has been deleted.")
-                        )
-                    }
+                        .padding().font(.title3).buttonStyle(.borderedProminent)
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                    title: Text("Success!"),
+                                    message: Text("\(bottleName) has been deleted.")
+                            )
+                        }
             }
         }
-        .navigationTitle(bottle.name!)
+        .navigationTitle(bottleName)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
