@@ -15,11 +15,6 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
 
-      - name: Inject environment variables
-        run: |
-          sed -i '' "s#REPLACE_ME_WITH_API_URL#${{ secrets.API_URL }}#g" LastDram/EnvironmentVariables.swift
-          sed -i '' "s#REPLACE_ME_WITH_API_KEY#${{ secrets.API_KEY }}#g" LastDram/EnvironmentVariables.swift
-
       - name: Import signing certificate
         run: .github/scripts/import-certificate.sh
         env:
@@ -30,6 +25,18 @@ jobs:
         run: .github/scripts/import-profile.sh
         env:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+
+      - name: Set project versions
+        run: |
+          NEW_VERSION="${$(echo "${GITHUB_REF}" | cut -d "/" -f3):1}"
+          echo NEW_VERSION=$NEW_VERSION
+          xcrun agvtool new-version $NEW_VERSION
+          sed -i '' "s#MARKETING_VERSION \= [^\;]*\;#MARKETING_VERSION = $NEW_VERSION;#g" LastDram.xcodeproj/project.pbxproj
+
+      - name: Set environment variables
+        run: |
+          sed -i '' "s#REPLACE_ME_WITH_API_URL#${{ secrets.API_URL }}#g" LastDram/EnvironmentVariables.swift
+          sed -i '' "s#REPLACE_ME_WITH_API_KEY#${{ secrets.API_KEY }}#g" LastDram/EnvironmentVariables.swift
 
       - name: Build app
         run: fastlane run build_app
