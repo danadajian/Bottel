@@ -1,13 +1,8 @@
 name: Deploy
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'LastDram/**'
-      - 'amplifyconfiguration.json'
-      - 'awsconfiguration.json'
-      - '.github/workflows/deploy.yml'
+  release:
+    types: [ edited, published ]
 
 env:
   PRODUCT_NAME: LastDram
@@ -38,12 +33,6 @@ jobs:
 
       - name: Build app
         run: fastlane run build_app
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build.log
-          path: ~/Library/Logs/gym/*.log
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v1
