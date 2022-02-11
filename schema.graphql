@@ -1,25 +1,37 @@
 type Query {
-    getBottle(id: String!, userId: String!): Bottle
+    getBottle(id: String!, userId: String!): UserBottle
+    listUserBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
     listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
 }
 
 type Mutation {
-    createBottle(input: CreateBottleInput!): Bottle
-    updateBottle(input: UpdateBottleInput!): Bottle
-    deleteBottle(input: DeleteBottleInput!): Bottle
+    createBottle(input: CreateBottleInput!): UserBottle
+    updateBottle(input: UpdateBottleInput!): UserBottle
+    deleteBottle(input: DeleteBottleInput!): UserBottle
 }
 
-type Bottle {
+interface Bottle {
     id: String!
-    userId: String!
     name: String
     imageUrl: String
+}
+
+type UserBottle implements Bottle {
+    id: String!
+    name: String
+    imageUrl: String
+    userId: String!
     dateOpened: String
     dateAcquired: String
 }
 
 type Bottles {
     items: [Bottle]
+    nextToken: String
+}
+
+type UserBottles {
+    items: [UserBottle]
     nextToken: String
 }
 

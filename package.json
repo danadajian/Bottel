@@ -1,10 +1,13 @@
 {
   "dependencies": {
+    "amplify-graphql-docs-generator": "2.2.4",
     "apollo": "2.33.9",
     "husky": "7.0.4"
   },
   "scripts": {
-    "graphql": "apollo codegen:generate --localSchemaFile=schema.graphql --includes='graphql/*.graphql' --target=swift LastDram/API.generated.swift",
+    "graphql": "npm run graphql:queries && npm run graphql:types",
+    "graphql:queries": "amplify-graphql-docs-generator --schema schema.graphql --output operations.graphql",
+    "graphql:types": "apollo codegen:generate --localSchemaFile=schema.graphql --includes=operations.graphql --target=swift LastDram/API.generated.swift",
     "lint": "swiftlint lint --strict --reporter github-actions-logging",
     "lint:fix": "swiftlint lint --fix",
     "prepare": "husky install"

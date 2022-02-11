@@ -1,0 +1,73 @@
+# this is an auto generated file. This will be overwritten
+query GetBottle($id: String!, $userId: String!) {
+  getBottle(id: $id, userId: $userId) {
+    id
+    name
+    imageUrl
+    userId
+    dateOpened
+    dateAcquired
+  }
+}
+query ListUserBottles(
+  $filter: BottleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      imageUrl
+      userId
+      dateOpened
+      dateAcquired
+    }
+    nextToken
+  }
+}
+query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
+  listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      imageUrl
+      ... on UserBottle {
+        userId
+        dateOpened
+        dateAcquired
+      }
+    }
+    nextToken
+  }
+}
+mutation CreateBottle($input: CreateBottleInput!) {
+  createBottle(input: $input) {
+    id
+    name
+    imageUrl
+    userId
+    dateOpened
+    dateAcquired
+  }
+}
+mutation UpdateBottle($input: UpdateBottleInput!) {
+  updateBottle(input: $input) {
+    id
+    name
+    imageUrl
+    userId
+    dateOpened
+    dateAcquired
+  }
+}
+mutation DeleteBottle($input: DeleteBottleInput!) {
+  deleteBottle(input: $input) {
+    id
+    name
+    imageUrl
+    userId
+    dateOpened
+    dateAcquired
+  }
+}
