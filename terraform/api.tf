@@ -83,7 +83,7 @@ resource "aws_dynamodb_table" "bottles-table" {
   }
 }
 
-resource "aws_dynamodb_table" "bottles-table" {
+resource "aws_dynamodb_table" "user-bottles-table" {
   name           = "UserBottles"
   billing_mode   = "PROVISIONED"
   read_capacity  = 20
