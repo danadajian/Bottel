@@ -12,7 +12,7 @@ struct AddBottleView: View {
     let onBottleCreate: () -> Void
 
     func createBottle() {
-        Network.shared.apollo?.perform(mutation: CreateBottleMutation(
+        Network.shared.apollo?.perform(mutation: CreateUserBottleMutation(
             input: CreateBottleInput(
                 id: UUID().uuidString,
                 userId: userId,

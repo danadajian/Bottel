@@ -3,7 +3,7 @@ import SwiftUI
 struct BottleView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    let bottle: ListBottlesQuery.Data.ListBottle.Item
+    let bottle: Bottle
 
     @State var bottleName: String = ""
     @State var dateOpened: String = ""
@@ -15,7 +15,7 @@ struct BottleView: View {
         dateOpened = getFormattedDate(date: Date())
     }
     func updateBottle() {
-        Network.shared.apollo?.perform(mutation: UpdateBottleMutation(
+        Network.shared.apollo?.perform(mutation: UpdateUserBottleMutation(
             input: UpdateBottleInput(
                     id: bottle.id,
                     name: bottleName,
@@ -33,7 +33,7 @@ struct BottleView: View {
         }
     }
     func deleteBottle() {
-        Network.shared.apollo?.perform(mutation: DeleteBottleMutation(
+        Network.shared.apollo?.perform(mutation: DeleteUserBottleMutation(
             input: DeleteBottleInput(id: bottle.id)
         )) { result in
             switch result {
@@ -139,7 +139,7 @@ struct BottleView: View {
 struct BottleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BottleView(bottle: ListBottlesQuery.Data.ListBottle.Item(
+            BottleView(bottle: Bottle(
                 id: "123",
                 userId: "dummy",
                 name: "dummy bottle",
