@@ -9,6 +9,19 @@ query GetBottle($id: String!, $userId: String!) {
     dateAcquired
   }
 }
+query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
+  listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      imageUrl
+      userId
+      dateOpened
+      dateAcquired
+    }
+    nextToken
+  }
+}
 query ListUserBottles(
   $filter: BottleFilterInput
   $limit: Int
@@ -26,23 +39,18 @@ query ListUserBottles(
     nextToken
   }
 }
-query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
-  listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      imageUrl
-      ... on UserBottle {
-        userId
-        dateOpened
-        dateAcquired
-      }
-    }
-    nextToken
-  }
-}
 mutation CreateBottle($input: CreateBottleInput!) {
   createBottle(input: $input) {
+    id
+    name
+    imageUrl
+    userId
+    dateOpened
+    dateAcquired
+  }
+}
+mutation CreateUserBottle($input: CreateBottleInput!) {
+  createUserBottle(input: $input) {
     id
     name
     imageUrl
@@ -61,8 +69,28 @@ mutation UpdateBottle($input: UpdateBottleInput!) {
     dateAcquired
   }
 }
+mutation UpdateUserBottle($input: UpdateBottleInput!) {
+  updateUserBottle(input: $input) {
+    id
+    name
+    imageUrl
+    userId
+    dateOpened
+    dateAcquired
+  }
+}
 mutation DeleteBottle($input: DeleteBottleInput!) {
   deleteBottle(input: $input) {
+    id
+    name
+    imageUrl
+    userId
+    dateOpened
+    dateAcquired
+  }
+}
+mutation DeleteUserBottle($input: DeleteBottleInput!) {
+  deleteUserBottle(input: $input) {
     id
     name
     imageUrl

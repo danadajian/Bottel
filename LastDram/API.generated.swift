@@ -479,6 +479,211 @@ public final class GetBottleQuery: GraphQLQuery {
   }
 }
 
+public final class ListBottlesQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
+      listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+        __typename
+        items {
+          __typename
+          id
+          name
+          imageUrl
+          userId
+          dateOpened
+          dateAcquired
+        }
+        nextToken
+      }
+    }
+    """
+
+  public let operationName: String = "ListBottles"
+
+  public var filter: BottleFilterInput?
+  public var limit: Int?
+  public var nextToken: String?
+
+  public init(filter: BottleFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
+    self.filter = filter
+    self.limit = limit
+    self.nextToken = nextToken
+  }
+
+  public var variables: GraphQLMap? {
+    return ["filter": filter, "limit": limit, "nextToken": nextToken]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("listBottles", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListBottle.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(listBottles: ListBottle? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "listBottles": listBottles.flatMap { (value: ListBottle) -> ResultMap in value.resultMap }])
+    }
+
+    public var listBottles: ListBottle? {
+      get {
+        return (resultMap["listBottles"] as? ResultMap).flatMap { ListBottle(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "listBottles")
+      }
+    }
+
+    public struct ListBottle: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["UserBottles"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("items", type: .list(.object(Item.selections))),
+          GraphQLField("nextToken", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(items: [Item?]? = nil, nextToken: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottles", "items": items.flatMap { (value: [Item?]) -> [ResultMap?] in value.map { (value: Item?) -> ResultMap? in value.flatMap { (value: Item) -> ResultMap in value.resultMap } } }, "nextToken": nextToken])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var items: [Item?]? {
+        get {
+          return (resultMap["items"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Item?] in value.map { (value: ResultMap?) -> Item? in value.flatMap { (value: ResultMap) -> Item in Item(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Item?]) -> [ResultMap?] in value.map { (value: Item?) -> ResultMap? in value.flatMap { (value: Item) -> ResultMap in value.resultMap } } }, forKey: "items")
+        }
+      }
+
+      public var nextToken: String? {
+        get {
+          return resultMap["nextToken"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "nextToken")
+        }
+      }
+
+      public struct Item: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["UserBottle"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(String.self))),
+            GraphQLField("name", type: .scalar(String.self)),
+            GraphQLField("imageUrl", type: .scalar(String.self)),
+            GraphQLField("userId", type: .nonNull(.scalar(String.self))),
+            GraphQLField("dateOpened", type: .scalar(String.self)),
+            GraphQLField("dateAcquired", type: .scalar(String.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: String {
+          get {
+            return resultMap["id"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var name: String? {
+          get {
+            return resultMap["name"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "name")
+          }
+        }
+
+        public var imageUrl: String? {
+          get {
+            return resultMap["imageUrl"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "imageUrl")
+          }
+        }
+
+        public var userId: String {
+          get {
+            return resultMap["userId"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "userId")
+          }
+        }
+
+        public var dateOpened: String? {
+          get {
+            return resultMap["dateOpened"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "dateOpened")
+          }
+        }
+
+        public var dateAcquired: String? {
+          get {
+            return resultMap["dateAcquired"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "dateAcquired")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class ListUserBottlesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -684,215 +889,6 @@ public final class ListUserBottlesQuery: GraphQLQuery {
   }
 }
 
-public final class ListBottlesQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
-      listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
-        __typename
-        items {
-          __typename
-          id
-          name
-          imageUrl
-          ... on UserBottle {
-            __typename
-            userId
-            dateOpened
-            dateAcquired
-          }
-        }
-        nextToken
-      }
-    }
-    """
-
-  public let operationName: String = "ListBottles"
-
-  public var filter: BottleFilterInput?
-  public var limit: Int?
-  public var nextToken: String?
-
-  public init(filter: BottleFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
-    self.filter = filter
-    self.limit = limit
-    self.nextToken = nextToken
-  }
-
-  public var variables: GraphQLMap? {
-    return ["filter": filter, "limit": limit, "nextToken": nextToken]
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["Query"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("listBottles", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListBottle.selections)),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(listBottles: ListBottle? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Query", "listBottles": listBottles.flatMap { (value: ListBottle) -> ResultMap in value.resultMap }])
-    }
-
-    public var listBottles: ListBottle? {
-      get {
-        return (resultMap["listBottles"] as? ResultMap).flatMap { ListBottle(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "listBottles")
-      }
-    }
-
-    public struct ListBottle: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["Bottles"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("items", type: .list(.object(Item.selections))),
-          GraphQLField("nextToken", type: .scalar(String.self)),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(items: [Item?]? = nil, nextToken: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Bottles", "items": items.flatMap { (value: [Item?]) -> [ResultMap?] in value.map { (value: Item?) -> ResultMap? in value.flatMap { (value: Item) -> ResultMap in value.resultMap } } }, "nextToken": nextToken])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      public var items: [Item?]? {
-        get {
-          return (resultMap["items"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Item?] in value.map { (value: ResultMap?) -> Item? in value.flatMap { (value: ResultMap) -> Item in Item(unsafeResultMap: value) } } }
-        }
-        set {
-          resultMap.updateValue(newValue.flatMap { (value: [Item?]) -> [ResultMap?] in value.map { (value: Item?) -> ResultMap? in value.flatMap { (value: Item) -> ResultMap in value.resultMap } } }, forKey: "items")
-        }
-      }
-
-      public var nextToken: String? {
-        get {
-          return resultMap["nextToken"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "nextToken")
-        }
-      }
-
-      public struct Item: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["UserBottle"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("id", type: .nonNull(.scalar(String.self))),
-            GraphQLField("name", type: .scalar(String.self)),
-            GraphQLField("imageUrl", type: .scalar(String.self)),
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-            GraphQLField("dateOpened", type: .scalar(String.self)),
-            GraphQLField("dateAcquired", type: .scalar(String.self)),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        public var id: String {
-          get {
-            return resultMap["id"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "id")
-          }
-        }
-
-        public var name: String? {
-          get {
-            return resultMap["name"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "name")
-          }
-        }
-
-        public var imageUrl: String? {
-          get {
-            return resultMap["imageUrl"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "imageUrl")
-          }
-        }
-
-        public var userId: String {
-          get {
-            return resultMap["userId"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "userId")
-          }
-        }
-
-        public var dateOpened: String? {
-          get {
-            return resultMap["dateOpened"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "dateOpened")
-          }
-        }
-
-        public var dateAcquired: String? {
-          get {
-            return resultMap["dateAcquired"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "dateAcquired")
-          }
-        }
-      }
-    }
-  }
-}
-
 public final class CreateBottleMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -951,6 +947,154 @@ public final class CreateBottleMutation: GraphQLMutation {
     }
 
     public struct CreateBottle: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["UserBottle"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(String.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("imageUrl", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
+          GraphQLField("dateOpened", type: .scalar(String.self)),
+          GraphQLField("dateAcquired", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: String {
+        get {
+          return resultMap["id"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var imageUrl: String? {
+        get {
+          return resultMap["imageUrl"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "imageUrl")
+        }
+      }
+
+      public var userId: String {
+        get {
+          return resultMap["userId"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "userId")
+        }
+      }
+
+      public var dateOpened: String? {
+        get {
+          return resultMap["dateOpened"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateOpened")
+        }
+      }
+
+      public var dateAcquired: String? {
+        get {
+          return resultMap["dateAcquired"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateAcquired")
+        }
+      }
+    }
+  }
+}
+
+public final class CreateUserBottleMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation CreateUserBottle($input: CreateBottleInput!) {
+      createUserBottle(input: $input) {
+        __typename
+        id
+        name
+        imageUrl
+        userId
+        dateOpened
+        dateAcquired
+      }
+    }
+    """
+
+  public let operationName: String = "CreateUserBottle"
+
+  public var input: CreateBottleInput
+
+  public init(input: CreateBottleInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("createUserBottle", arguments: ["input": GraphQLVariable("input")], type: .object(CreateUserBottle.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(createUserBottle: CreateUserBottle? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "createUserBottle": createUserBottle.flatMap { (value: CreateUserBottle) -> ResultMap in value.resultMap }])
+    }
+
+    public var createUserBottle: CreateUserBottle? {
+      get {
+        return (resultMap["createUserBottle"] as? ResultMap).flatMap { CreateUserBottle(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "createUserBottle")
+      }
+    }
+
+    public struct CreateUserBottle: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["UserBottle"]
 
       public static var selections: [GraphQLSelection] {
@@ -1189,6 +1333,154 @@ public final class UpdateBottleMutation: GraphQLMutation {
   }
 }
 
+public final class UpdateUserBottleMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation UpdateUserBottle($input: UpdateBottleInput!) {
+      updateUserBottle(input: $input) {
+        __typename
+        id
+        name
+        imageUrl
+        userId
+        dateOpened
+        dateAcquired
+      }
+    }
+    """
+
+  public let operationName: String = "UpdateUserBottle"
+
+  public var input: UpdateBottleInput
+
+  public init(input: UpdateBottleInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("updateUserBottle", arguments: ["input": GraphQLVariable("input")], type: .object(UpdateUserBottle.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(updateUserBottle: UpdateUserBottle? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "updateUserBottle": updateUserBottle.flatMap { (value: UpdateUserBottle) -> ResultMap in value.resultMap }])
+    }
+
+    public var updateUserBottle: UpdateUserBottle? {
+      get {
+        return (resultMap["updateUserBottle"] as? ResultMap).flatMap { UpdateUserBottle(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "updateUserBottle")
+      }
+    }
+
+    public struct UpdateUserBottle: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["UserBottle"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(String.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("imageUrl", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
+          GraphQLField("dateOpened", type: .scalar(String.self)),
+          GraphQLField("dateAcquired", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: String {
+        get {
+          return resultMap["id"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var imageUrl: String? {
+        get {
+          return resultMap["imageUrl"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "imageUrl")
+        }
+      }
+
+      public var userId: String {
+        get {
+          return resultMap["userId"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "userId")
+        }
+      }
+
+      public var dateOpened: String? {
+        get {
+          return resultMap["dateOpened"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateOpened")
+        }
+      }
+
+      public var dateAcquired: String? {
+        get {
+          return resultMap["dateAcquired"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateAcquired")
+        }
+      }
+    }
+  }
+}
+
 public final class DeleteBottleMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1247,6 +1539,154 @@ public final class DeleteBottleMutation: GraphQLMutation {
     }
 
     public struct DeleteBottle: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["UserBottle"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(String.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("imageUrl", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
+          GraphQLField("dateOpened", type: .scalar(String.self)),
+          GraphQLField("dateAcquired", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: String {
+        get {
+          return resultMap["id"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var imageUrl: String? {
+        get {
+          return resultMap["imageUrl"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "imageUrl")
+        }
+      }
+
+      public var userId: String {
+        get {
+          return resultMap["userId"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "userId")
+        }
+      }
+
+      public var dateOpened: String? {
+        get {
+          return resultMap["dateOpened"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateOpened")
+        }
+      }
+
+      public var dateAcquired: String? {
+        get {
+          return resultMap["dateAcquired"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateAcquired")
+        }
+      }
+    }
+  }
+}
+
+public final class DeleteUserBottleMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation DeleteUserBottle($input: DeleteBottleInput!) {
+      deleteUserBottle(input: $input) {
+        __typename
+        id
+        name
+        imageUrl
+        userId
+        dateOpened
+        dateAcquired
+      }
+    }
+    """
+
+  public let operationName: String = "DeleteUserBottle"
+
+  public var input: DeleteBottleInput
+
+  public init(input: DeleteBottleInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("deleteUserBottle", arguments: ["input": GraphQLVariable("input")], type: .object(DeleteUserBottle.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(deleteUserBottle: DeleteUserBottle? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "deleteUserBottle": deleteUserBottle.flatMap { (value: DeleteUserBottle) -> ResultMap in value.resultMap }])
+    }
+
+    public var deleteUserBottle: DeleteUserBottle? {
+      get {
+        return (resultMap["deleteUserBottle"] as? ResultMap).flatMap { DeleteUserBottle(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "deleteUserBottle")
+      }
+    }
+
+    public struct DeleteUserBottle: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["UserBottle"]
 
       public static var selections: [GraphQLSelection] {
