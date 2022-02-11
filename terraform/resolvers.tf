@@ -1,13 +1,3 @@
-#resource "aws_appsync_resolver" "listBottles-resolver" {
-#  api_id      = aws_appsync_graphql_api.last-dram-api.id
-#  field       = "listBottles"
-#  type        = "Query"
-#  data_source = aws_appsync_datasource.bottles-datasource.name
-#
-#  request_template  = file("resolver-templates/Scan.vtl")
-#  response_template = "$util.toJson($context.result)"
-#}
-
 resource "aws_appsync_resolver" "getBottle-resolver" {
   api_id      = aws_appsync_graphql_api.last-dram-api.id
   field       = "getBottle"
