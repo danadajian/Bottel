@@ -1,6 +1,6 @@
 import SwiftUI
 
-typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
+typealias Bottle = ListUserBottlesQuery.Data.ListUserBottle.Item
 typealias Bottles = [Bottle]
 
 struct HomeView: View {
@@ -20,12 +20,12 @@ struct HomeView: View {
             return
         }
         apollo.clearCache()
-        apollo.fetch(query: ListBottlesQuery(
+        apollo.fetch(query: ListUserBottlesQuery(
                 filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)))
         ) { result in
             switch result {
             case .success(let graphQLResult):
-                if let bottles = graphQLResult.data?.listBottles?.items {
+                if let bottles = graphQLResult.data?.listUserBottles?.items {
                     self.bottles = bottles as? Bottles
                     self.isLoading = false
                 }
