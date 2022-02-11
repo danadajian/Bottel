@@ -19,8 +19,12 @@ struct FooterView: View {
             Spacer()
 
             Button(action: sessionManager.signOut) {
-                Label("Sign Out", systemImage: "list.bullet.circle.fill")
-            }.padding()
+                Label {
+                    Text("Sign Out").foregroundColor(.primary)
+                } icon: {
+                    Image("sign-out").resizable().frame(width: 20, height: 20)
+                }
+            }.padding().buttonStyle(.bordered)
         }
     }
 }
