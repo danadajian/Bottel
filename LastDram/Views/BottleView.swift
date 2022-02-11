@@ -9,7 +9,7 @@ struct BottleView: View {
     @State var dateOpened: String = ""
     @State var dateAcquired: String = ""
     @State var showAlert = false
-    @State var bottleImage = UIImage()
+    @State var bottleImage: UIImage?
 
     func openBottle() {
         dateOpened = getFormattedDate(date: Date())
@@ -57,9 +57,13 @@ struct BottleView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: bottleImage)
-                    .resizable()
-                    .scaledToFit()
+            if let bottleImage = bottleImage {
+                Image(uiImage: bottleImage)
+                        .resizable()
+                        .scaledToFit()
+            } else {
+                Image("last-dram")
+            }
             Spacer()
             if !dateOpened.isEmpty {
                 Text("""
@@ -141,8 +145,8 @@ struct BottleView_Previews: PreviewProvider {
         NavigationView {
             BottleView(bottle: Bottle(
                 id: "123",
-                userId: "dummy",
                 name: "dummy bottle",
+                userId: "dummy",
                 dateOpened: "2022-02-05"
             ))
         }
