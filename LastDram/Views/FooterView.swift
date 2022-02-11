@@ -7,14 +7,14 @@ struct FooterView: View {
 
     var body: some View {
         HStack {
-            Button { showAlert = true } label: {
-                Label("Friends", systemImage: "person.circle.fill")
-            }.alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Feature Unavailable"),
-                    message: Text("This feature is currently in development.")
-                )
-            }.padding()
+//            Button { showAlert = true } label: {
+//                Label("Friends", systemImage: "person.circle.fill")
+//            }.alert(isPresented: $showAlert) {
+//                Alert(
+//                    title: Text("Feature Unavailable"),
+//                    message: Text("This feature is currently in development.")
+//                )
+//            }.padding()
 
             Spacer()
 
