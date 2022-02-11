@@ -1,0 +1,21 @@
+name: Swift
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.swift'
+      - '.github/workflows/test.yml'
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run unit tests
+        run: |
+          xcodebuild test \
+            -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=15.2'

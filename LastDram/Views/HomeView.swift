@@ -8,13 +8,11 @@ struct HomeView: View {
 
     @State var bottles: Bottles?
     @State var showPopover = false
-    @State var isLoading = true
     @State var isError = false
 
     let userId: String
 
     @Sendable func fetchBottles() {
-        self.isLoading = true
         guard let apollo = Network.shared.apollo else {
             isError = true
             return
@@ -27,7 +25,6 @@ struct HomeView: View {
             case .success(let graphQLResult):
                 if let bottles = graphQLResult.data?.listBottles?.items {
                     self.bottles = bottles as? Bottles
-                    self.isLoading = false
                 }
             case .failure(let error):
                 print("Error: \(error)")
