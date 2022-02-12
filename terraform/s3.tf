@@ -1,4 +1,3 @@
-resource "aws_s3_bucket" "cdn_bucket" {
-  bucket = "last-dram-cdn"
-  acl    = "private"
+resource "aws_s3_bucket" "last-dram-resources" {
+  bucket = "last-dram-resources"
 }

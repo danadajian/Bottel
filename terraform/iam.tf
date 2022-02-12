@@ -31,7 +31,8 @@ resource "aws_iam_role_policy" "last-dram-dynamodb-policy" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "${aws_dynamodb_table.bottles-table.arn}"
+        "${aws_dynamodb_table.bottles-table.arn}",
+        "${aws_dynamodb_table.user-bottles-table.arn}"
       ]
     }
   ]

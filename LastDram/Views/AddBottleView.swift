@@ -9,10 +9,10 @@ struct AddBottleView: View {
     @State var isNewBottle = true
 
     let userId: String
-    let onBottleCreate: () -> Void
+    let onBottleChange: () -> Void
 
     func createBottle() {
-        Network.shared.apollo?.perform(mutation: CreateBottleMutation(
+        Network.shared.apollo?.perform(mutation: CreateUserBottleMutation(
             input: CreateBottleInput(
                 id: UUID().uuidString,
                 userId: userId,
@@ -23,7 +23,7 @@ struct AddBottleView: View {
         )) { result in
             switch result {
             case.success:
-                onBottleCreate()
+                onBottleChange()
             case.failure(let error):
                 print("Error: \(error)")
             }
@@ -85,8 +85,8 @@ struct AddBottleView: View {
 struct NewBottle_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AddBottleView(userId: "123", onBottleCreate: {})
-            AddBottleView(userId: "123", onBottleCreate: {})
+            AddBottleView(userId: "123", onBottleChange: {})
+            AddBottleView(userId: "123", onBottleChange: {})
         }
     }
 }
