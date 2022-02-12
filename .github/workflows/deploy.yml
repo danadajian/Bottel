@@ -34,7 +34,7 @@ jobs:
           bundler-cache: true
 
       - name: Build app
-        run: fastlane run build_app
+        run: npm run build
 
       - if: github.event_name == 'release'
         name: Upload release assets
