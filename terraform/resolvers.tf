@@ -1,3 +1,7 @@
+locals {
+  default_response_template = "$util.toJson($context.result)"
+}
+
 resource "aws_appsync_resolver" "getBottle-resolver" {
   api_id      = aws_appsync_graphql_api.last-dram-api.id
   field       = "getBottle"
@@ -5,17 +9,17 @@ resource "aws_appsync_resolver" "getBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/GetItem.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "listBottles-resolver" {
   api_id      = aws_appsync_graphql_api.last-dram-api.id
   field       = "listBottles"
   type        = "Query"
-  data_source = aws_appsync_datasource.user-bottles-datasource.name
+  data_source = aws_appsync_datasource.bottles-datasource.name
 
   request_template  = file("resolver-templates/Scan.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "listUserBottles-resolver" {
@@ -25,7 +29,7 @@ resource "aws_appsync_resolver" "listUserBottles-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/Scan.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "createBottle-resolver" {
@@ -35,7 +39,7 @@ resource "aws_appsync_resolver" "createBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/PutItem.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "createUserBottle-resolver" {
@@ -45,7 +49,7 @@ resource "aws_appsync_resolver" "createUserBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/PutItem.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "updateBottle-resolver" {
@@ -55,7 +59,7 @@ resource "aws_appsync_resolver" "updateBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/UpdateItem.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "updateUserBottle-resolver" {
@@ -65,7 +69,7 @@ resource "aws_appsync_resolver" "updateUserBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/UpdateItem.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "deleteBottle-resolver" {
@@ -75,7 +79,7 @@ resource "aws_appsync_resolver" "deleteBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/DeleteItem.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
 
 resource "aws_appsync_resolver" "deleteUserBottle-resolver" {
@@ -85,5 +89,5 @@ resource "aws_appsync_resolver" "deleteUserBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/DeleteItem.vtl")
-  response_template = "$util.toJson($context.result)"
+  response_template = local.default_response_template
 }
