@@ -1,8 +1,16 @@
 name: Deploy
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'LastDram/**'
+      - '.github/workflows/deploy.yml'
   release:
-    types: [ edited, published ]
+    types:
+      - edited
+      - published
 
 env:
   PRODUCT_NAME: LastDram
@@ -42,7 +50,8 @@ jobs:
       - name: Build app
         run: fastlane run build_app
 
-      - name: Upload release assets
+      - if: github.event_name == 'release'
+        name: Upload release assets
         uses: softprops/action-gh-release@v1
         with:
           files: |
@@ -51,7 +60,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload app to App Store Connect
+      - if: github.event_name == 'release'
+        name: Upload app to App Store Connect
         run: |
           xcrun altool --upload-app \
             -t ios \
