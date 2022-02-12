@@ -17,5 +17,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+
       - name: Run unit tests
-        run: bundle exec fastlane scan --scheme "LastDramTests"
+        uses: maierj/fastlane-action@v2.0.1
+        with:
+          lane: 'test'
+
