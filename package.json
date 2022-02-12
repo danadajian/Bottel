@@ -10,6 +10,7 @@
     "graphql:types": "apollo codegen:generate --localSchemaFile=schema.graphql --includes=operations.graphql --target=swift LastDram/API.generated.swift",
     "lint": "swiftlint lint --strict --reporter github-actions-logging",
     "lint:fix": "swiftlint lint --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "bundle exec fastlane test"
   }
 }
