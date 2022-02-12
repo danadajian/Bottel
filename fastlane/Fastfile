@@ -10,9 +10,9 @@ platform :ios do
 
   desc "build"
   lane :build do
-    sh("../.github/scripts/import-certificate.sh")
-    sh("../.github/scripts/import-profile.sh")
-    sh("../.github/scripts/set-env-vars.sh")
+    sh("./import-certificate.sh")
+    sh("./import-profile.sh")
+    sh("./set-env-vars.sh")
     build_app
   end
 end
