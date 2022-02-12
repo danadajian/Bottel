@@ -4,12 +4,8 @@ query GetBottle($id: String!) {
     id
     name
     imageUrl
-    category
-    proof
-    size
     ... on UserBottle {
       userId
-      bottleId
       dateOpened
       dateAcquired
     }
@@ -18,13 +14,9 @@ query GetBottle($id: String!) {
 query GetUserBottle($id: String!, $userId: String!) {
   getUserBottle(id: $id, userId: $userId) {
     id
-    userId
-    bottleId
     name
     imageUrl
-    category
-    proof
-    size
+    userId
     dateOpened
     dateAcquired
   }
@@ -35,12 +27,8 @@ query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
       id
       name
       imageUrl
-      category
-      proof
-      size
       ... on UserBottle {
         userId
-        bottleId
         dateOpened
         dateAcquired
       }
@@ -49,20 +37,16 @@ query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
   }
 }
 query ListUserBottles(
-  $filter: UserBottleFilterInput
+  $filter: BottleFilterInput
   $limit: Int
   $nextToken: String
 ) {
   listUserBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      userId
-      bottleId
       name
       imageUrl
-      category
-      proof
-      size
+      userId
       dateOpened
       dateAcquired
     }
@@ -72,13 +56,9 @@ query ListUserBottles(
 mutation CreateUserBottle($input: CreateBottleInput!) {
   createUserBottle(input: $input) {
     id
-    userId
-    bottleId
     name
     imageUrl
-    category
-    proof
-    size
+    userId
     dateOpened
     dateAcquired
   }
@@ -86,13 +66,9 @@ mutation CreateUserBottle($input: CreateBottleInput!) {
 mutation UpdateUserBottle($input: UpdateBottleInput!) {
   updateUserBottle(input: $input) {
     id
-    userId
-    bottleId
     name
     imageUrl
-    category
-    proof
-    size
+    userId
     dateOpened
     dateAcquired
   }
@@ -100,13 +76,9 @@ mutation UpdateUserBottle($input: UpdateBottleInput!) {
 mutation DeleteUserBottle($input: DeleteBottleInput!) {
   deleteUserBottle(input: $input) {
     id
-    userId
-    bottleId
     name
     imageUrl
-    category
-    proof
-    size
+    userId
     dateOpened
     dateAcquired
   }

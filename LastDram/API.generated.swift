@@ -8,14 +8,24 @@ public struct BottleFilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
+  ///   - userId
   ///   - name
   ///   - category
   ///   - proof
   ///   - size
   ///   - dateOpened
   ///   - dateAcquired
-  public init(name: Swift.Optional<TableStringFilterInput?> = nil, category: Swift.Optional<TableStringFilterInput?> = nil, proof: Swift.Optional<TableFloatFilterInput?> = nil, size: Swift.Optional<TableStringFilterInput?> = nil, dateOpened: Swift.Optional<TableStringFilterInput?> = nil, dateAcquired: Swift.Optional<TableStringFilterInput?> = nil) {
-    graphQLMap = ["name": name, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired]
+  public init(userId: Swift.Optional<TableStringFilterInput?> = nil, name: Swift.Optional<TableStringFilterInput?> = nil, category: Swift.Optional<TableStringFilterInput?> = nil, proof: Swift.Optional<TableFloatFilterInput?> = nil, size: Swift.Optional<TableStringFilterInput?> = nil, dateOpened: Swift.Optional<TableStringFilterInput?> = nil, dateAcquired: Swift.Optional<TableStringFilterInput?> = nil) {
+    graphQLMap = ["userId": userId, "name": name, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired]
+  }
+
+  public var userId: Swift.Optional<TableStringFilterInput?> {
+    get {
+      return graphQLMap["userId"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "userId")
+    }
   }
 
   public var name: Swift.Optional<TableStringFilterInput?> {
@@ -281,85 +291,6 @@ public struct TableFloatFilterInput: GraphQLMapConvertible {
   }
 }
 
-public struct UserBottleFilterInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  /// - Parameters:
-  ///   - userId
-  ///   - name
-  ///   - category
-  ///   - proof
-  ///   - size
-  ///   - dateOpened
-  ///   - dateAcquired
-  public init(userId: Swift.Optional<TableStringFilterInput?> = nil, name: Swift.Optional<TableStringFilterInput?> = nil, category: Swift.Optional<TableStringFilterInput?> = nil, proof: Swift.Optional<TableFloatFilterInput?> = nil, size: Swift.Optional<TableStringFilterInput?> = nil, dateOpened: Swift.Optional<TableStringFilterInput?> = nil, dateAcquired: Swift.Optional<TableStringFilterInput?> = nil) {
-    graphQLMap = ["userId": userId, "name": name, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired]
-  }
-
-  public var userId: Swift.Optional<TableStringFilterInput?> {
-    get {
-      return graphQLMap["userId"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "userId")
-    }
-  }
-
-  public var name: Swift.Optional<TableStringFilterInput?> {
-    get {
-      return graphQLMap["name"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "name")
-    }
-  }
-
-  public var category: Swift.Optional<TableStringFilterInput?> {
-    get {
-      return graphQLMap["category"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "category")
-    }
-  }
-
-  public var proof: Swift.Optional<TableFloatFilterInput?> {
-    get {
-      return graphQLMap["proof"] as? Swift.Optional<TableFloatFilterInput?> ?? Swift.Optional<TableFloatFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "proof")
-    }
-  }
-
-  public var size: Swift.Optional<TableStringFilterInput?> {
-    get {
-      return graphQLMap["size"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "size")
-    }
-  }
-
-  public var dateOpened: Swift.Optional<TableStringFilterInput?> {
-    get {
-      return graphQLMap["dateOpened"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "dateOpened")
-    }
-  }
-
-  public var dateAcquired: Swift.Optional<TableStringFilterInput?> {
-    get {
-      return graphQLMap["dateAcquired"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "dateAcquired")
-    }
-  }
-}
-
 public struct CreateBottleInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -517,13 +448,9 @@ public final class GetBottleQuery: GraphQLQuery {
         id
         name
         imageUrl
-        category
-        proof
-        size
         ... on UserBottle {
           __typename
           userId
-          bottleId
           dateOpened
           dateAcquired
         }
@@ -580,12 +507,8 @@ public final class GetBottleQuery: GraphQLQuery {
           GraphQLField("id", type: .nonNull(.scalar(String.self))),
           GraphQLField("name", type: .scalar(String.self)),
           GraphQLField("imageUrl", type: .scalar(String.self)),
-          GraphQLField("category", type: .scalar(String.self)),
-          GraphQLField("proof", type: .scalar(Double.self)),
-          GraphQLField("size", type: .scalar(String.self)),
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-          GraphQLField("bottleId", type: .scalar(String.self)),
           GraphQLField("dateOpened", type: .scalar(String.self)),
           GraphQLField("dateAcquired", type: .scalar(String.self)),
         ]
@@ -597,8 +520,8 @@ public final class GetBottleQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: String, name: String? = nil, imageUrl: String? = nil, category: String? = nil, proof: Double? = nil, size: String? = nil, userId: String, bottleId: String? = nil, dateOpened: String? = nil, dateAcquired: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "category": category, "proof": proof, "size": size, "userId": userId, "bottleId": bottleId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
       }
 
       public var __typename: String {
@@ -637,48 +560,12 @@ public final class GetBottleQuery: GraphQLQuery {
         }
       }
 
-      public var category: String? {
-        get {
-          return resultMap["category"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "category")
-        }
-      }
-
-      public var proof: Double? {
-        get {
-          return resultMap["proof"] as? Double
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "proof")
-        }
-      }
-
-      public var size: String? {
-        get {
-          return resultMap["size"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "size")
-        }
-      }
-
       public var userId: String {
         get {
           return resultMap["userId"]! as! String
         }
         set {
           resultMap.updateValue(newValue, forKey: "userId")
-        }
-      }
-
-      public var bottleId: String? {
-        get {
-          return resultMap["bottleId"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "bottleId")
         }
       }
 
@@ -711,13 +598,9 @@ public final class GetUserBottleQuery: GraphQLQuery {
       getUserBottle(id: $id, userId: $userId) {
         __typename
         id
-        userId
-        bottleId
         name
         imageUrl
-        category
-        proof
-        size
+        userId
         dateOpened
         dateAcquired
       }
@@ -773,13 +656,9 @@ public final class GetUserBottleQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(String.self))),
-          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-          GraphQLField("bottleId", type: .scalar(String.self)),
           GraphQLField("name", type: .scalar(String.self)),
           GraphQLField("imageUrl", type: .scalar(String.self)),
-          GraphQLField("category", type: .scalar(String.self)),
-          GraphQLField("proof", type: .scalar(Double.self)),
-          GraphQLField("size", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
           GraphQLField("dateOpened", type: .scalar(String.self)),
           GraphQLField("dateAcquired", type: .scalar(String.self)),
         ]
@@ -791,8 +670,8 @@ public final class GetUserBottleQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: String, userId: String, bottleId: String? = nil, name: String? = nil, imageUrl: String? = nil, category: String? = nil, proof: Double? = nil, size: String? = nil, dateOpened: String? = nil, dateAcquired: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "userId": userId, "bottleId": bottleId, "name": name, "imageUrl": imageUrl, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
       }
 
       public var __typename: String {
@@ -810,24 +689,6 @@ public final class GetUserBottleQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "id")
-        }
-      }
-
-      public var userId: String {
-        get {
-          return resultMap["userId"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "userId")
-        }
-      }
-
-      public var bottleId: String? {
-        get {
-          return resultMap["bottleId"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "bottleId")
         }
       }
 
@@ -849,30 +710,12 @@ public final class GetUserBottleQuery: GraphQLQuery {
         }
       }
 
-      public var category: String? {
+      public var userId: String {
         get {
-          return resultMap["category"] as? String
+          return resultMap["userId"]! as! String
         }
         set {
-          resultMap.updateValue(newValue, forKey: "category")
-        }
-      }
-
-      public var proof: Double? {
-        get {
-          return resultMap["proof"] as? Double
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "proof")
-        }
-      }
-
-      public var size: String? {
-        get {
-          return resultMap["size"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "size")
+          resultMap.updateValue(newValue, forKey: "userId")
         }
       }
 
@@ -909,13 +752,9 @@ public final class ListBottlesQuery: GraphQLQuery {
           id
           name
           imageUrl
-          category
-          proof
-          size
           ... on UserBottle {
             __typename
             userId
-            bottleId
             dateOpened
             dateAcquired
           }
@@ -1026,12 +865,8 @@ public final class ListBottlesQuery: GraphQLQuery {
             GraphQLField("id", type: .nonNull(.scalar(String.self))),
             GraphQLField("name", type: .scalar(String.self)),
             GraphQLField("imageUrl", type: .scalar(String.self)),
-            GraphQLField("category", type: .scalar(String.self)),
-            GraphQLField("proof", type: .scalar(Double.self)),
-            GraphQLField("size", type: .scalar(String.self)),
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-            GraphQLField("bottleId", type: .scalar(String.self)),
             GraphQLField("dateOpened", type: .scalar(String.self)),
             GraphQLField("dateAcquired", type: .scalar(String.self)),
           ]
@@ -1043,8 +878,8 @@ public final class ListBottlesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: String, name: String? = nil, imageUrl: String? = nil, category: String? = nil, proof: Double? = nil, size: String? = nil, userId: String, bottleId: String? = nil, dateOpened: String? = nil, dateAcquired: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "category": category, "proof": proof, "size": size, "userId": userId, "bottleId": bottleId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+        public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
         }
 
         public var __typename: String {
@@ -1083,48 +918,12 @@ public final class ListBottlesQuery: GraphQLQuery {
           }
         }
 
-        public var category: String? {
-          get {
-            return resultMap["category"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "category")
-          }
-        }
-
-        public var proof: Double? {
-          get {
-            return resultMap["proof"] as? Double
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "proof")
-          }
-        }
-
-        public var size: String? {
-          get {
-            return resultMap["size"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "size")
-          }
-        }
-
         public var userId: String {
           get {
             return resultMap["userId"]! as! String
           }
           set {
             resultMap.updateValue(newValue, forKey: "userId")
-          }
-        }
-
-        public var bottleId: String? {
-          get {
-            return resultMap["bottleId"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "bottleId")
           }
         }
 
@@ -1154,19 +953,15 @@ public final class ListUserBottlesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query ListUserBottles($filter: UserBottleFilterInput, $limit: Int, $nextToken: String) {
+    query ListUserBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
       listUserBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
         __typename
         items {
           __typename
           id
-          userId
-          bottleId
           name
           imageUrl
-          category
-          proof
-          size
+          userId
           dateOpened
           dateAcquired
         }
@@ -1177,11 +972,11 @@ public final class ListUserBottlesQuery: GraphQLQuery {
 
   public let operationName: String = "ListUserBottles"
 
-  public var filter: UserBottleFilterInput?
+  public var filter: BottleFilterInput?
   public var limit: Int?
   public var nextToken: String?
 
-  public init(filter: UserBottleFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
+  public init(filter: BottleFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
     self.filter = filter
     self.limit = limit
     self.nextToken = nextToken
@@ -1274,13 +1069,9 @@ public final class ListUserBottlesQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(String.self))),
-            GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-            GraphQLField("bottleId", type: .scalar(String.self)),
             GraphQLField("name", type: .scalar(String.self)),
             GraphQLField("imageUrl", type: .scalar(String.self)),
-            GraphQLField("category", type: .scalar(String.self)),
-            GraphQLField("proof", type: .scalar(Double.self)),
-            GraphQLField("size", type: .scalar(String.self)),
+            GraphQLField("userId", type: .nonNull(.scalar(String.self))),
             GraphQLField("dateOpened", type: .scalar(String.self)),
             GraphQLField("dateAcquired", type: .scalar(String.self)),
           ]
@@ -1292,8 +1083,8 @@ public final class ListUserBottlesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: String, userId: String, bottleId: String? = nil, name: String? = nil, imageUrl: String? = nil, category: String? = nil, proof: Double? = nil, size: String? = nil, dateOpened: String? = nil, dateAcquired: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "userId": userId, "bottleId": bottleId, "name": name, "imageUrl": imageUrl, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+        public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
         }
 
         public var __typename: String {
@@ -1311,24 +1102,6 @@ public final class ListUserBottlesQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "id")
-          }
-        }
-
-        public var userId: String {
-          get {
-            return resultMap["userId"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "userId")
-          }
-        }
-
-        public var bottleId: String? {
-          get {
-            return resultMap["bottleId"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "bottleId")
           }
         }
 
@@ -1350,30 +1123,12 @@ public final class ListUserBottlesQuery: GraphQLQuery {
           }
         }
 
-        public var category: String? {
+        public var userId: String {
           get {
-            return resultMap["category"] as? String
+            return resultMap["userId"]! as! String
           }
           set {
-            resultMap.updateValue(newValue, forKey: "category")
-          }
-        }
-
-        public var proof: Double? {
-          get {
-            return resultMap["proof"] as? Double
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "proof")
-          }
-        }
-
-        public var size: String? {
-          get {
-            return resultMap["size"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "size")
+            resultMap.updateValue(newValue, forKey: "userId")
           }
         }
 
@@ -1407,13 +1162,9 @@ public final class CreateUserBottleMutation: GraphQLMutation {
       createUserBottle(input: $input) {
         __typename
         id
-        userId
-        bottleId
         name
         imageUrl
-        category
-        proof
-        size
+        userId
         dateOpened
         dateAcquired
       }
@@ -1467,13 +1218,9 @@ public final class CreateUserBottleMutation: GraphQLMutation {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(String.self))),
-          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-          GraphQLField("bottleId", type: .scalar(String.self)),
           GraphQLField("name", type: .scalar(String.self)),
           GraphQLField("imageUrl", type: .scalar(String.self)),
-          GraphQLField("category", type: .scalar(String.self)),
-          GraphQLField("proof", type: .scalar(Double.self)),
-          GraphQLField("size", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
           GraphQLField("dateOpened", type: .scalar(String.self)),
           GraphQLField("dateAcquired", type: .scalar(String.self)),
         ]
@@ -1485,8 +1232,8 @@ public final class CreateUserBottleMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: String, userId: String, bottleId: String? = nil, name: String? = nil, imageUrl: String? = nil, category: String? = nil, proof: Double? = nil, size: String? = nil, dateOpened: String? = nil, dateAcquired: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "userId": userId, "bottleId": bottleId, "name": name, "imageUrl": imageUrl, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
       }
 
       public var __typename: String {
@@ -1504,24 +1251,6 @@ public final class CreateUserBottleMutation: GraphQLMutation {
         }
         set {
           resultMap.updateValue(newValue, forKey: "id")
-        }
-      }
-
-      public var userId: String {
-        get {
-          return resultMap["userId"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "userId")
-        }
-      }
-
-      public var bottleId: String? {
-        get {
-          return resultMap["bottleId"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "bottleId")
         }
       }
 
@@ -1543,30 +1272,12 @@ public final class CreateUserBottleMutation: GraphQLMutation {
         }
       }
 
-      public var category: String? {
+      public var userId: String {
         get {
-          return resultMap["category"] as? String
+          return resultMap["userId"]! as! String
         }
         set {
-          resultMap.updateValue(newValue, forKey: "category")
-        }
-      }
-
-      public var proof: Double? {
-        get {
-          return resultMap["proof"] as? Double
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "proof")
-        }
-      }
-
-      public var size: String? {
-        get {
-          return resultMap["size"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "size")
+          resultMap.updateValue(newValue, forKey: "userId")
         }
       }
 
@@ -1599,13 +1310,9 @@ public final class UpdateUserBottleMutation: GraphQLMutation {
       updateUserBottle(input: $input) {
         __typename
         id
-        userId
-        bottleId
         name
         imageUrl
-        category
-        proof
-        size
+        userId
         dateOpened
         dateAcquired
       }
@@ -1659,13 +1366,9 @@ public final class UpdateUserBottleMutation: GraphQLMutation {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(String.self))),
-          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-          GraphQLField("bottleId", type: .scalar(String.self)),
           GraphQLField("name", type: .scalar(String.self)),
           GraphQLField("imageUrl", type: .scalar(String.self)),
-          GraphQLField("category", type: .scalar(String.self)),
-          GraphQLField("proof", type: .scalar(Double.self)),
-          GraphQLField("size", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
           GraphQLField("dateOpened", type: .scalar(String.self)),
           GraphQLField("dateAcquired", type: .scalar(String.self)),
         ]
@@ -1677,8 +1380,8 @@ public final class UpdateUserBottleMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: String, userId: String, bottleId: String? = nil, name: String? = nil, imageUrl: String? = nil, category: String? = nil, proof: Double? = nil, size: String? = nil, dateOpened: String? = nil, dateAcquired: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "userId": userId, "bottleId": bottleId, "name": name, "imageUrl": imageUrl, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
       }
 
       public var __typename: String {
@@ -1696,24 +1399,6 @@ public final class UpdateUserBottleMutation: GraphQLMutation {
         }
         set {
           resultMap.updateValue(newValue, forKey: "id")
-        }
-      }
-
-      public var userId: String {
-        get {
-          return resultMap["userId"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "userId")
-        }
-      }
-
-      public var bottleId: String? {
-        get {
-          return resultMap["bottleId"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "bottleId")
         }
       }
 
@@ -1735,30 +1420,12 @@ public final class UpdateUserBottleMutation: GraphQLMutation {
         }
       }
 
-      public var category: String? {
+      public var userId: String {
         get {
-          return resultMap["category"] as? String
+          return resultMap["userId"]! as! String
         }
         set {
-          resultMap.updateValue(newValue, forKey: "category")
-        }
-      }
-
-      public var proof: Double? {
-        get {
-          return resultMap["proof"] as? Double
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "proof")
-        }
-      }
-
-      public var size: String? {
-        get {
-          return resultMap["size"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "size")
+          resultMap.updateValue(newValue, forKey: "userId")
         }
       }
 
@@ -1791,13 +1458,9 @@ public final class DeleteUserBottleMutation: GraphQLMutation {
       deleteUserBottle(input: $input) {
         __typename
         id
-        userId
-        bottleId
         name
         imageUrl
-        category
-        proof
-        size
+        userId
         dateOpened
         dateAcquired
       }
@@ -1851,13 +1514,9 @@ public final class DeleteUserBottleMutation: GraphQLMutation {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(String.self))),
-          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
-          GraphQLField("bottleId", type: .scalar(String.self)),
           GraphQLField("name", type: .scalar(String.self)),
           GraphQLField("imageUrl", type: .scalar(String.self)),
-          GraphQLField("category", type: .scalar(String.self)),
-          GraphQLField("proof", type: .scalar(Double.self)),
-          GraphQLField("size", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
           GraphQLField("dateOpened", type: .scalar(String.self)),
           GraphQLField("dateAcquired", type: .scalar(String.self)),
         ]
@@ -1869,8 +1528,8 @@ public final class DeleteUserBottleMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: String, userId: String, bottleId: String? = nil, name: String? = nil, imageUrl: String? = nil, category: String? = nil, proof: Double? = nil, size: String? = nil, dateOpened: String? = nil, dateAcquired: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "userId": userId, "bottleId": bottleId, "name": name, "imageUrl": imageUrl, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
       }
 
       public var __typename: String {
@@ -1888,24 +1547,6 @@ public final class DeleteUserBottleMutation: GraphQLMutation {
         }
         set {
           resultMap.updateValue(newValue, forKey: "id")
-        }
-      }
-
-      public var userId: String {
-        get {
-          return resultMap["userId"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "userId")
-        }
-      }
-
-      public var bottleId: String? {
-        get {
-          return resultMap["bottleId"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "bottleId")
         }
       }
 
@@ -1927,30 +1568,12 @@ public final class DeleteUserBottleMutation: GraphQLMutation {
         }
       }
 
-      public var category: String? {
+      public var userId: String {
         get {
-          return resultMap["category"] as? String
+          return resultMap["userId"]! as! String
         }
         set {
-          resultMap.updateValue(newValue, forKey: "category")
-        }
-      }
-
-      public var proof: Double? {
-        get {
-          return resultMap["proof"] as? Double
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "proof")
-        }
-      }
-
-      public var size: String? {
-        get {
-          return resultMap["size"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "size")
+          resultMap.updateValue(newValue, forKey: "userId")
         }
       }
 

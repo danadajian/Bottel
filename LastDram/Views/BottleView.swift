@@ -156,8 +156,8 @@ struct BottleView_Previews: PreviewProvider {
         NavigationView {
             BottleView(bottle: Bottle(
                     id: "123",
-                    userId: "dummy",
                     name: "dummy bottle",
+                    userId: "dummy",
                     dateOpened: "2022-02-05"
             ), onBottleChange: {})
         }

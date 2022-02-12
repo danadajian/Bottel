@@ -2,7 +2,7 @@ type Query {
     getBottle(id: String!): Bottle
     getUserBottle(id: String!, userId: String!): UserBottle
     listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
-    listUserBottles(filter: UserBottleFilterInput, limit: Int, nextToken: String): UserBottles
+    listUserBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
 }
 
 type Mutation {
@@ -15,20 +15,13 @@ interface Bottle {
     id: String!
     name: String
     imageUrl: String
-    category: String
-    proof: Float
-    size: String
 }
 
 type UserBottle implements Bottle {
     id: String!
-    userId: String!
-    bottleId: String
     name: String
     imageUrl: String
-    category: String
-    proof: Float
-    size: String
+    userId: String!
     dateOpened: String
     dateAcquired: String
 }
@@ -44,15 +37,6 @@ type UserBottles {
 }
 
 input BottleFilterInput {
-    name: TableStringFilterInput
-    category: TableStringFilterInput
-    proof: TableFloatFilterInput
-    size: TableStringFilterInput
-    dateOpened: TableStringFilterInput
-    dateAcquired: TableStringFilterInput
-}
-
-input UserBottleFilterInput {
     userId: TableStringFilterInput
     name: TableStringFilterInput
     category: TableStringFilterInput
@@ -99,6 +83,18 @@ input TableStringFilterInput {
 input TableBooleanFilterInput {
     ne: Boolean
     eq: Boolean
+}
+
+input TableIntFilterInput {
+    ne: Int
+    eq: Int
+    le: Int
+    lt: Int
+    ge: Int
+    gt: Int
+    contains: Int
+    notContains: Int
+    between: [Int]
 }
 
 input TableFloatFilterInput {
