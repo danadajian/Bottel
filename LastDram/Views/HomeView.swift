@@ -12,6 +12,7 @@ struct HomeView: View {
     @State var nextToken: String?
     @State var showPopover = false
     @State var isError = false
+    @State var errorMessage = "An error occurred"
 
     let userId: String
 
@@ -35,6 +36,9 @@ struct HomeView: View {
                     bottlesArray.append(newBottles)
                     pageNumber += 1
                     self.nextToken = listUserBottles.nextToken
+                } else {
+                    isError = true
+                    errorMessage = graphQLResult.errors?.map({ error in error.message! }).joined() ?? ""
                 }
             case .failure(let error):
                 print("Error: \(error)")
@@ -133,7 +137,7 @@ struct HomeView: View {
         }
                 .alert(isPresented: $isError) {
             Alert(title: Text("Error"),
-                    message: Text("An error occurred."),
+                    message: Text(errorMessage),
                     dismissButton: Alert.Button.default(
                             Text("Return to login"), action: { sessionManager.signOut() }
                     )

@@ -8,23 +8,15 @@ public struct BottleFilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
-  ///   - id
   ///   - userId
   ///   - name
-  ///   - imageUrl
+  ///   - category
+  ///   - proof
+  ///   - size
   ///   - dateOpened
   ///   - dateAcquired
-  public init(id: Swift.Optional<TableStringFilterInput?> = nil, userId: Swift.Optional<TableStringFilterInput?> = nil, name: Swift.Optional<TableStringFilterInput?> = nil, imageUrl: Swift.Optional<TableStringFilterInput?> = nil, dateOpened: Swift.Optional<TableStringFilterInput?> = nil, dateAcquired: Swift.Optional<TableStringFilterInput?> = nil) {
-    graphQLMap = ["id": id, "userId": userId, "name": name, "imageUrl": imageUrl, "dateOpened": dateOpened, "dateAcquired": dateAcquired]
-  }
-
-  public var id: Swift.Optional<TableStringFilterInput?> {
-    get {
-      return graphQLMap["id"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "id")
-    }
+  public init(userId: Swift.Optional<TableStringFilterInput?> = nil, name: Swift.Optional<TableStringFilterInput?> = nil, category: Swift.Optional<TableStringFilterInput?> = nil, proof: Swift.Optional<TableFloatFilterInput?> = nil, size: Swift.Optional<TableStringFilterInput?> = nil, dateOpened: Swift.Optional<TableStringFilterInput?> = nil, dateAcquired: Swift.Optional<TableStringFilterInput?> = nil) {
+    graphQLMap = ["userId": userId, "name": name, "category": category, "proof": proof, "size": size, "dateOpened": dateOpened, "dateAcquired": dateAcquired]
   }
 
   public var userId: Swift.Optional<TableStringFilterInput?> {
@@ -45,12 +37,30 @@ public struct BottleFilterInput: GraphQLMapConvertible {
     }
   }
 
-  public var imageUrl: Swift.Optional<TableStringFilterInput?> {
+  public var category: Swift.Optional<TableStringFilterInput?> {
     get {
-      return graphQLMap["imageUrl"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
+      return graphQLMap["category"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "imageUrl")
+      graphQLMap.updateValue(newValue, forKey: "category")
+    }
+  }
+
+  public var proof: Swift.Optional<TableFloatFilterInput?> {
+    get {
+      return graphQLMap["proof"] as? Swift.Optional<TableFloatFilterInput?> ?? Swift.Optional<TableFloatFilterInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "proof")
+    }
+  }
+
+  public var size: Swift.Optional<TableStringFilterInput?> {
+    get {
+      return graphQLMap["size"] as? Swift.Optional<TableStringFilterInput?> ?? Swift.Optional<TableStringFilterInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "size")
     }
   }
 
@@ -178,6 +188,105 @@ public struct TableStringFilterInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "beginsWith")
+    }
+  }
+}
+
+public struct TableFloatFilterInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - ne
+  ///   - eq
+  ///   - le
+  ///   - lt
+  ///   - ge
+  ///   - gt
+  ///   - contains
+  ///   - notContains
+  ///   - between
+  public init(ne: Swift.Optional<Double?> = nil, eq: Swift.Optional<Double?> = nil, le: Swift.Optional<Double?> = nil, lt: Swift.Optional<Double?> = nil, ge: Swift.Optional<Double?> = nil, gt: Swift.Optional<Double?> = nil, contains: Swift.Optional<Double?> = nil, notContains: Swift.Optional<Double?> = nil, between: Swift.Optional<[Double?]?> = nil) {
+    graphQLMap = ["ne": ne, "eq": eq, "le": le, "lt": lt, "ge": ge, "gt": gt, "contains": contains, "notContains": notContains, "between": between]
+  }
+
+  public var ne: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["ne"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ne")
+    }
+  }
+
+  public var eq: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["eq"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "eq")
+    }
+  }
+
+  public var le: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["le"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "le")
+    }
+  }
+
+  public var lt: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["lt"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lt")
+    }
+  }
+
+  public var ge: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["ge"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ge")
+    }
+  }
+
+  public var gt: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["gt"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gt")
+    }
+  }
+
+  public var contains: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["contains"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "contains")
+    }
+  }
+
+  public var notContains: Swift.Optional<Double?> {
+    get {
+      return graphQLMap["notContains"] as? Swift.Optional<Double?> ?? Swift.Optional<Double?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "notContains")
+    }
+  }
+
+  public var between: Swift.Optional<[Double?]?> {
+    get {
+      return graphQLMap["between"] as? Swift.Optional<[Double?]?> ?? Swift.Optional<[Double?]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "between")
     }
   }
 }
@@ -389,6 +498,156 @@ public final class GetBottleQuery: GraphQLQuery {
     }
 
     public struct GetBottle: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["UserBottle"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(String.self))),
+          GraphQLField("name", type: .scalar(String.self)),
+          GraphQLField("imageUrl", type: .scalar(String.self)),
+          GraphQLField("userId", type: .nonNull(.scalar(String.self))),
+          GraphQLField("dateOpened", type: .scalar(String.self)),
+          GraphQLField("dateAcquired", type: .scalar(String.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: String, name: String? = nil, imageUrl: String? = nil, userId: String, dateOpened: String? = nil, dateAcquired: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserBottle", "id": id, "name": name, "imageUrl": imageUrl, "userId": userId, "dateOpened": dateOpened, "dateAcquired": dateAcquired])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: String {
+        get {
+          return resultMap["id"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var name: String? {
+        get {
+          return resultMap["name"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var imageUrl: String? {
+        get {
+          return resultMap["imageUrl"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "imageUrl")
+        }
+      }
+
+      public var userId: String {
+        get {
+          return resultMap["userId"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "userId")
+        }
+      }
+
+      public var dateOpened: String? {
+        get {
+          return resultMap["dateOpened"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateOpened")
+        }
+      }
+
+      public var dateAcquired: String? {
+        get {
+          return resultMap["dateAcquired"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "dateAcquired")
+        }
+      }
+    }
+  }
+}
+
+public final class GetUserBottleQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query GetUserBottle($id: String!, $userId: String!) {
+      getUserBottle(id: $id, userId: $userId) {
+        __typename
+        id
+        name
+        imageUrl
+        userId
+        dateOpened
+        dateAcquired
+      }
+    }
+    """
+
+  public let operationName: String = "GetUserBottle"
+
+  public var id: String
+  public var userId: String
+
+  public init(id: String, userId: String) {
+    self.id = id
+    self.userId = userId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id, "userId": userId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("getUserBottle", arguments: ["id": GraphQLVariable("id"), "userId": GraphQLVariable("userId")], type: .object(GetUserBottle.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(getUserBottle: GetUserBottle? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "getUserBottle": getUserBottle.flatMap { (value: GetUserBottle) -> ResultMap in value.resultMap }])
+    }
+
+    public var getUserBottle: GetUserBottle? {
+      get {
+        return (resultMap["getUserBottle"] as? ResultMap).flatMap { GetUserBottle(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "getUserBottle")
+      }
+    }
+
+    public struct GetUserBottle: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["UserBottle"]
 
       public static var selections: [GraphQLSelection] {
