@@ -10,6 +10,7 @@ struct BottleView: View {
     @State var dateAcquired: String = ""
     @State var showAlert = false
     @State var bottleImage: UIImage?
+    let onBottleChange: () -> Void
 
     func openBottle() {
         dateOpened = getFormattedDate(date: Date())
@@ -25,6 +26,7 @@ struct BottleView: View {
         )) { result in
             switch result {
             case.success:
+                onBottleChange()
                 showAlert = true
                 presentationMode.wrappedValue.dismiss()
             case.failure(let error):
@@ -38,6 +40,7 @@ struct BottleView: View {
         )) { result in
             switch result {
             case.success:
+                onBottleChange()
                 showAlert = true
                 presentationMode.wrappedValue.dismiss()
             case.failure(let error):
@@ -148,7 +151,7 @@ struct BottleView_Previews: PreviewProvider {
                 name: "dummy bottle",
                 userId: "dummy",
                 dateOpened: "2022-02-05"
-            ))
+            ), onBottleChange: {})
         }
     }
 }

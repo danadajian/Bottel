@@ -5,11 +5,13 @@
     "husky": "7.0.4"
   },
   "scripts": {
+    "build": "bundle exec fastlane build",
     "graphql": "npm run graphql:queries && npm run graphql:types",
     "graphql:queries": "amplify-graphql-docs-generator --schema schema.graphql --output operations.graphql",
     "graphql:types": "apollo codegen:generate --localSchemaFile=schema.graphql --includes=operations.graphql --target=swift LastDram/API.generated.swift",
     "lint": "swiftlint lint --strict --reporter github-actions-logging",
     "lint:fix": "swiftlint lint --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "bundle exec fastlane test"
   }
 }

@@ -2,8 +2,10 @@ import XCTest
 @testable import LastDram
 
 class LastDramTests: XCTestCase {
+    let twelveHoursInSeconds = 43200
+
     func test_getFormattedDate() throws {
-        let result = getFormattedDate(date: Date(timeIntervalSince1970: TimeInterval(100000)))
+        let result = getFormattedDate(date: Date(timeIntervalSince1970: TimeInterval(twelveHoursInSeconds)))
         XCTAssertEqual(result, "01/01/70")
     }
 

@@ -9,6 +9,10 @@ on:
       - '*.graphql'
       - '.github/workflows/tf-plan.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 defaults:
   run:
     working-directory: terraform
