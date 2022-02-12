@@ -1,15 +1,3 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
 opt_out_usage
 
 default_platform(:ios)
@@ -20,9 +8,11 @@ platform :ios do
     scan(scheme: "LastDramTests")
   end
 
-  desc "Generate new localized screenshots"
-  lane :screenshots do
-    capture_screenshots(scheme: "LastDramUITests")
-    upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
+  desc "build"
+  lane :build do
+    sh("../.github/scripts/import-certificate.sh")
+    sh("../.github/scripts/import-profile.sh")
+    sh("../.github/scripts/set-env-vars.sh")
+    build_app
   end
 end
