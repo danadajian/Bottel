@@ -10,7 +10,7 @@ on:
       - '.github/workflows/tf-plan.yml'
 
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 defaults:
