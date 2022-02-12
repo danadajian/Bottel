@@ -85,18 +85,6 @@ input TableBooleanFilterInput {
     eq: Boolean
 }
 
-input TableIntFilterInput {
-    ne: Int
-    eq: Int
-    le: Int
-    lt: Int
-    ge: Int
-    gt: Int
-    contains: Int
-    notContains: Int
-    between: [Int]
-}
-
 input TableFloatFilterInput {
     ne: Float
     eq: Float
