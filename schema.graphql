@@ -1,5 +1,6 @@
 type Query {
     getBottle(id: String!, userId: String!): UserBottle
+    getUserBottle(id: String!, userId: String!): UserBottle
     listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
     listUserBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
 }
@@ -39,10 +40,11 @@ type UserBottles {
 }
 
 input BottleFilterInput {
-    id: TableStringFilterInput
     userId: TableStringFilterInput
     name: TableStringFilterInput
-    imageUrl: TableStringFilterInput
+    category: TableStringFilterInput
+    proof: TableFloatFilterInput
+    size: TableStringFilterInput
     dateOpened: TableStringFilterInput
     dateAcquired: TableStringFilterInput
 }
@@ -86,14 +88,14 @@ input TableBooleanFilterInput {
     eq: Boolean
 }
 
-input TableIntFilterInput {
-    ne: Int
-    eq: Int
-    le: Int
-    lt: Int
-    ge: Int
-    gt: Int
-    contains: Int
-    notContains: Int
-    between: [Int]
+input TableFloatFilterInput {
+    ne: Float
+    eq: Float
+    le: Float
+    lt: Float
+    ge: Float
+    gt: Float
+    contains: Float
+    notContains: Float
+    between: [Float]
 }
