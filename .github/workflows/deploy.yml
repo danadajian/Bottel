@@ -12,8 +12,18 @@ on:
       - edited
       - published
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   PRODUCT_NAME: LastDram
+  API_URL: ${{ secrets.API_URL }}
+  API_KEY: ${{ secrets.API_KEY }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+  SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+  PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
 
 jobs:
   deploy:
@@ -23,32 +33,14 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
 
-      - name: Import signing certificate
-        run: .github/scripts/import-certificate.sh
-        env:
-          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
-          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
-
-      - name: Import provisioning profile
-        run: .github/scripts/import-profile.sh
-        env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
-
-      - name: Set project versions
-        run: |
-          VERSION_TAG=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
-          NEW_VERSION=${VERSION_TAG:1}
-          echo NEW_VERSION=$NEW_VERSION
-          xcrun agvtool new-version $NEW_VERSION
-          sed -i '' "s#MARKETING_VERSION \= [^\;]*\;#MARKETING_VERSION = $NEW_VERSION;#g" LastDram.xcodeproj/project.pbxproj
-
-      - name: Set environment variables
-        run: |
-          sed -i '' "s#REPLACE_ME_WITH_API_URL#${{ secrets.API_URL }}#g" LastDram/EnvironmentVariables.swift
-          sed -i '' "s#REPLACE_ME_WITH_API_KEY#${{ secrets.API_KEY }}#g" LastDram/EnvironmentVariables.swift
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
 
       - name: Build app
-        run: fastlane run build_app
+        run: npm run build
 
       - if: github.event_name == 'release'
         name: Upload release assets
@@ -57,8 +49,6 @@ jobs:
           files: |
             ${{ env.PRODUCT_NAME }}.ipa
             ${{ env.PRODUCT_NAME }}.app.dSYM.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - if: github.event_name == 'release'
         name: Upload app to App Store Connect
