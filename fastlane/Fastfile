@@ -10,9 +10,9 @@ platform :ios do
 
   desc "build"
   lane :build do
-    sh("./import-certificate.sh")
-    sh("./import-profile.sh")
-    sh("./set-env-vars.sh")
+    sh("cd .. && fastlane/import-certificate.sh")
+    sh("cd .. && fastlane/import-profile.sh")
+    sh("cd .. && fastlane/set-env-vars.sh")
     build_app
   end
 end
