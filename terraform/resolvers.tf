@@ -6,6 +6,16 @@ resource "aws_appsync_resolver" "getBottle-resolver" {
   api_id      = aws_appsync_graphql_api.last-dram-api.id
   field       = "getBottle"
   type        = "Query"
+  data_source = aws_appsync_datasource.bottles-datasource.name
+
+  request_template  = file("resolver-templates/GetItem.vtl")
+  response_template = local.default_response_template
+}
+
+resource "aws_appsync_resolver" "getUserBottle-resolver" {
+  api_id      = aws_appsync_graphql_api.last-dram-api.id
+  field       = "getUserBottle"
+  type        = "Query"
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/GetItem.vtl")

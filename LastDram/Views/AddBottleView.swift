@@ -29,6 +29,19 @@ struct AddBottleView: View {
             }
         }
     }
+    func searchBottles() {
+        Network.shared.apollo?.fetch(query: ListBottlesQuery(
+            filter: BottleFilterInput(name: TableStringFilterInput(contains: "")),
+            limit: 10
+        )) { result in
+            switch result {
+            case.success:
+                print("Success")
+            case.failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 
     var body: some View {
         VStack(alignment: .center) {

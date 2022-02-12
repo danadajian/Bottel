@@ -1,10 +1,30 @@
 # this is an auto generated file. This will be overwritten
-query GetBottle($id: String!, $userId: String!) {
-  getBottle(id: $id, userId: $userId) {
+query GetBottle($id: String!) {
+  getBottle(id: $id) {
     id
     name
     imageUrl
+    category
+    proof
+    size
+    ... on UserBottle {
+      userId
+      bottleId
+      dateOpened
+      dateAcquired
+    }
+  }
+}
+query GetUserBottle($id: String!, $userId: String!) {
+  getUserBottle(id: $id, userId: $userId) {
+    id
     userId
+    bottleId
+    name
+    imageUrl
+    category
+    proof
+    size
     dateOpened
     dateAcquired
   }
@@ -15,8 +35,12 @@ query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
       id
       name
       imageUrl
+      category
+      proof
+      size
       ... on UserBottle {
         userId
+        bottleId
         dateOpened
         dateAcquired
       }
@@ -25,16 +49,20 @@ query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
   }
 }
 query ListUserBottles(
-  $filter: BottleFilterInput
+  $filter: UserBottleFilterInput
   $limit: Int
   $nextToken: String
 ) {
   listUserBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      userId
+      bottleId
       name
       imageUrl
-      userId
+      category
+      proof
+      size
       dateOpened
       dateAcquired
     }
@@ -44,9 +72,13 @@ query ListUserBottles(
 mutation CreateUserBottle($input: CreateBottleInput!) {
   createUserBottle(input: $input) {
     id
+    userId
+    bottleId
     name
     imageUrl
-    userId
+    category
+    proof
+    size
     dateOpened
     dateAcquired
   }
@@ -54,9 +86,13 @@ mutation CreateUserBottle($input: CreateBottleInput!) {
 mutation UpdateUserBottle($input: UpdateBottleInput!) {
   updateUserBottle(input: $input) {
     id
+    userId
+    bottleId
     name
     imageUrl
-    userId
+    category
+    proof
+    size
     dateOpened
     dateAcquired
   }
@@ -64,9 +100,13 @@ mutation UpdateUserBottle($input: UpdateBottleInput!) {
 mutation DeleteUserBottle($input: DeleteBottleInput!) {
   deleteUserBottle(input: $input) {
     id
+    userId
+    bottleId
     name
     imageUrl
-    userId
+    category
+    proof
+    size
     dateOpened
     dateAcquired
   }

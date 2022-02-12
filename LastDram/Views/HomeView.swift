@@ -22,7 +22,7 @@ struct HomeView: View {
         }
         apollo.clearCache()
         apollo.fetch(query: ListUserBottlesQuery(
-                filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)),
+                filter: UserBottleFilterInput(userId: TableStringFilterInput(eq: userId)),
                 limit: 12,
                 nextToken: nextToken
         )
