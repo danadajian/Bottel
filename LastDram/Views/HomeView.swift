@@ -25,8 +25,7 @@ struct HomeView: View {
                 filter: UserBottleFilterInput(userId: TableStringFilterInput(eq: userId)),
                 limit: 12,
                 nextToken: nextToken
-        )
-        ) { result in
+        )) { result in
             switch result {
             case .success(let graphQLResult):
                 if let listUserBottles = graphQLResult.data?.listUserBottles {
@@ -79,7 +78,8 @@ struct HomeView: View {
                                             destination: BottleView(bottle: bottle, onBottleChange: onBottleChange)
                                     )
                                 }
-                            }.navigationTitle("My Bottles")
+                            }
+                                    .navigationTitle("My Bottles")
                             VStack {
                                 Spacer()
                                 HStack {
@@ -115,30 +115,33 @@ struct HomeView: View {
                     }
                 } else {
                     ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .scaleEffect(2)
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .scaleEffect(2)
                 }
             }
-                    .onAppear { fetchBottles(nextToken: nil) }
+                    .onAppear {
+                        fetchBottles(nextToken: nil)
+                    }
 
             ZStack {
                 Button(action: displayPopover) {
                     Image(systemName: "plus.circle.fill")
                             .font(.system(size: 90))
-                }.popover(isPresented: $showPopover) {
-                    AddBottleView(userId: userId, onBottleChange: onBottleChange)
                 }
+                        .popover(isPresented: $showPopover) {
+                            AddBottleView(userId: userId, onBottleChange: onBottleChange)
+                        }
                 FooterView()
             }
         }
                 .alert(isPresented: $isError) {
-            Alert(title: Text("Error"),
-                    message: Text("An error occurred."),
-                    dismissButton: Alert.Button.default(
-                            Text("Return to login"), action: { sessionManager.signOut() }
+                    Alert(title: Text("Error"),
+                            message: Text("An error occurred."),
+                            dismissButton: Alert.Button.default(
+                                    Text("Return to login"), action: { sessionManager.signOut() }
+                            )
                     )
-            )
-        }
+                }
     }
 }
 
