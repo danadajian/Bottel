@@ -13,6 +13,6 @@ platform :ios do
     sh("cd .. && fastlane/import-certificate.sh")
     sh("cd .. && fastlane/import-profile.sh")
     sh("cd .. && fastlane/set-env-vars.sh")
-    build_app
+    build_app(scheme: "LastDram")
   end
 end

@@ -12,6 +12,10 @@ on:
       - edited
       - published
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   PRODUCT_NAME: LastDram
   API_URL: ${{ secrets.API_URL }}
