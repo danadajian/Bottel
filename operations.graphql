@@ -21,16 +21,6 @@ query GetUserBottle($id: String!, $userId: String!) {
     dateAcquired
   }
 }
-query GetUserBottle($id: String!, $userId: String!) {
-  getUserBottle(id: $id, userId: $userId) {
-    id
-    name
-    imageUrl
-    userId
-    dateOpened
-    dateAcquired
-  }
-}
 query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
   listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
