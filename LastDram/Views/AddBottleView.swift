@@ -1,5 +1,8 @@
 import SwiftUI
 
+typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
+typealias Bottles = [Bottle]
+
 struct AddBottleView: View {
     @EnvironmentObject var sessionManager: SessionManager
 
@@ -7,6 +10,9 @@ struct AddBottleView: View {
     @State var dateOpened = Date()
     @State var dateAcquired = Date()
     @State var isNewBottle = true
+    @State var searchText = ""
+    @State var bottles: Bottles?
+    @State var selectedBottle: Bottle?
 
     let userId: String
     let onBottleChange: () -> Void
@@ -30,17 +36,27 @@ struct AddBottleView: View {
         }
     }
 
-    func searchBottles() {
+    func searchBottles(searchText: String) {
         Network.shared.apollo?.fetch(query: ListBottlesQuery(
-                filter: BottleFilterInput(name: TableStringFilterInput(contains: "")),
-                limit: 10
+                filter: BottleFilterInput(name: TableStringFilterInput(contains: searchText)),
+                limit: 5
         )) { result in
             switch result {
-            case .success:
-                print("Success")
+            case .success(let graphQLResult):
+                if let listBottles = graphQLResult.data?.listBottles {
+                    bottles = listBottles.items as? Bottles
+                }
             case .failure(let error):
                 print("Error: \(error)")
             }
+        }
+    }
+
+    func clearSearch() {
+        bottles = nil
+        searchText = ""
+        withAnimation {
+            UIApplication.shared.dismissKeyboard()
         }
     }
 
@@ -50,39 +66,56 @@ struct AddBottleView: View {
 
             Text("Add a new bottle")
                     .font(.largeTitle.bold())
-
-            Spacer()
-
-            TextField("Name", text: $bottleName)
-                    .font(.title3)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
-                    .textInputAutocapitalization(.words)
-                    .padding()
-
-            Toggle(isOn: $isNewBottle) {
-                Text("New Bottle")
-                        .font(.title3)
+            SearchView(searchText: $searchText, clearSearch: clearSearch).onChange(of: searchText) { searchText in
+                if !searchText.isEmpty {
+                    searchBottles(searchText: searchText)
+                }
             }
-                    .fixedSize()
-                    .padding()
 
-            DatePicker(
-                    "Date Acquired",
-                    selection: $dateAcquired,
-                    displayedComponents: [.date]
-            )
-                    .font(.title3)
-                    .fixedSize()
+            if let bottles = bottles {
+                List {
+                    ForEach(bottles, id: \.id) { bottle in
+                        Button(bottle.name!) {
+                            selectedBottle = bottle
+                            bottleName = bottle.name!
+                            clearSearch()
+                        }
+                    }
+                }
+            }
 
-            if !isNewBottle {
+            Group {
+                TextField("Name", text: $bottleName)
+                        .font(.title3)
+                        .textFieldStyle(.roundedBorder)
+                        .multilineTextAlignment(.center)
+                        .textInputAutocapitalization(.words)
+                        .padding()
+
+                Toggle(isOn: $isNewBottle) {
+                    Text("New Bottle")
+                            .font(.title3)
+                }
+                        .fixedSize()
+                        .padding()
+
                 DatePicker(
-                        "Date Opened",
-                        selection: $dateOpened,
+                        "Date Acquired",
+                        selection: $dateAcquired,
                         displayedComponents: [.date]
                 )
                         .font(.title3)
                         .fixedSize()
+
+                if !isNewBottle {
+                    DatePicker(
+                            "Date Opened",
+                            selection: $dateOpened,
+                            displayedComponents: [.date]
+                    )
+                            .font(.title3)
+                            .fixedSize()
+                }
             }
 
             Spacer()
@@ -93,6 +126,12 @@ struct AddBottleView: View {
 
             Spacer()
         }
+    }
+}
+
+extension UIApplication {
+    func dismissKeyboard() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

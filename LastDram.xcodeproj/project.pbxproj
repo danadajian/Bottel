@@ -24,6 +24,7 @@
 		F8C947C89B782B2791A7CEFA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C943F55E7044F4051DD077 /* SignUpView.swift */; };
 		F8C9481C30D4FA5CF286A7EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9476534705EF8F94CB5AB /* LoginView.swift */; };
 		F8C948449561126F93542780 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94DA2953198020EEA7158 /* ConfirmationView.swift */; };
+		F8C948C4A484014F36856685 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C946D8B1509236678568E2 /* SearchView.swift */; };
 		F8C949827B53B2F795DF90E2 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C94C448D6CF01F1BF21BD9 /* FooterView.swift */; };
 		F8C949BDAE9E9263F2328717 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C94A80BD7453767909A2C0 /* awsconfiguration.json */; };
 		F8C94AB05C58632C483F64E6 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C947EF2B0CFD64FA6D4620 /* Date.swift */; };
@@ -68,6 +69,7 @@
 		F8C9455079180984F77A5B10 /* EnvironmentVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentVariables.swift; sourceTree = "<group>"; };
 		F8C9459EB1BAB6AA28275CF6 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
 		F8C946C08ACF9F27798ABBAC /* AddBottleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBottleView.swift; sourceTree = "<group>"; };
+		F8C946D8B1509236678568E2 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F8C9476534705EF8F94CB5AB /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F8C947EF2B0CFD64FA6D4620 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Helpers/Date.swift; sourceTree = "<group>"; };
 		F8C948515267D8D5CC9E2950 /* Apollo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				F8C94DA2953198020EEA7158 /* ConfirmationView.swift */,
 				F8C9476534705EF8F94CB5AB /* LoginView.swift */,
 				F8C94446859607C6F87BEE34 /* HomeView.swift */,
+				F8C946D8B1509236678568E2 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				F8C9407BE197A43AAAEB4F5A /* HomeView.swift in Sources */,
 				F8C94AB05C58632C483F64E6 /* Date.swift in Sources */,
 				F8C94D9CCB3FD618CF158F64 /* EnvironmentVariables.swift in Sources */,
+				F8C948C4A484014F36856685 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,8 +501,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LastDram/Preview Content\"";
 				DEVELOPMENT_TEAM = T8NJJ9T24F;
@@ -516,7 +520,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.LastDram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = LastDram;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

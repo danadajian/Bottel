@@ -3,7 +3,7 @@ import SwiftUI
 struct BottleView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    let bottle: Bottle
+    let bottle: UserBottle
 
     @State var bottleName: String = ""
     @State var dateOpened: String = ""
@@ -154,7 +154,7 @@ struct BottleView: View {
 struct BottleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BottleView(bottle: Bottle(
+            BottleView(bottle: UserBottle(
                     id: "123",
                     name: "dummy bottle",
                     userId: "dummy",
