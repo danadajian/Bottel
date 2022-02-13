@@ -8,9 +8,6 @@
         ":category": $util.dynamodb.toDynamoDBJson($ctx.args.input.category)
     }
   },
-  "limit": $util.defaultIfNull($ctx.args.input.limit, 20),
-  "scanIndexForward": true,
-  "consistentRead": false,
   "select": "ALL_ATTRIBUTES",
   "filter": #if($context.args.input.filter) $util.transform.toDynamoDBFilterExpression($ctx.args.input.filter) #else null #end,
 }

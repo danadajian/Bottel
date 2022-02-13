@@ -2,6 +2,21 @@ import SwiftUI
 
 typealias Bottle = ListBottlesQuery.Data.ListBottle.Item
 typealias Bottles = [Bottle]
+let categories = [
+    "American Whiskey/Rye/Bourbon",
+    "Armagnac/Brandy/Cognac",
+    "Blended Whiskey",
+    "Canadian Whisky",
+    "Cordials/Liqueurs/Specialties",
+    "Gin",
+    "Irish Whiskey",
+    "Japanese Whiskey",
+    "Rum",
+    "Scotch Whiskey",
+    "Tequila",
+    "Vermouth",
+    "Vodka"
+]
 
 struct AddBottleView: View {
     @EnvironmentObject var sessionManager: SessionManager
@@ -13,6 +28,7 @@ struct AddBottleView: View {
     @State var searchText = ""
     @State var bottles: Bottles?
     @State var selectedBottle: Bottle?
+    @State var category: String?
 
     let userId: String
     let onBottleChange: () -> Void
@@ -23,7 +39,7 @@ struct AddBottleView: View {
                 id: UUID().uuidString,
                 userId: userId,
                 name: bottleName,
-                dateOpened: getFormattedDate(date: dateOpened),
+                dateOpened: isNewBottle ? nil : getFormattedDate(date: dateOpened),
                 dateAcquired: getFormattedDate(date: dateAcquired)
             )
         )) { result in
@@ -36,13 +52,13 @@ struct AddBottleView: View {
         }
     }
 
-    func searchBottles(searchText: String) {
+    func searchBottles(category: String, searchText: String) {
         Network.shared.apollo?.clearCache()
         Network.shared.apollo?.fetch(query: ListBottlesQuery(
-                input: ListBottlesInput(
-                        category: "Tequila",
-                        filter: BottleFilterInput(name: TableStringFilterInput(contains: searchText))
-                )
+            input: ListBottlesInput(
+                category: category,
+                filter: BottleFilterInput(name: TableStringFilterInput(contains: searchText))
+            )
         )) { result in
             switch result {
             case let .success(graphQLResult):
@@ -69,11 +85,22 @@ struct AddBottleView: View {
 
             Text("Add a new bottle")
                 .font(.largeTitle.bold())
+
+            Menu {
+                ForEach(Array(categories.enumerated()), id: \.offset) { _, category in
+                    Button(action: { self.category = category }, label: {
+                        Text(category)
+                    })
+                }
+            } label: {
+                Text(category ?? "Select a liquor type")
+            }
+
             SearchView(searchText: $searchText, clearSearch: clearSearch).onChange(of: searchText) { searchText in
                 if searchText.isEmpty {
                     bottles = nil
-                } else {
-                    searchBottles(searchText: searchText)
+                } else if let category = category {
+                    searchBottles(category: category, searchText: searchText)
                 }
             }
 
