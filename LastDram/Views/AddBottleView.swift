@@ -37,9 +37,9 @@ struct AddBottleView: View {
     }
 
     func searchBottles(searchText: String) {
+        Network.shared.apollo?.clearCache()
         Network.shared.apollo?.fetch(query: ListBottlesQuery(
-                filter: BottleFilterInput(name: TableStringFilterInput(contains: searchText)),
-                limit: 5
+                filter: BottleFilterInput(name: TableStringFilterInput(contains: searchText))
         )) { result in
             switch result {
             case .success(let graphQLResult):
