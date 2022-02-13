@@ -23,13 +23,13 @@ struct HomeView: View {
         }
         apollo.clearCache()
         apollo.fetch(query: ListUserBottlesQuery(
-                filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)),
-                limit: 12,
-                nextToken: nextToken
+            filter: BottleFilterInput(userId: TableStringFilterInput(eq: userId)),
+            limit: 12,
+            nextToken: nextToken
         )
         ) { result in
             switch result {
-            case .success(let graphQLResult):
+            case let .success(graphQLResult):
                 if let listUserBottles = graphQLResult.data?.listUserBottles {
                     let newBottles = listUserBottles.items as? UserBottles ?? []
                     bottles = newBottles
@@ -38,18 +38,18 @@ struct HomeView: View {
                     self.nextToken = listUserBottles.nextToken
                 } else {
                     isError = true
-                    errorMessage = graphQLResult.errors?.map({ error in error.message! }).joined() ?? ""
+                    errorMessage = graphQLResult.errors?.map { error in error.message! }.joined() ?? ""
                 }
-            case .failure(let error):
+            case let .failure(error):
                 print("Error: \(error)")
             }
         }
     }
 
     func onBottleChange() {
-        self.pageNumber = 0
-        self.bottlesArray = []
-        self.nextToken = nil
+        pageNumber = 0
+        bottlesArray = []
+        nextToken = nil
         fetchBottles(nextToken: nil)
         dismissPopover()
     }
@@ -79,8 +79,8 @@ struct HomeView: View {
                             List {
                                 ForEach(bottles, id: \.id) { bottle in
                                     NavigationLink(
-                                            bottle.name!,
-                                            destination: BottleView(bottle: bottle, onBottleChange: onBottleChange)
+                                        bottle.name!,
+                                        destination: BottleView(bottle: bottle, onBottleChange: onBottleChange)
                                     )
                                 }
                             }.navigationTitle("My Bottles")
@@ -94,7 +94,7 @@ struct HomeView: View {
                                         }, label: {
                                             Label("Previous", systemImage: "arrow.backward.circle")
                                         })
-                                                .padding().buttonStyle(.bordered)
+                                        .padding().buttonStyle(.bordered)
                                     }
                                     Spacer()
                                     if let nextToken = nextToken {
@@ -103,7 +103,7 @@ struct HomeView: View {
                                         }, label: {
                                             Label("Next", systemImage: "arrow.forward.circle")
                                         })
-                                                .padding().buttonStyle(.bordered)
+                                        .padding().buttonStyle(.bordered)
                                     } else if pageNumber + 1 < bottlesArray.count {
                                         Button(action: {
                                             self.bottles = bottlesArray[pageNumber + 1]
@@ -111,7 +111,7 @@ struct HomeView: View {
                                         }, label: {
                                             Label("Next", systemImage: "arrow.forward.circle")
                                         })
-                                                .padding().buttonStyle(.bordered)
+                                        .padding().buttonStyle(.bordered)
                                     }
                                 }
                             }
@@ -123,25 +123,24 @@ struct HomeView: View {
                         .scaleEffect(2)
                 }
             }
-                    .onAppear { fetchBottles(nextToken: nil) }
+            .onAppear { fetchBottles(nextToken: nil) }
 
             ZStack {
                 Button(action: displayPopover) {
                     Image(systemName: "plus.circle.fill")
-                            .font(.system(size: 90))
+                        .font(.system(size: 90))
                 }.popover(isPresented: $showPopover) {
                     AddBottleView(userId: userId, onBottleChange: onBottleChange)
                 }
                 FooterView()
             }
         }
-                .alert(isPresented: $isError) {
+        .alert(isPresented: $isError) {
             Alert(title: Text("Error"),
-                    message: Text(errorMessage),
-                    dismissButton: Alert.Button.default(
-                            Text("Return to login"), action: { sessionManager.signOut() }
-                    )
-            )
+                  message: Text(errorMessage),
+                  dismissButton: Alert.Button.default(
+                      Text("Return to login"), action: { sessionManager.signOut() }
+                  ))
         }
     }
 }

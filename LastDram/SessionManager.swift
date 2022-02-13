@@ -1,5 +1,5 @@
-import SwiftUI
 import Amplify
+import SwiftUI
 
 enum AuthState {
     case signUp
@@ -35,7 +35,7 @@ final class SessionManager: ObservableObject {
         let options = AuthSignUpRequest.Options(userAttributes: attributes)
         _ = Amplify.Auth.signUp(username: username, password: password, options: options) { [weak self] result in
             switch result {
-            case .success(let signUpResult):
+            case let .success(signUpResult):
                 switch signUpResult.nextStep {
                 case .done:
                     print("Finished sign up")
@@ -44,7 +44,7 @@ final class SessionManager: ObservableObject {
                         self?.authState = .confirmCode(username: username)
                     }
                 }
-            case .failure(let error):
+            case let .failure(error):
                 DispatchQueue.main.async {
                     self?.authError = "\(error.errorDescription)\n\(error.recoverySuggestion)"
                 }
@@ -55,13 +55,13 @@ final class SessionManager: ObservableObject {
     func confirm(username: String, code: String) {
         _ = Amplify.Auth.confirmSignUp(for: username, confirmationCode: code) { [weak self] result in
             switch result {
-            case .success(let confirmResult):
+            case let .success(confirmResult):
                 if confirmResult.isSignupComplete {
                     DispatchQueue.main.async {
                         self?.showLogin()
                     }
                 }
-            case .failure(let error):
+            case let .failure(error):
                 print(error)
             }
         }
@@ -70,13 +70,13 @@ final class SessionManager: ObservableObject {
     func login(username: String, password: String) {
         _ = Amplify.Auth.signIn(username: username, password: password) { [weak self] result in
             switch result {
-            case .success(let signInResult):
+            case let .success(signInResult):
                 if signInResult.isSignedIn {
                     DispatchQueue.main.async {
                         self?.getCurrentAuthUser()
                     }
                 }
-            case .failure(let error):
+            case let .failure(error):
                 DispatchQueue.main.async {
                     self?.authError = "\(error.errorDescription)\n\(error.recoverySuggestion)"
                 }
@@ -91,7 +91,7 @@ final class SessionManager: ObservableObject {
                 DispatchQueue.main.async {
                     self?.getCurrentAuthUser()
                 }
-            case .failure(let error):
+            case let .failure(error):
                 print(error)
             }
         }

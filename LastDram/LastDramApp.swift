@@ -1,6 +1,6 @@
-import SwiftUI
 import Amplify
 import AWSCognitoAuthPlugin
+import SwiftUI
 
 @main
 struct LastDramApp: App {
@@ -25,10 +25,10 @@ struct LastDramApp: App {
             case .signUp:
                 SignUpView()
                     .environmentObject(sessionManager)
-            case .confirmCode(let username):
+            case let .confirmCode(username):
                 ConfirmationView(username: username)
                     .environmentObject(sessionManager)
-            case .session(let user):
+            case let .session(user):
                 HomeView(userId: user.userId)
                     .environmentObject(sessionManager)
             }

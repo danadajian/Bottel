@@ -16,36 +16,36 @@ struct SignUpView: View {
 
             Group {
                 TextField("Username", text: $username)
-                        .font(.title3)
-                        .textFieldStyle(.roundedBorder)
-                        .multilineTextAlignment(.center)
-                        .autocapitalization(.none)
+                    .font(.title3)
+                    .textFieldStyle(.roundedBorder)
+                    .multilineTextAlignment(.center)
+                    .autocapitalization(.none)
                 TextField("Email", text: $email)
-                        .font(.title3)
-                        .textFieldStyle(.roundedBorder)
-                        .multilineTextAlignment(.center)
-                        .autocapitalization(.none)
+                    .font(.title3)
+                    .textFieldStyle(.roundedBorder)
+                    .multilineTextAlignment(.center)
+                    .autocapitalization(.none)
                 SecureField("Password", text: $password)
-                        .font(.title3)
-                        .textFieldStyle(.roundedBorder)
-                        .multilineTextAlignment(.center)
-                        .autocapitalization(.none)
+                    .font(.title3)
+                    .textFieldStyle(.roundedBorder)
+                    .multilineTextAlignment(.center)
+                    .autocapitalization(.none)
                 Text("Password requirements:").font(.footnote)
                 Text("Minimum 8 characters, at least one uppercase, number, and special character)")
-                        .font(.footnote).multilineTextAlignment(.center)
+                    .font(.footnote).multilineTextAlignment(.center)
                 Button("Sign Up", action: {
                     sessionManager.signUp(username: username, email: email, password: password)
                 })
-                        .padding().font(.title).buttonStyle(.borderedProminent)
+                .padding().font(.title).buttonStyle(.borderedProminent)
                 Text(sessionManager.authError)
-                        .foregroundColor(.red)
+                    .foregroundColor(.red)
             }
 
             Spacer()
             Button("Already have an account? Log in.", action: sessionManager.showLogin).font(.title3)
             Spacer()
         }
-                .padding(.horizontal)
+        .padding(.horizontal)
     }
 }
 

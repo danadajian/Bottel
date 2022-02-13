@@ -7,20 +7,20 @@ struct SearchView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                    .foregroundColor(.white)
+                .foregroundColor(.white)
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField("Search bottles", text: $searchText)
-                        .foregroundColor(.black)
+                    .foregroundColor(.black)
                 Button(action: clearSearch) {
                     Image(systemName: "x.circle.fill")
                 }
             }
-                    .foregroundColor(.gray)
-                    .padding()
+            .foregroundColor(.gray)
+            .padding()
         }
-                .frame(height: 40)
-                .cornerRadius(13)
-                .padding(.horizontal)
+        .frame(height: 40)
+        .cornerRadius(13)
+        .padding(.horizontal)
     }
 }

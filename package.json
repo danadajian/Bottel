@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "bundle exec fastlane build",
+    "format": "swiftformat . --exclude LastDram/API.generated.swift",
     "graphql": "npm run graphql:queries && npm run graphql:types",
     "graphql:queries": "amplify-graphql-docs-generator --schema schema.graphql --output operations.graphql",
     "graphql:types": "apollo codegen:generate --localSchemaFile=schema.graphql --includes=operations.graphql --target=swift LastDram/API.generated.swift",

@@ -1,7 +1,6 @@
 import XCTest
 
 class LastDramUITests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

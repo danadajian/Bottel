@@ -1,5 +1,5 @@
-import Foundation
 import Apollo
+import Foundation
 
 class Network {
     static let shared = Network()
@@ -13,9 +13,9 @@ class Network {
             let store = ApolloStore()
 
             let requestChainTransport = RequestChainNetworkTransport(
-                    interceptorProvider: DefaultInterceptorProvider(store: store),
-                    endpointURL: url,
-                    additionalHeaders: ["x-api-key": EnvironmentVariables.apiKey]
+                interceptorProvider: DefaultInterceptorProvider(store: store),
+                endpointURL: url,
+                additionalHeaders: ["x-api-key": EnvironmentVariables.apiKey]
             )
             return ApolloClient(networkTransport: requestChainTransport, store: store)
         } catch {

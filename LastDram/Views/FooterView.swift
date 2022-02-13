@@ -16,7 +16,7 @@ struct FooterView: View {
                     Image("sign-out").resizable().frame(width: 20, height: 20)
                 }
             }
-                    .padding().buttonStyle(.bordered)
+            .padding().buttonStyle(.bordered)
         }
     }
 }
@@ -24,6 +24,6 @@ struct FooterView: View {
 struct Footer_Previews: PreviewProvider {
     static var previews: some View {
         FooterView()
-                .previewInterfaceOrientation(.portrait)
+            .previewInterfaceOrientation(.portrait)
     }
 }

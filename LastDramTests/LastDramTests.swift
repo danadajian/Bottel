@@ -1,5 +1,5 @@
-import XCTest
 @testable import LastDram
+import XCTest
 
 class LastDramTests: XCTestCase {
     let twelveHoursInSeconds = 43200
