@@ -7,13 +7,11 @@ struct AddBottleView: View {
     @EnvironmentObject var sessionManager: SessionManager
 
     @State var bottleName: String = ""
-    @State var imageUrl: String?
     @State var dateOpened = Date()
     @State var dateAcquired = Date()
     @State var isNewBottle = true
     @State var searchText = ""
     @State var bottles: Bottles?
-    @State var bottleImage: UIImage?
     @State var selectedBottle: Bottle?
 
     let userId: String
@@ -25,7 +23,6 @@ struct AddBottleView: View {
                         id: UUID().uuidString,
                         userId: userId,
                         name: bottleName,
-                        imageUrl: selectedBottle?.imageUrl,
                         dateOpened: getFormattedDate(date: dateOpened),
                         dateAcquired: getFormattedDate(date: dateAcquired)
                 )
@@ -41,7 +38,7 @@ struct AddBottleView: View {
 
     func searchBottles(searchText: String) {
         Network.shared.apollo?.fetch(query: ListBottlesQuery(
-                filter: BottleFilterInput(name: TableStringFilterInput(contains: searchText.lowercased())),
+                filter: BottleFilterInput(name: TableStringFilterInput(contains: searchText)),
                 limit: 5
         )) { result in
             switch result {
@@ -51,16 +48,6 @@ struct AddBottleView: View {
                 }
             case .failure(let error):
                 print("Error: \(error)")
-            }
-        }
-    }
-
-    func loadImage(imageUrl: String) {
-        if let data = try? Data(contentsOf: URL(string: imageUrl)!) {
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    bottleImage = image
-                }
             }
         }
     }
@@ -97,12 +84,6 @@ struct AddBottleView: View {
                         }
                     }
                 }
-            }
-
-            if let bottleImage = bottleImage {
-                Image(uiImage: bottleImage)
-                        .resizable()
-                        .scaledToFit()
             }
 
             Group {

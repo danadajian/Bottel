@@ -1,6 +1,4 @@
 type Query {
-    getBottle(id: String!): Bottle
-    getUserBottle(id: String!): UserBottle
     listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
     listUserBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
 }
@@ -11,13 +9,16 @@ type Mutation {
     deleteUserBottle(input: DeleteBottleInput!): UserBottle
 }
 
-interface Bottle {
+type Bottle {
     id: String!
     name: String
     imageUrl: String
+    category: String
+    proof: Float
+    size: String
 }
 
-type UserBottle implements Bottle {
+type UserBottle {
     id: String!
     name: String
     imageUrl: String
