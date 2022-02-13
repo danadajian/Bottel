@@ -12,7 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  SwiftLint:
+  lint:
+    name: SwiftLint
     runs-on: macos-latest
     steps:
       - name: Checkout
