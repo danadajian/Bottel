@@ -1,16 +1,13 @@
 type Query {
-    getBottle(id: String!, userId: String!): UserBottle
+    getBottle(id: String!): Bottle
     getUserBottle(id: String!, userId: String!): UserBottle
-    listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
+    listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
     listUserBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
 }
 
 type Mutation {
-    createBottle(input: CreateBottleInput!): UserBottle
     createUserBottle(input: CreateBottleInput!): UserBottle
-    updateBottle(input: UpdateBottleInput!): UserBottle
     updateUserBottle(input: UpdateBottleInput!): UserBottle
-    deleteBottle(input: DeleteBottleInput!): UserBottle
     deleteUserBottle(input: DeleteBottleInput!): UserBottle
 }
 

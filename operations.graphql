@@ -1,12 +1,14 @@
 # this is an auto generated file. This will be overwritten
-query GetBottle($id: String!, $userId: String!) {
-  getBottle(id: $id, userId: $userId) {
+query GetBottle($id: String!) {
+  getBottle(id: $id) {
     id
     name
     imageUrl
-    userId
-    dateOpened
-    dateAcquired
+    ... on UserBottle {
+      userId
+      dateOpened
+      dateAcquired
+    }
   }
 }
 query GetUserBottle($id: String!, $userId: String!) {
@@ -25,9 +27,11 @@ query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
       id
       name
       imageUrl
-      userId
-      dateOpened
-      dateAcquired
+      ... on UserBottle {
+        userId
+        dateOpened
+        dateAcquired
+      }
     }
     nextToken
   }
@@ -49,16 +53,6 @@ query ListUserBottles(
     nextToken
   }
 }
-mutation CreateBottle($input: CreateBottleInput!) {
-  createBottle(input: $input) {
-    id
-    name
-    imageUrl
-    userId
-    dateOpened
-    dateAcquired
-  }
-}
 mutation CreateUserBottle($input: CreateBottleInput!) {
   createUserBottle(input: $input) {
     id
@@ -69,28 +63,8 @@ mutation CreateUserBottle($input: CreateBottleInput!) {
     dateAcquired
   }
 }
-mutation UpdateBottle($input: UpdateBottleInput!) {
-  updateBottle(input: $input) {
-    id
-    name
-    imageUrl
-    userId
-    dateOpened
-    dateAcquired
-  }
-}
 mutation UpdateUserBottle($input: UpdateBottleInput!) {
   updateUserBottle(input: $input) {
-    id
-    name
-    imageUrl
-    userId
-    dateOpened
-    dateAcquired
-  }
-}
-mutation DeleteBottle($input: DeleteBottleInput!) {
-  deleteBottle(input: $input) {
     id
     name
     imageUrl

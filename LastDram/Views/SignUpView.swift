@@ -45,7 +45,7 @@ struct SignUpView: View {
             Button("Already have an account? Log in.", action: sessionManager.showLogin).font(.title3)
             Spacer()
         }
-        .padding()
+                .padding(.horizontal)
     }
 }
 

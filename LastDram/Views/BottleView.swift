@@ -3,7 +3,7 @@ import SwiftUI
 struct BottleView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    let bottle: Bottle
+    let bottle: UserBottle
 
     @State var bottleName: String = ""
     @State var dateOpened: String = ""
@@ -15,39 +15,42 @@ struct BottleView: View {
     func openBottle() {
         dateOpened = getFormattedDate(date: Date())
     }
+
     func updateBottle() {
         Network.shared.apollo?.perform(mutation: UpdateUserBottleMutation(
-            input: UpdateBottleInput(
-                    id: bottle.id,
-                    name: bottleName,
-                    dateOpened: dateOpened,
-                    dateAcquired: dateAcquired
-            )
+                input: UpdateBottleInput(
+                        id: bottle.id,
+                        name: bottleName,
+                        dateOpened: dateOpened,
+                        dateAcquired: dateAcquired
+                )
         )) { result in
             switch result {
-            case.success:
+            case .success:
                 onBottleChange()
                 showAlert = true
                 presentationMode.wrappedValue.dismiss()
-            case.failure(let error):
+            case .failure(let error):
                 print("Error: \(error)")
             }
         }
     }
+
     func deleteBottle() {
         Network.shared.apollo?.perform(mutation: DeleteUserBottleMutation(
-            input: DeleteBottleInput(id: bottle.id)
+                input: DeleteBottleInput(id: bottle.id)
         )) { result in
             switch result {
-            case.success:
+            case .success:
                 onBottleChange()
                 showAlert = true
                 presentationMode.wrappedValue.dismiss()
-            case.failure(let error):
+            case .failure(let error):
                 print("Error: \(error)")
             }
         }
     }
+
     func loadImage(imageUrl: String) {
         if let data = try? Data(contentsOf: URL(string: imageUrl)!) {
             if let image = UIImage(data: data) {
@@ -81,7 +84,9 @@ struct BottleView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                         .onAppear {
-                            guard let name = bottle.name else { return }
+                            guard let name = bottle.name else {
+                                return
+                            }
                             self.bottleName = name
                         }
             }
@@ -92,7 +97,9 @@ struct BottleView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                         .onAppear {
-                            guard let dateAcquired = bottle.dateAcquired else { return }
+                            guard let dateAcquired = bottle.dateAcquired else {
+                                return
+                            }
                             self.dateAcquired = dateAcquired
                         }
             }
@@ -109,15 +116,16 @@ struct BottleView: View {
                             .padding()
 
                 }
-            }.onAppear {
-                guard let dateOpened = bottle.dateOpened else {
-                    return
-                }
-                self.dateOpened = dateOpened
-                if let imageUrl = bottle.imageUrl {
-                    loadImage(imageUrl: imageUrl)
-                }
             }
+                    .onAppear {
+                        guard let dateOpened = bottle.dateOpened else {
+                            return
+                        }
+                        self.dateOpened = dateOpened
+                        if let imageUrl = bottle.imageUrl {
+                            loadImage(imageUrl: imageUrl)
+                        }
+                    }
             Spacer()
             HStack {
                 Button("Update Bottle", action: updateBottle)
@@ -138,19 +146,19 @@ struct BottleView: View {
                         }
             }
         }
-        .navigationTitle(bottleName)
-        .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(bottleName)
+                .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct BottleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BottleView(bottle: Bottle(
-                id: "123",
-                name: "dummy bottle",
-                userId: "dummy",
-                dateOpened: "2022-02-05"
+            BottleView(bottle: UserBottle(
+                    id: "123",
+                    name: "dummy bottle",
+                    userId: "dummy",
+                    dateOpened: "2022-02-05"
             ), onBottleChange: {})
         }
     }

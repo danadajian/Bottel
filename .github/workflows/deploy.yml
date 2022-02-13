@@ -1,20 +1,10 @@
 name: Deploy
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'LastDram/**'
-      - '.github/workflows/deploy.yml'
   release:
     types:
       - edited
       - published
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 
 env:
   PRODUCT_NAME: LastDram
@@ -42,16 +32,14 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - if: github.event_name == 'release'
-        name: Upload release assets
+      - name: Upload release assets
         uses: softprops/action-gh-release@v1
         with:
           files: |
             ${{ env.PRODUCT_NAME }}.ipa
             ${{ env.PRODUCT_NAME }}.app.dSYM.zip
 
-      - if: github.event_name == 'release'
-        name: Upload app to App Store Connect
+      - name: Upload app to App Store Connect
         run: |
           xcrun altool --upload-app \
             -t ios \
