@@ -11,8 +11,8 @@ query GetBottle($id: String!) {
     }
   }
 }
-query GetUserBottle($id: String!, $userId: String!) {
-  getUserBottle(id: $id, userId: $userId) {
+query GetUserBottle($id: String!) {
+  getUserBottle(id: $id) {
     id
     name
     imageUrl

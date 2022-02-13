@@ -1,6 +1,6 @@
 type Query {
     getBottle(id: String!): Bottle
-    getUserBottle(id: String!, userId: String!): UserBottle
+    getUserBottle(id: String!): UserBottle
     listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
     listUserBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
 }

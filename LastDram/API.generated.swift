@@ -594,8 +594,8 @@ public final class GetUserBottleQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query GetUserBottle($id: String!, $userId: String!) {
-      getUserBottle(id: $id, userId: $userId) {
+    query GetUserBottle($id: String!) {
+      getUserBottle(id: $id) {
         __typename
         id
         name
@@ -610,15 +610,13 @@ public final class GetUserBottleQuery: GraphQLQuery {
   public let operationName: String = "GetUserBottle"
 
   public var id: String
-  public var userId: String
 
-  public init(id: String, userId: String) {
+  public init(id: String) {
     self.id = id
-    self.userId = userId
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id, "userId": userId]
+    return ["id": id]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -626,7 +624,7 @@ public final class GetUserBottleQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("getUserBottle", arguments: ["id": GraphQLVariable("id"), "userId": GraphQLVariable("userId")], type: .object(GetUserBottle.selections)),
+        GraphQLField("getUserBottle", arguments: ["id": GraphQLVariable("id")], type: .object(GetUserBottle.selections)),
       ]
     }
 
