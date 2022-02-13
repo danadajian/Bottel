@@ -42,16 +42,6 @@ resource "aws_appsync_resolver" "listUserBottles-resolver" {
   response_template = local.default_response_template
 }
 
-resource "aws_appsync_resolver" "createBottle-resolver" {
-  api_id      = aws_appsync_graphql_api.last-dram-api.id
-  field       = "createBottle"
-  type        = "Mutation"
-  data_source = aws_appsync_datasource.user-bottles-datasource.name
-
-  request_template  = file("resolver-templates/PutItem.vtl")
-  response_template = local.default_response_template
-}
-
 resource "aws_appsync_resolver" "createUserBottle-resolver" {
   api_id      = aws_appsync_graphql_api.last-dram-api.id
   field       = "createUserBottle"
@@ -62,16 +52,6 @@ resource "aws_appsync_resolver" "createUserBottle-resolver" {
   response_template = local.default_response_template
 }
 
-resource "aws_appsync_resolver" "updateBottle-resolver" {
-  api_id      = aws_appsync_graphql_api.last-dram-api.id
-  field       = "updateBottle"
-  type        = "Mutation"
-  data_source = aws_appsync_datasource.user-bottles-datasource.name
-
-  request_template  = file("resolver-templates/UpdateItem.vtl")
-  response_template = local.default_response_template
-}
-
 resource "aws_appsync_resolver" "updateUserBottle-resolver" {
   api_id      = aws_appsync_graphql_api.last-dram-api.id
   field       = "updateUserBottle"
@@ -79,16 +59,6 @@ resource "aws_appsync_resolver" "updateUserBottle-resolver" {
   data_source = aws_appsync_datasource.user-bottles-datasource.name
 
   request_template  = file("resolver-templates/UpdateItem.vtl")
-  response_template = local.default_response_template
-}
-
-resource "aws_appsync_resolver" "deleteBottle-resolver" {
-  api_id      = aws_appsync_graphql_api.last-dram-api.id
-  field       = "deleteBottle"
-  type        = "Mutation"
-  data_source = aws_appsync_datasource.user-bottles-datasource.name
-
-  request_template  = file("resolver-templates/DeleteItem.vtl")
   response_template = local.default_response_template
 }
 
