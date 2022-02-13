@@ -1,6 +1,6 @@
 # this is an auto generated file. This will be overwritten
-query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
-  listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+query ListBottles($input: ListBottlesInput!) {
+  listBottles(input: $input) {
     items {
       id
       name

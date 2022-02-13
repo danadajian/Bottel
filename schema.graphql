@@ -1,5 +1,5 @@
 type Query {
-    listBottles(filter: BottleFilterInput, limit: Int, nextToken: String): Bottles
+    listBottles(input: ListBottlesInput!): Bottles
     listUserBottles(filter: BottleFilterInput, limit: Int, nextToken: String): UserBottles
 }
 
@@ -34,6 +34,13 @@ type Bottles {
 
 type UserBottles {
     items: [UserBottle]
+    nextToken: String
+}
+
+input ListBottlesInput {
+    category: String!
+    filter: BottleFilterInput
+    limit: Int
     nextToken: String
 }
 

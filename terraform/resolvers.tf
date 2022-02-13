@@ -8,7 +8,7 @@ resource "aws_appsync_resolver" "listBottles-resolver" {
   type        = "Query"
   data_source = aws_appsync_datasource.bottles-datasource.name
 
-  request_template  = file("resolver-templates/Scan.vtl")
+  request_template  = file("resolver-templates/Query.vtl")
   response_template = local.default_response_template
 }
 

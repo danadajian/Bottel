@@ -4,6 +4,55 @@
 import Apollo
 import Foundation
 
+public struct ListBottlesInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - category
+  ///   - filter
+  ///   - limit
+  ///   - nextToken
+  public init(category: String, filter: Swift.Optional<BottleFilterInput?> = nil, limit: Swift.Optional<Int?> = nil, nextToken: Swift.Optional<String?> = nil) {
+    graphQLMap = ["category": category, "filter": filter, "limit": limit, "nextToken": nextToken]
+  }
+
+  public var category: String {
+    get {
+      return graphQLMap["category"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "category")
+    }
+  }
+
+  public var filter: Swift.Optional<BottleFilterInput?> {
+    get {
+      return graphQLMap["filter"] as? Swift.Optional<BottleFilterInput?> ?? Swift.Optional<BottleFilterInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "filter")
+    }
+  }
+
+  public var limit: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["limit"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "limit")
+    }
+  }
+
+  public var nextToken: Swift.Optional<String?> {
+    get {
+      return graphQLMap["nextToken"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "nextToken")
+    }
+  }
+}
+
 public struct BottleFilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -442,8 +491,8 @@ public final class ListBottlesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query ListBottles($filter: BottleFilterInput, $limit: Int, $nextToken: String) {
-      listBottles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    query ListBottles($input: ListBottlesInput!) {
+      listBottles(input: $input) {
         __typename
         items {
           __typename
@@ -461,18 +510,14 @@ public final class ListBottlesQuery: GraphQLQuery {
 
   public let operationName: String = "ListBottles"
 
-  public var filter: BottleFilterInput?
-  public var limit: Int?
-  public var nextToken: String?
+  public var input: ListBottlesInput
 
-  public init(filter: BottleFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
-    self.filter = filter
-    self.limit = limit
-    self.nextToken = nextToken
+  public init(input: ListBottlesInput) {
+    self.input = input
   }
 
   public var variables: GraphQLMap? {
-    return ["filter": filter, "limit": limit, "nextToken": nextToken]
+    return ["input": input]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -480,7 +525,7 @@ public final class ListBottlesQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("listBottles", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListBottle.selections)),
+        GraphQLField("listBottles", arguments: ["input": GraphQLVariable("input")], type: .object(ListBottle.selections)),
       ]
     }
 
