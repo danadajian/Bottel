@@ -1,14 +1,14 @@
 import SwiftUI
 
-typealias Bottle = ListUserBottlesQuery.Data.ListUserBottle.Item
-typealias Bottles = [Bottle]
+typealias UserBottle = ListUserBottlesQuery.Data.ListUserBottle.Item
+typealias UserBottles = [UserBottle]
 
 struct HomeView: View {
     @EnvironmentObject var sessionManager: SessionManager
 
-    @State var bottlesArray: [Bottles] = []
+    @State var bottlesArray: [UserBottles] = []
     @State var pageNumber: Int = -1
-    @State var bottles: Bottles?
+    @State var bottles: UserBottles?
     @State var nextToken: String?
     @State var showPopover = false
     @State var isError = false
@@ -31,7 +31,7 @@ struct HomeView: View {
             switch result {
             case .success(let graphQLResult):
                 if let listUserBottles = graphQLResult.data?.listUserBottles {
-                    let newBottles = listUserBottles.items as? Bottles ?? []
+                    let newBottles = listUserBottles.items as? UserBottles ?? []
                     bottles = newBottles
                     bottlesArray.append(newBottles)
                     pageNumber += 1
