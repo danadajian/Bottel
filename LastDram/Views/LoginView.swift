@@ -14,15 +14,9 @@ struct LoginView: View {
             Spacer()
 
             Group {
-                TextField("Username", text: $username)
-                    .font(.title3)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
+                StandardTextField(text: "Username", binding: $username)
                     .autocapitalization(.none)
-                SecureField("Password", text: $password)
-                    .font(.title3)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
+                SecureTextField(text: "Password", binding: $password)
                     .autocapitalization(.none)
                 Button("Login", action: {
                     sessionManager.signOut()

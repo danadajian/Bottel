@@ -11,9 +11,7 @@ struct ConfirmationView: View {
         VStack {
             Spacer()
 
-            TextField("Confirmation Code", text: $confirmationCode)
-                .textFieldStyle(.roundedBorder)
-                .multilineTextAlignment(.center)
+            StandardTextField(text: "Confirmation Code", binding: $confirmationCode)
             Button("Confirm", action: {
                 sessionManager.confirm(username: username, code: confirmationCode)
             })

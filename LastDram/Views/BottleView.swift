@@ -79,9 +79,7 @@ struct BottleView: View {
             }
             HStack {
                 Text("Bottle name:")
-                TextField(bottleName, text: $bottleName)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
+                StandardTextField(text: "bottleName", binding: $bottleName)
                     .padding()
                     .onAppear {
                         guard let name = bottle.name else {
@@ -92,9 +90,7 @@ struct BottleView: View {
             }
             HStack {
                 Text("Date acquired:")
-                TextField(dateAcquired, text: $dateAcquired)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
+                StandardTextField(text: "dateAcquired", binding: $dateAcquired)
                     .padding()
                     .onAppear {
                         guard let dateAcquired = bottle.dateAcquired else {
@@ -110,9 +106,7 @@ struct BottleView: View {
                         .padding().font(.title3).buttonStyle(.borderedProminent)
                 } else {
                     Text("Date opened:")
-                    TextField(dateOpened, text: $dateOpened)
-                        .textFieldStyle(.roundedBorder)
-                        .multilineTextAlignment(.center)
+                    StandardTextField(text: dateOpened, binding: $dateOpened)
                         .padding()
                 }
             }
