@@ -117,10 +117,7 @@ struct AddBottleView: View {
             }
 
             Group {
-                TextField("Name", text: $bottleName)
-                    .font(.title3)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
+                StandardTextField(text: "Name", binding: $bottleName)
                     .textInputAutocapitalization(.words)
                     .padding()
 
