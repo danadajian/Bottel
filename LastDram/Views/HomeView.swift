@@ -128,7 +128,7 @@ struct HomeView: View {
             ZStack {
                 Button(action: displayPopover) {
                     Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 90))
+                        .font(.system(size: 80))
                 }.popover(isPresented: $showPopover) {
                     AddBottleView(userId: userId, onBottleChange: onBottleChange)
                 }

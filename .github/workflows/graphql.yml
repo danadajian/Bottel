@@ -22,9 +22,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14.16.0'
+          node-version-file: .nvmrc
 
       - name: Install Apollo
         run: npm install
