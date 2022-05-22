@@ -8,6 +8,8 @@ on:
       - 'API.generated.swift'
       - '**/*.graphql'
       - '.github/workflows/graphql.yml'
+      - 'package.json'
+      - 'package-lock.json'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
