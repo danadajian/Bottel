@@ -2,7 +2,7 @@
   "dependencies": {
     "amplify-graphql-docs-generator": "2.2.4",
     "apollo": "2.33.9",
-    "husky": "7.0.4"
+    "husky": "8.0.1"
   },
   "scripts": {
     "build": "bundle exec fastlane build",
