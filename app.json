@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/bf35aafd-6ef2-48bc-a06e-b22096542b9f"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -34,6 +35,9 @@
         "projectId": "bf35aafd-6ef2-48bc-a06e-b22096542b9f"
       }
     },
-    "owner": "danadajian"
+    "owner": "danadajian",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
