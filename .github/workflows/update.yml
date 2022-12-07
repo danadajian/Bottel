@@ -3,11 +3,7 @@ name: Expo Update
 on:
   push:
     branches:
-      - react-native
-#  release:
-#    types:
-#      - edited
-#      - published
+      - main
 
 jobs:
   update:
@@ -33,4 +29,4 @@ jobs:
         run: npm install
 
       - name: Publish update
-        run: eas build --platform ios
+        run: eas submit --auto

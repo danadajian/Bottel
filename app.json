@@ -17,7 +17,8 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.danadajian.lastdram"
+      "bundleIdentifier": "com.danadajian.lastdram",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
