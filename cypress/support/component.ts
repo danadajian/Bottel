@@ -1,5 +1,13 @@
-import './commands'
+import './commands';
 
-import { mount } from 'cypress/react18'
+import { mount } from 'cypress/react18';
 
-Cypress.Commands.add('mount' as keyof Cypress.Chainable, mount as Cypress.CommandFn<any>)
+declare global {
+    namespace Cypress {
+        interface Chainable {
+            mount: typeof mount;
+        }
+    }
+}
+
+Cypress.Commands.add('mount', mount);
