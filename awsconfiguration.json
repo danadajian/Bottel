@@ -16,20 +16,14 @@
       "authenticationFlowType": "USER_SRP_AUTH",
       "socialProviders": [],
       "usernameAttributes": [],
-      "signupAttributes": [
-        "EMAIL"
-      ],
+      "signupAttributes": ["EMAIL"],
       "passwordProtectionSettings": {
         "passwordPolicyMinLength": 8,
         "passwordPolicyCharacters": []
       },
       "mfaConfiguration": "OFF",
-      "mfaTypes": [
-        "SMS"
-      ],
-      "verificationMechanisms": [
-        "EMAIL"
-      ]
+      "mfaTypes": ["SMS"],
+      "verificationMechanisms": ["EMAIL"]
     }
   }
 }

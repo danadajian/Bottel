@@ -2,7 +2,7 @@
 
 LastDram respects the privacy concerns of all users.
 The only information that is collected is the user's email, login credentials, and images they choose to save.
-This information stored in a secure database and allows users to take full advantage of the app's features. 
+This information stored in a secure database and allows users to take full advantage of the app's features.
 
 We have no third party affiliations.
 
