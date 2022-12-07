@@ -5,6 +5,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build:ios": "eas build --platform ios",
+    "submit:ios": "eas submit --platform ios --latest",
     "build:web": "expo export:web",
     "format": "prettier --write .",
     "cy:component": "cypress open --component"
