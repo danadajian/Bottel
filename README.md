@@ -11,6 +11,6 @@ COMING SOON
 - Add friends on LastDram and view their entire collections!
 - Notify your friends on LastDram when you crack open a bottle or finish a bottle, and vice versa!
 
-If you have any issues, please raise a Github issue at https://github.com/danadajian/LastDram/issues.
+If you have any issues, please raise a GitHub issue at https://github.com/danadajian/LastDram/issues.
 
 Happy collecting!
