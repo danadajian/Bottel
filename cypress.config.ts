@@ -6,5 +6,6 @@ export default defineConfig({
       framework: 'react',
       bundler: 'webpack'
     }
-  }
+  },
+  video: false
 });
