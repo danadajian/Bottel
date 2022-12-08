@@ -2,7 +2,7 @@
   "expo": {
     "name": "LastDram",
     "slug": "last-dram",
-    "version": "1.0.0",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -13,13 +13,13 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/bf35aafd-6ef2-48bc-a06e-b22096542b9f"
+      "url": "https://u.expo.dev/d7810d9a-0b36-4926-b882-a60ae58c5246"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.danadajian.lastdram",
-      "buildNumber": "1.0.0"
+      "buildNumber": "3.0.0",
+      "bundleIdentifier": "com.LastDram"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,14 +30,14 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "extra": {
-      "eas": {
-        "projectId": "bf35aafd-6ef2-48bc-a06e-b22096542b9f"
-      }
-    },
     "owner": "danadajian",
     "runtimeVersion": {
       "policy": "sdkVersion"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d7810d9a-0b36-4926-b882-a60ae58c5246"
+      }
     }
   }
 }
