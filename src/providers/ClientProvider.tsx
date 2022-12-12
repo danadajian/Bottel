@@ -4,7 +4,7 @@ import { trpc } from '../utils/trpc';
 import { httpBatchLink } from '@trpc/client';
 
 const getBaseUrl = () => {
-  return `http://localhost:3000`;
+  return `http://localhost:8080`;
 };
 
 export const ClientProvider = ({ children }: React.PropsWithChildren) => {
@@ -13,7 +13,7 @@ export const ClientProvider = ({ children }: React.PropsWithChildren) => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: `${getBaseUrl()}/api/trpc`
+          url: `${getBaseUrl()}/trpc`
         })
       ]
     })

@@ -3,29 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 export const Main = () => {
-  const { data, isLoading, error } = trpc.getData.useQuery({ message: 'hello world' });
-
-  if (isLoading) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
-        <StatusBar style="auto" />
-      </View>
-    );
-  }
-
-  if (error) {
-    return (
-      <View style={styles.container}>
-        <Text>{error.message}</Text>
-        <StatusBar style="auto" />
-      </View>
-    );
-  }
+  const { data } = trpc.myThing.useQuery({ message: 'hello world' });
 
   return (
     <View style={styles.container}>
-      <Text>{data}</Text>
+      <Text>{data || 'Loading...'}</Text>
       <StatusBar style="auto" />
     </View>
   );
