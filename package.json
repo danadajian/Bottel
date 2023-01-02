@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@expo/webpack-config": "0.17.3",
-    "@trpc/client": "10.4.3",
-    "@trpc/react-query": "10.4.3",
-    "@trpc/server": "10.4.3",
+    "@trpc/client": "10.7.0",
+    "@trpc/react-query": "10.7.0",
+    "@trpc/server": "10.7.0",
     "babel-loader": "8.1.0",
     "babel-preset-react-app": "10.0.1",
     "cors": "2.8.5",

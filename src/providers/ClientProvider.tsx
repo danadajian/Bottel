@@ -7,6 +7,8 @@ const getBaseUrl = () => {
   return `http://localhost:8080`;
 };
 
+export const queryClientContext = React.createContext<QueryClient | undefined>(undefined);
+
 export const ClientProvider = ({ children }: React.PropsWithChildren) => {
   const [queryClient] = useState(() => new QueryClient());
   const [trpcClient] = useState(() =>
@@ -20,7 +22,7 @@ export const ClientProvider = ({ children }: React.PropsWithChildren) => {
   );
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
-      <QueryClientProvider client={queryClient} contextSharing={true}>
+      <QueryClientProvider client={queryClient} context={queryClientContext}>
         {children}
       </QueryClientProvider>
     </trpc.Provider>
