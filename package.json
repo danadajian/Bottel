@@ -1,15 +1,15 @@
 {
   "main": "node_modules/expo/AppEntry.js",
-  "proxy": "http://localhost:8080",
   "scripts": {
-    "start:ios": "expo start --ios",
+    "build:docker": "docker build . --tag last-dram && docker-compose up",
     "build:ios": "eas build --platform ios",
-    "submit:ios": "eas submit --platform ios --latest",
+    "build:web": "expo export:web",
+    "cy:component": "NODE_ENV=development cypress open --component",
+    "format": "prettier --write .",
+    "start:ios": "expo start --ios",
     "start:web": "expo start --web",
     "start:server": "ts-node server",
-    "build:web": "expo export:web",
-    "format": "prettier --write .",
-    "cy:component": "NODE_ENV=development cypress open --component"
+    "submit:ios": "eas submit --platform ios --latest"
   },
   "dependencies": {
     "@expo/webpack-config": "0.17.3",
