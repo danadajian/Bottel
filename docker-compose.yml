@@ -1,0 +1,9 @@
+version: '2'
+services:
+  last-dram:
+    image: last-dram
+    container_name: last-dram
+    ports:
+      - '8080:8080'
+    volumes:
+      - ~/.aws/:/root/.aws:ro
