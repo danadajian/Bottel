@@ -20,7 +20,9 @@ export const ClientProvider = ({ children }: React.PropsWithChildren) => {
   );
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient} contextSharing={true}>
+        {children}
+      </QueryClientProvider>
     </trpc.Provider>
   );
 };
