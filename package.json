@@ -6,7 +6,7 @@
     "build:web": "expo export:web",
     "cy:component": "NODE_ENV=development cypress open --component",
     "format": "prettier --write .",
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "start:ios": "expo start --ios",
     "start:web": "expo start --web",
     "start:server": "ts-node server",
