@@ -26,3 +26,4 @@ jobs:
         with:
           browser: chrome
           component: true
+          install-command: npm i
