@@ -4,7 +4,7 @@
     "build:docker": "docker build . --tag last-dram && docker-compose up",
     "build:ios": "eas build --platform ios",
     "build:web": "expo export:web",
-    "cy:component": "NODE_ENV=development cypress open --component",
+    "cy:component": "NODE_ENV=production cypress open --component --browser chrome",
     "format": "prettier --write .",
     "prepare": "npx husky install",
     "start:ios": "expo start --ios",
