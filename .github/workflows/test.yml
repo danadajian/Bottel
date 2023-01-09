@@ -21,10 +21,10 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Install
+        run: npm ci
+
       - name: Cypress run
-        uses: cypress-io/github-action@v3.1.0
-        with:
-          browser: chrome
-          component: true
+        run: npx cypress run --component --browser chrome
         env:
           NODE_ENV: production
